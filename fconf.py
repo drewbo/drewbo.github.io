@@ -32,7 +32,7 @@ DATE_FORMAT = {
 }
 DEFAULT_DATE_FORMAT = '%m %d %Y'
 
-#DISQUS_SITENAME = "your_disqus_user"
+DISQUS_SITENAME = "drewbo"
 TWITTER_USERNAME = 'drewbo19'
 LINKEDIN_URL = 'https://www.linkedin.com/profile/view?id=92384606'
 GITHUB_URL = 'https://github.com/drewbo'

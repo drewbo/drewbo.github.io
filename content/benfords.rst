@@ -108,7 +108,7 @@ First Digit Expected  Actual
 =========== ========= ======
 
 Looks like a pretty close match, though if I we're actually auditing them, I'd want additional information to explain why 9 is so common  as 
-a first digit in their transaction list.
+a first digit in their transaction list. [#]_
 
 Next let's try out the excellent tool Chartbuilder_ to plot the frequency of first digits against expected distribution from above:
 
@@ -129,9 +129,9 @@ it should be `scale invariant`_ so we can multiply our whole transaction list by
 hold even if you measure your target variable in another scale; think switching from dollars to euro or feet to meters). 
 
 Let's run through an example first and then I'll reveal the visualization. Using the case where the constant is 2, think about what happens to all of our original 
-numbers: things that start with 1 will now start with 2 or 3, things that start with 2 become 4 or 5, and so on. We look to the expected 
+numbers: things that start with 1 (30.1%) will now start with 2 or 3, things that start with 2 become 4 or 5, and so on. We look to the expected 
 distributions above and see that numbers starting with 5 through 9 should make up (7.9% + 6.7% + 5.8% + 5.1% + 4.6%) = 30.1% of the first digits and these are 
-all the numbers which when multiplied by 2, will now have a first digit of 1
+all the numbers which when multiplied by 2, will now have a first digit of 1. The distribution, at least for ones, matches between the two groups!
 
 Visualization
 =============
@@ -148,10 +148,10 @@ Sorry if it's a lot to handle. Things to notice:
 - Each color represents a different "first digit group" from our original transaction list.
 - Each black bar with a number above it represents the associated first digit frequency for that transformation -- from original at the top to "multiplied by nine" at the bottom. You can hover over the bar/digit to see what portion of the total it represents. Notice that the lengths of these bars are remarkably consistent across the transformations (which is the point of this exercise).
 - Each colored path shows how transaction amounts from the original list move to different "first digit groups" when multiplied by the different constants: In the first row, the 1's go to 2's and 3's, the 2's go to 4's and 5's and so on (as mentioned in the example before).
-- All of the rows can be sorted by "alpha" (actually numeric [#]_) and "size": there is at least one use to this (let me know if you find more) but it is more a relic of the original visulation. The one thing I would recommend is sorting the first row by reverse numeric ("<< alpha") and you can really clearly see how the 5's-9's from the original group end up as 1's when multiplied by 2 (and in the same proportion).
+- All of the rows can be sorted by "numeric" and "size": there is at least one use to this (let me know if you find more) but it is more a relic of the original visulation. The one thing I would recommend is sorting the first row by reverse numeric ("<< numeric") and you can really clearly see how the 5's-9's from the original group end up as 1's when multiplied by 2 (and in the same proportion).
 - The data is a little jumbled towards the end, that's just an artifact of a bad sorting attempt by me. Sorry.
 
 So, that's Benford's Law and my first real post, hope you enjoyed it!
 
 .. [#] See if you can keep track of how many times I use not entirely necessary formatting during this post for testing reasons...this is one.
-.. [#] I'm still learning JavaScript so my ability to fix this to display "numeric" is extremely limited.
+.. [#] While previewing this document, the aforementioned Aaron brought up a good point: deviations from the expected distribution can happen if the data source is signficantly influenced by human behaviors. In the instance of 9's, people may have a natural aversion to going to the next order of magnitude and set prices for things at $0.99 or $9.99.

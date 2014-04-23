@@ -120,9 +120,9 @@
               .attr("class", "name")
               .text(dimensionFormatName);
           textEnter.append("tspan")
-              .attr("class", "sort alpha")
+              .attr("class", "sort numeric")
               .attr("dx", "2em")
-              .text("alpha »")
+              .text("numeric »")
               .on("mousedown.parsets", cancelEvent);
           textEnter.append("tspan")
               .attr("class", "sort size")
@@ -173,8 +173,8 @@
                       .attr("transform", "translate(0," + d.y + ")")
                       .tween("ribbon", ribbonTweenY);
                 }));
-          dimension.select("text").select("tspan.sort.alpha")
-              .on("click.parsets", sortBy("alpha", function(a, b) { return a.name < b.name ? 1 : -1; }, dimension));
+          dimension.select("text").select("tspan.sort.numeric")
+              .on("click.parsets", sortBy("numeric", function(a, b) { return a.name < b.name ? 1 : -1; }, dimension));
           dimension.select("text").select("tspan.sort.size")
               .on("click.parsets", sortBy("size", function(a, b) { return a.count - b.count; }, dimension));
           dimension.transition().duration(duration)

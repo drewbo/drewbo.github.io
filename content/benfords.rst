@@ -153,5 +153,9 @@ Sorry if it's a lot to handle. Things to notice:
 
 So, that's Benford's Law and my first real post, hope you enjoyed it!
 
+.. container:: separator
+
+   |
+
 .. [#] See if you can keep track of how many times I use not entirely necessary formatting during this post for testing reasons...this is one.
-.. [#] While previewing this document, the aforementioned Aaron brought up a good point: deviations from the expected distribution can happen if the data source is signficantly influenced by human behaviors. In the instance of 9's, people may have a natural aversion to going to the next order of magnitude and set prices for things at $0.99 or $9.99.
+.. [#] While previewing this document, the aforementioned Aaron brought up a good point: deviations from the expected distribution can happen if the data source is signficantly influenced by human behaviors. In the instance of 9's, people may have a natural aversion to going to the next order of magnitude and set prices for things at $0.99 or $9.99, raising the observed distribution for that digit.

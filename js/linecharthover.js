@@ -1,15 +1,7 @@
 $(function () {
 
-    // Register a parser for the American date format used by Google
-    Highcharts.Data.prototype.dateFormats['m/d/Y'] = {
-        regex: '^([0-9]{1,2})\/([0-9]{1,2})\/([0-9]{2})$',
-        parser: function (match) {
-            return Date.UTC(+('20' + match[3]), match[1] - 1, +match[2]);
-        }
-    };
-
     // Get the CSV and create the chart
-    $.get('data/fakekenpom.csv', function (csv) {
+    $.get('../../../../../data/kenpomwp1992t.csv', function (csv) {
         
         $('#container').highcharts({
 
@@ -18,105 +10,80 @@ $(function () {
             },
 
             title: {
-                text: 'fake kenpom data'
+                text: 'Michigan 69 Stanford 65'
             },
 
             subtitle: {
-                text: 'Source: fake kenpom'
+                text: 'Source: kenpom.com'
             },
-
+            legend: {
+                enabled: false
+            },
             xAxis: {
                 type: 'time',
-                tickInterval: 1, // one minute?
+                tickInterval: 5,
                 tickWidth: 0,
                 gridLineWidth: 1,
                 labels: {
                     align: 'left',
                     x: 3,
                     y: -3
+                },
+                title: {
+                    text: 'Game time'
                 }
             },
 
             yAxis: [{ // left y axis
-                title: {
-                    text: null
-                },
-			min: 0, max: 1,
+                tickInterval: 0.25,
+			    min: 0,
+                max: 1,
                 labels: {
                     align: 'left',
-                    x: 3,
-                    y: 16,
-                    formatter: function() {
-                        return Highcharts.numberFormat(this.value, 0);
-                    }
+                    x: 10,
+                    y: 16
+                },
+                title: {
+                    text: 'Win Probability'
                 },
                 showFirstLabel: false
             }, { // right y axis
                 gridLineWidth: 0,
                 opposite: true,
-                title: {
-                    text: null
-                },
-			min: 0, max: 150,
+                linkedTo: 0,
                 labels: {
                     align: 'right',
-                    x: -3,
-                    y: 16,
-                    formatter: function() {
-                        return Highcharts.numberFormat(this.value, 0);
-                    }
+                    x: -10,
+                    y: 16
                 },
-                showFirstLabel: false
+                showFirstLabel: false,
+                title: {
+                    text: 'Win Probability'
+                }
             }],
 
-            legend: {
-                align: 'left',
-                verticalAlign: 'top',
-                y: 20,
-                floating: true,
-                borderWidth: 0
-            },
-
             tooltip: {
-                shared: true,
-                crosshairs: true
+                crosshairs: [true, true],
+                formatter: function () {
+                    return (this.x).toFixed(2) + ' minutes <br>' + this.series.name + ': ' + (this.y * 100).toFixed(2) + '%';
+                }
             },
 
             plotOptions: {
                 series: {
                     cursor: 'pointer',
-                    point: {
-                        events: {
-                            click: function() {
-                                hs.htmlExpand(null, {
-                                    pageOrigin: {
-                                        x: this.pageX,
-                                        y: this.pageY
-                                    },
-                                    headingText: this.series.name,
-                                    maincontentText: Highcharts.dateFormat('%A, %b %e, %Y', this.x) +':<br/> '+
-                                        this.y +' visits',
-                                    width: 200
-                                });
-                            }
-                        }
-                    },
                     marker: {
                         lineWidth: 1
                     }
                 }
             },
-
+            
             series: [{
-			yAxis: 0,
-                name: 'All visits',
+                name: 'WP',
                 lineWidth: 4,
                 marker: {
                     radius: 4
                 }
-            }, {
-			yAxis: 1,
-                name: 'New visitors'
             }]
         });
     });

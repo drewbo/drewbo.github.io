@@ -18,6 +18,7 @@ FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 
+
 DEFAULT_PAGINATION = 10
 
 #everything below from the flasky readme
@@ -36,6 +37,7 @@ DISQUS_SITENAME = "drewbo"
 TWITTER_USERNAME = 'drewbo19'
 LINKEDIN_URL = 'https://www.linkedin.com/profile/view?id=92384606'
 GITHUB_URL = 'https://github.com/drewbo'
+CODEPEN_USERNAME = 'drewbo'
 MAIL_USERNAME = 'drew'
 MAIL_HOST = 'drewbo.com'
 
@@ -44,8 +46,9 @@ REVERSE_CATEGORY_ORDER = True
 LOCALE = ""
 DEFAULT_PAGINATION = 10
 
-#FEED_RSS = 'feeds/all.rss.xml'
-#CATEGORY_FEED_RSS = 'feeds/%s.rss.xml'
+FEED_DOMAIN = SITEURL
+FEED_RSS = '/feeds/all.rss.xml'
+CATEGORY_FEED_RSS = '/feeds/%s.rss.xml'
 
 OUTPUT_PATH = 'output'
 

@@ -15,16 +15,16 @@
 .ribbon path.active { fill-opacity: .9; }
 .ribbon-mouse path { fill-opacity: 0; }
 
-.category-0 { fill: #1f77b4; stroke: #1f77b4; }
-.category-1 { fill: #ff7f0e; stroke: #ff7f0e; }
-.category-2 { fill: #2ca02c; stroke: #2ca02c; }
-.category-3 { fill: #d62728; stroke: #d62728; }
-.category-4 { fill: #9467bd; stroke: #9467bd; }
-.category-5 { fill: #8c564b; stroke: #8c564b; }
-.category-6 { fill: #e377c2; stroke: #e377c2; }
-.category-7 { fill: #7f7f7f; stroke: #7f7f7f; }
-.category-8 { fill: #bcbd22; stroke: #bcbd22; }
-.category-9 { fill: #17becf; stroke: #17becf; }
+.category-0 { fill: rgb(48, 240, 58); stroke: #1f77b4; }
+.category-2 { fill: rgb(76, 117, 255); stroke: #ff7f0e; }
+.category-4 { fill: rgb(0, 57, 255); stroke: #2ca02c; }
+.category-6 { fill: rgb(40,59,127); stroke: #d62728; }
+.category-8 { fill: rgb(0, 46, 204); stroke: #9467bd; }
+.category-1 { fill: rgb(240, 85, 48); stroke: #8c564b; }
+.category-3 { fill: rgb(255, 209, 88); stroke: #e377c2; }
+.category-5 { fill: rgb(255, 188, 12); stroke: #7f7f7f; }
+.category-7 { fill: rgb(212, 175, 78); stroke: #bcbd22; }
+.category-9 { fill: rgb(204, 150, 9); stroke: #17becf; }
 
 .tooltip {
   background-color: rgba(242, 242, 242, .6);

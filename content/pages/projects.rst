@@ -6,25 +6,11 @@ Projects
 :author: Drew Bollinger
 :slug: projects
 
-.. _seatgeek: http://seatgeek.com/
+.. _KenPom: http://kenpom.com/
+.. _here: ../data/kenpomdrama.csv
 
-In-Development:
-===============
-
-March Madness Ticketing Data Analysis
-	A project using R and scheduled batch files to scrape ticket market data from seatgeek_.
-
-The Story Behind US5 *or* How I Discovered the World's Lamest Conspiracy
-	An investigation into an oft-overlooked Lou Pearlman project and some fun with a public RIAA database.
-
-NikePlus GPS Elevation Tracker
-	An attempt to add some new functionality to NikePlus with Python.
-
-Completed projects:
-===================
-
-Empty for now
-
+**2014 NCAA Basketball Games -- Drama Scores:**
+	Using KenPom_ data, I've ranked all 5477 games with Win Probability data available according to their Game Drama Scores. Download as a csv here_.
 
 
 

@@ -10,10 +10,13 @@ Theme Info
 .. _fjavieralba: http://fjavieralba.com
 .. _`Source Sans Pro`: http://www.google.com/fonts/specimen/Source+Sans+Pro
 .. _`SIL Open Font License`: http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL
+.. _`development of my theme`: https://github.com/drewbo/drewbo.com
 
 I'm constantly updating the look of this site but it is based on a theme_ from fjavieralba_.
 
-I've also adjusted the base font to `Source Sans Pro`_ made available via the `SIL Open Font License`_.
+The base font is `Source Sans Pro`_ made available via the `SIL Open Font License`_.
+
+You can view the `development of my theme` on my GitHub profile.
 
 
 

@@ -145,7 +145,7 @@ I refit a very cool visualization technique called `Parallel Sets`_ from `Jason 
 
 Sorry if it's a lot to handle. Things to notice:
 
-- Each color represents a different "first digit group" from our original transaction list.
+- Each color/shade represents a different "first digit group" from our original transaction list. You can hover over to see the value if you get lost.
 - Each black bar with a number above it represents the associated first digit frequency for that transformation -- from original at the top to "multiplied by nine" at the bottom. You can hover over the bar/digit to see what portion of the total it represents. Notice that the lengths of these bars are remarkably consistent across the transformations (which is the point of this exercise).
 - Each colored path shows how transaction amounts from the original list move to different "first digit groups" when multiplied by the different constants: In the first row, the 1's go to 2's and 3's, the 2's go to 4's and 5's and so on (as mentioned in the example before).
 - All of the rows can be sorted by "numeric" and "size": there is at least one use to this (let me know if you find more) but it is more a relic of the original visulation. The one thing I would recommend is sorting the first row by reverse numeric ("<< numeric") and you can really clearly see how the 5's-9's from the original group end up as 1's when multiplied by 2 (and in the same proportion).

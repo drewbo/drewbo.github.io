@@ -15,7 +15,3 @@ New Website
 
 I'm going to start writing this new website using Pelican_, which uses Python_ to generate static websites from reStructuredText_. The theme_ is borrowed from fjavieralba_ which I will continue to customize to suit my needs as necessary. New content coming soon (when I figure out how to use all of this).
   -Drew
-
-
-
-

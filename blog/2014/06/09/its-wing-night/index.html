@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href='http://fonts.googleapis.com/css?family=Noticia+Text:400,700' rel='stylesheet' type='text/css' />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="../../../../../images/favicon.ico">
+    <title> Everyday Math | drewbo.com </title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans Pro:200italic,200,300italic,300,400italic,400,600italic,600,700italic,700,900italic,900" type="text/css">
+    <link rel="stylesheet" href="../../../../../theme/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../../theme/css/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../../theme/css/font-awesome.css" type="text/css"/>
+			<link rel="stylesheet" href="/css/../../../../../css/wingnightvis.css" type="text/css" />
+  
+
+  </head>
+  <body>
+    <div class=container>
+<div class="header">
+    <a class="title" href="../../../../../">drewbo.com</a> <span class="muted"></span>
+</div>
+
+<div class=navigation>
+    <ul>
+            <li><a href="../../../../../archives.html">Archive</a> </li>
+            <li><a href="../../../../../pages/projects.html">Projects</a> </li>
+            <li><a href="../../../../../pages/about-me.html">About</a> </li>
+    </ul>
+</div>
+<div class=separator></div>        
+        <div class=body>
+    <h1 class="title"> Everyday Math</h1>
+    <p class=date> 06 09 2014 </p>
+    <p>Like many pedestrian city-goers, I think about route efficiency a lot: when to cross, which streets are the least crowded, when to take diagonals, etc. I also happen to frequent a bar that is somewhat of an edge case when I try to decide on which route to take. For the first time, I'm going to apply a little rigor to this problem <a class="footnote-reference" href="#id3" id="id1">[1]</a>.</p>
+<p></p>
+<div class="section" id="the-setup">
+<h2>The Setup</h2>
+<p>On many Tuesdays, I exit the Metro at the Capitol South station (bottom left) and begin heading over to <a class="reference external" href="http://capitolloungedc.com/">Capitol Lounge</a> (top right).</p>
+<img alt="wing-night-map-labeled" class="align-center" src="/images/wing-night-map-labeled.png" style="width: 760px; height: 562px;" />
+<p>The first steps of the route should seem obvious: North on 1st, East on C. Until sometime last year, I would mindlessly take 2nd north to Pennsylvania, then walk southeast until I arrived. Then one day, while walking the route with my friend Alex, he proposed something radical and claimed that it was faster to stay on C and take 3rd north and backtrack along Pennsylvania. At that point, I wasn't convinced but I decided to give it a go. Normally, it's fairly easy to intuit which path is faster but in this case, it didn't seem so obvious. Every week, I would start the consider the geometry of the situation as...</p>
+</div>
+<div class="section" id="an-abstraction">
+<h2>An Abstraction</h2>
+<p>Forget about the above map for a moment.</p>
+<p>When walking from the bottom-left corner of a rectangle to the opposite corner on the top-right, there are two time-equivalent paths we could take (&quot;up then over&quot; and &quot;over then up&quot;). When we are dealing with a &quot;dented rectangle&quot;, this changes our math a bit. I've constructed a simple diagram below with a blue dot at our starting point and an orange one at the break-even point (where either path is time-equivalent):</p>
+<div id="vis"></div><p>You can move the slider around to change the angle in the upper left corner. When the angle decreases from 90, our break-even point starts to move along the top diagonal to the left. If our destination is on:
+- ...the right of the break-even point, we should take the bottom and right path, then backtrack along the diagonal.
+- ...the left of the break-even point, we should take the left path then go southeast along the diagonal.</p>
+<p>After playing with this abstraction for a bit (first mentally and later while writing this post) and looking back at the map above, it's apparent that the destination is really close to what we would naively guess the break-even point to be. So, I had to break down and do...</p>
+</div>
+<div class="section" id="the-math">
+<h2>The Math</h2>
+<p>Solving for the break-even point isn't actually too difficult <a class="footnote-reference" href="#id4" id="id2">[2]</a> : The distance traveled along 2nd plus a portion (x) of Pennsylvania needs to be equal to the distance traveled along C, then 3rd, then the complementary portion of Pennsylvania. Expressed as a formula:</p>
+<p>$$ height_{1} + \frac{x * width}{sin( \theta )} = width + height_{2} + \frac{(1-x) * width}{sin( \theta )} $$</p>
+<p>And solving for x:</p>
+<p>$$ x = \big(  width + (height_{2} - height_{1}) +  \frac{width}{sin( \theta )}\big) *  \big( \frac{sin( \theta) }{2*width} \big) $$</p>
+<p>Probably not something you can rattle off in your head although it does reduce very nicely if width = height:</p>
+<p>$$ x =  block unit * \frac{ sin(\theta) - cos(\theta) + 1}{2} $$</p>
+</div>
+<div class="section" id="the-final-solution">
+<h2>The Final Solution</h2>
+<p>My very low tech solution for solving this was to look at the pixel values in the map and plug the corresponding lengths in the formulae above. We end up with x ≈ .7136 which shows up on the map like this:</p>
+<p>image</p>
+<p>As suspected, the break-even point is <strong>super</strong> close to Capitol Lounge which is why this case was so hard to intuit without resorting to math. However, it is slightly faster (depending upon the accuracy of my measurements) to take the &quot;southern&quot; route as proposed by my friend Alex. And if you're rushing to get there before Happy Hour ends at 7, every little bit counts.</p>
+<div class="separator container">
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>I finally decided to disect this relatively trivial problem after reading the excellent posts <a class="reference external" href="http://worrydream.com/KillMath/">Kill Math</a> and <a class="reference external" href="http://www.evanmiller.org/dont-kill-math.html">Don't Kill Math</a> regarding visualization and mathematics education.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Although if you get any joy in watching a math major screw up some simple trig identities, you would have enjoyed looking over my shoulder while writing this.</td></tr>
+</tbody>
+</table>
+</div>
+<script type= "text/javascript">
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+                ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+                : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+</script>
+
+    
+
+    <p class=tags>tags:
+      <a href="../../../../../tag/d3.html">d3</a>
+      <a href="../../../../../tag/blog.html">blog</a>
+      <a href="../../../../../tag/wings.html">wings</a>
+      <a href="../../../../../tag/math.html">math</a>
+    </p>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'drewbo'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+        
+<div class=footer>
+  <p>&copy; Copyright <script language="JavaScript">var date = new Date(); document.write(date.getFullYear());</script> Drew Bollinger</p>
+  <p> Powered by <a href="http://pypi.python.org/pypi/pelican/" target="_blank">Pelican</a>.  
+    <a href="../../../../../pages/theme-info.html">Theme and Style Info</a>  
+  </p> 
+  <p>
+    <div class=social style="font-size: 27px;">
+      <ul>
+        <script language="JavaScript">
+          u = 'drew';
+          s = 'drewbo.com';
+          document.write('<a href=\"mailto:' + u + '@' + s + '\" target=\"_blank\">');
+        </script>
+            <li><i class="icon-envelope icon-large"></i> </li>
+        </a>
+	
+        <a href="http://twitter.com/drewbo19" target="_blank"> <li> <i class="icon-twitter-sign icon-large"> </li></i> </a>
+        <a href="https://www.linkedin.com/profile/view?id=92384606" target="_blank"><li><i class="icon-linkedin-sign icon-large" ></i></li></a>
+        <a href="https://github.com/drewbo" target="_blank"> <li> <i class="icon-github-sign icon-large"></i> </li> </a>
+        <a href="http://codepen.io/drewbo" target="_blank"><li><i class="icon-briefcase icon-large"></i></li></a>
+        
+
+
+        <a href="../../../../../feeds/all.rss.xml" rel="alternate" title="Recent Blog Posts"><li> <i class="icon-rss icon-large"></i> </li></a>
+      </ul>
+    </div>
+  </p>
+</div>    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-50610868-1', 'drewbo.com');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+				<script src="http://d3js.org/d3.v3.min.js"></script>
+				<script src="/js/../../../../../js/wingnightvis.js"></script>
+</html>

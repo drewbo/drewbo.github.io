@@ -175,3 +175,8 @@ img.align-center {
   font-size: 0.85em !important;
 }
 
+/* for ReST strikethrough functionality */
+
+.strike {
+  text-decoration: line-through;
+}

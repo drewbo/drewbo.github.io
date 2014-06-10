@@ -52,14 +52,14 @@ CATEGORY_FEED_RSS = '/feeds/%s.rss.xml'
 
 OUTPUT_PATH = 'output'
 
-#GOOGLE_ANALYTICS_ACCOUNT = 'UA-00000000-1'
+GOOGLE_ANALYTICS_ACCOUNT = 'UA-50610868-1'
 
 #PIWIK_URL = 'myurl.com/piwik'
 #PIWIK_SSL_URL = 'myurl.com/piwik'
 #PIWIK_SITE_ID = '1'
 
 PLUGIN_PATH = 'pelican-plugins'
-PLUGINS = ['summary','neighbors','pelican_dynamic']
+PLUGINS = ['summary','neighbors','pelican_dynamic','render_math']
 
 SUMMARY_BEGIN_MARKER = '!BEGIN-SUMMARY!'
 SUMMARY_END_MARKER = '!END-SUMMARY!'

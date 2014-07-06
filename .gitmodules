@@ -4,4 +4,4 @@
 
 [submodule "themes/flasky"]
       path = themes/flasky
-      url = git://github.com/drewbo/themes/flasky.git
+      url = git://github.com/drewbo/flasky.git

@@ -58,7 +58,7 @@ GOOGLE_ANALYTICS_ACCOUNT = 'UA-50610868-1'
 #PIWIK_SSL_URL = 'myurl.com/piwik'
 #PIWIK_SITE_ID = '1'
 
-PLUGIN_PATH = 'pelican-plugins'
+PLUGIN_PATHS = 'pelican-plugins'
 PLUGINS = ['summary','neighbors','pelican_dynamic','render_math']
 
 SUMMARY_BEGIN_MARKER = '!BEGIN-SUMMARY!'

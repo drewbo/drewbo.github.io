@@ -1,8 +1,8 @@
 ﻿/* general style */
 body    {font-family:'Source Sans Pro',sans-serif;font-size:16px;line-height:1.42857143;
           margin: 0; padding: 0; }
-a       { color: #1d6da7; text-decoration: none;}
-a:hover { color: #778afa; }
+a       { color: #234764; }
+a:hover { color: #6582BD; }
 a.footnote-reference {font-size: .75em; vertical-align: top;}
 a.title { color: #006BB2; font-weight: 600;}
 
@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6      { font-family:'Source Sans Pro',sans-serif;
 h1 a, h2 a, h3 a, h4 a,
 h5 a, h6 a                  { text-decoration: none; }
 h1 a:hover, h2 a:hover,
-h3 a:hover, h4 a:hover      { color: #778afa;}
+h3 a:hover, h4 a:hover      { color: #6582BD;}
 h1.title, h2.title          { max-width: 560px; }
 h1, h2                      { margin: 10px 0 25px 0; }
 h1                          { font-size: 48px; line-height: 52px; }
@@ -95,10 +95,13 @@ table.footnote td p + p { margin-top: 15px; }
 
 /* blog overview */
 div.entry-overview                  { margin: 25px 25px 25px 0px; }
-div.entry-overview h1   	    { line-height: 25px; }
+div.entry-overview h1,
+div.entry-overview div.summary,
+div.entry-overview div.summary p    { display: inline; line-height: 25px; }
 div.entry-overview h1               { margin: 0; font-size: 20px; }
 div.entry-overview div.summary,
-div.entry-overview div.date,        { margin: 0; padding: 0; }
+div.entry-overview div.date,
+div.entry-overview div.summary p    { margin: 0; padding: 0; }
 div.entry-overview div.detail       { margin-left: 140px; }
 div.entry-overview div.date         { float: left; width: 120px; color: #888; text-align: right; font-style: italic;}
 
@@ -175,8 +178,3 @@ img.align-center {
   font-size: 0.85em !important;
 }
 
-/* for ReST strikethrough functionality */
-
-.strike {
-  text-decoration: line-through;
-}

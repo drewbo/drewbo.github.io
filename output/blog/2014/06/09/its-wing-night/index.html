@@ -43,8 +43,8 @@
 <p>Forget about the above map for a moment.</p>
 <p>When walking from the bottom-left corner of a rectangle to the opposite corner on the top-right, there are two time-equivalent paths we could take (&quot;up then over&quot; and &quot;over then up&quot;). When we are dealing with a &quot;dented rectangle&quot;, this changes our math a bit. I've constructed a simple diagram below with a blue dot at our starting point and an orange one at the break-even point (where either path is time-equivalent):</p>
 <div id="vis"></div><p>You can move the slider around to change the angle in the upper left corner. When the angle decreases from 90, our break-even point starts to move along the top diagonal to the left. If our destination is on:
-- ...the right of the break-even point, we should take the bottom and right path, then backtrack along the diagonal.
-- ...the left of the break-even point, we should take the left path then go southeast along the diagonal.</p>
+- the right of the break-even point, we should take the bottom and right path, then backtrack along the diagonal.
+- the left of the break-even point, we should take the left path then go southeast along the diagonal.</p>
 <p>After playing with this abstraction for a bit (first mentally and later while writing this post) and looking back at the map above, it's apparent that the destination is really close to what we would naively guess the break-even point to be. So, I had to break down and do...</p>
 </div>
 <div class="section" id="the-math">
@@ -61,6 +61,12 @@
 <p>My very low tech solution for solving this was to look at the pixel values in the map and plug the corresponding lengths in the formulae above. We end up with x ≈ .7136 which shows up on the map like this:</p>
 <p>image</p>
 <p>As suspected, the break-even point is <strong>super</strong> close to Capitol Lounge which is why this case was so hard to intuit without resorting to math. However, it is slightly faster (depending upon the accuracy of my measurements) to take the &quot;southern&quot; route as proposed by my friend Alex. And if you're rushing to get there before Happy Hour ends at 7, every little bit counts.</p>
+</div>
+<div class="section" id="update">
+<h2>Update</h2>
+<p>After writing this post, I realized that, should one be willing to bend the rules of the road a bit, the northern route is actually faster. Proposed route:</p>
+<p>image</p>
+<p>The diagonal across the road saves enough distance that I feel comfortable saying it's a bit faster given how close the break-even point was. So, there goes all that work above.</p>
 <div class="separator container">
 <div class="line-block">
 <div class="line"><br /></div>
@@ -152,7 +158,7 @@
         <a href="http://twitter.com/drewbo19" target="_blank"> <li> <i class="icon-twitter-sign icon-large"> </li></i> </a>
         <a href="https://www.linkedin.com/profile/view?id=92384606" target="_blank"><li><i class="icon-linkedin-sign icon-large" ></i></li></a>
         <a href="https://github.com/drewbo" target="_blank"> <li> <i class="icon-github-sign icon-large"></i> </li> </a>
-        <a href="http://codepen.io/drewbo" target="_blank"><li><i class="icon-briefcase icon-large"></i></li></a>
+   
         
 
 
@@ -161,16 +167,17 @@
     </div>
   </p>
 </div>    </div>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-50610868-1']);
+      _gaq.push(['_trackPageview']);
 
-  ga('create', 'UA-50610868-1', 'drewbo.com');
-  ga('send', 'pageview');
-
-</script>
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
   </body>
 				<script src="http://d3js.org/d3.v3.min.js"></script>
 				<script src="/js/../../../../../js/wingnightvis.js"></script>

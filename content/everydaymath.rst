@@ -2,7 +2,7 @@
 Everyday Math
 =============
 
-:date: 2014-06-09 21:00
+:date: 2014-07-08 21:00
 :tags: d3, blog, wings, math
 :author: Drew Bollinger
 :slug: its-wing-night
@@ -32,7 +32,15 @@ On many Tuesdays, I exit the Metro at the Capitol South station (bottom left) an
    :align: center
    :alt: wing-night-map-labeled
 
-The first steps of the route should seem obvious: North on 1st, East on C. Until sometime last year, I would mindlessly take 2nd north to Pennsylvania, then walk southeast until I arrived. Then one day, while walking the route with my friend Alex, he proposed something radical and claimed that it was faster to stay on C and take 3rd north and backtrack along Pennsylvania. At that point, I wasn't convinced but I decided to give it a go. Normally, it's fairly easy to intuit which path is faster but in this case, it didn't seem so obvious. Every week, I would start the consider the geometry of the situation as...
+The first steps of the route should seem obvious: North on 1st, East on C (shown in blue). Until sometime last year, I would mindlessly take 2nd north to Pennsylvania, then walk southeast until I arrived (dotted red line). Then one day, while walking the route with my friend Alex, he proposed something radical and claimed that it was faster to stay on C and take 3rd north and backtrack along Pennsylvania (dotted green line).
+
+.. image:: /images/wing-night-choices.png
+   :height: 562
+   :width: 760
+   :align: center
+   :alt: wing-night-choices
+
+At that point, I wasn't convinced but I decided to give it a go. Normally, it's fairly easy to intuit which path is faster but in this case, it didn't seem so obvious. Every week, I would start the consider the geometry of the situation as...
 
 An Abstraction
 ==============
@@ -46,6 +54,7 @@ When walking from the bottom-left corner of a rectangle to the opposite corner o
    <div id="vis"></div>
 
 You can move the slider around to change the angle in the upper left corner. When the angle decreases from 90, our break-even point starts to move along the top diagonal to the left. If our destination is on:
+
 - the right of the break-even point, we should take the bottom and right path, then backtrack along the diagonal.
 - the left of the break-even point, we should take the left path then go southeast along the diagonal.
 
@@ -71,7 +80,11 @@ The Final Solution
 
 My very low tech solution for solving this was to look at the pixel values in the map and plug the corresponding lengths in the formulae above. We end up with x ≈ .7136 which shows up on the map like this:
 
-image
+.. image:: /images/wing-night-solution.png
+   :height: 562
+   :width: 760
+   :align: center
+   :alt: wing-night-solution
 
 As suspected, the break-even point is **super** close to Capitol Lounge which is why this case was so hard to intuit without resorting to math. However, it is slightly faster (depending upon the accuracy of my measurements) to take the "southern" route as proposed by my friend Alex. And if you're rushing to get there before Happy Hour ends at 7, every little bit counts.
 
@@ -80,9 +93,13 @@ Update
 
 After writing this post, I realized that, should one be willing to bend the rules of the road a bit, the northern route is actually faster. Proposed route:
 
-image
+.. image:: /images/wing-night-update.png
+   :height: 562
+   :width: 760
+   :align: center
+   :alt: wing-night-update
 
-The diagonal across the road saves enough distance that I feel comfortable saying it's a bit faster given how close the break-even point was. So, there goes all that work above.
+The diagonal across the road saves enough distance that I feel comfortable saying it's a little faster given how close the break-even point was. So, there goes all that work above.
 
 .. container:: separator
 

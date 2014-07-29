@@ -118,7 +118,7 @@ Styling tips
 
 - Bright colors look awesome.
 - Set the 'line-opacity' attribute to ~0.25. This means that it will take four times over the same path to make the line fully opaque and gives a better idea of how often you run in certain areas.
-- Use the satellite imagery (requires a basic account) with a near-black color and saturated filter settings ( >75%).
+- Use the satellite imagery (requires a basic MapBox account) with a near-black color and saturated filter settings ( >75%).
 
 .. image:: /images/filter-settings.png
    :height: 338

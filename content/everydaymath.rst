@@ -7,8 +7,8 @@ Everyday Math
 :author: Drew Bollinger
 :slug: its-wing-night
 :D3:
-:scripts: ../../../../../js/wingnightvis.js
-:styles: ../../../../../css/wingnightvis.css
+:scripts: wingnightvis.js
+:styles: wingnightvis.css
 
 .. _`Kill Math`: http://worrydream.com/KillMath/
 .. _`Don't Kill Math`: http://www.evanmiller.org/dont-kill-math.html

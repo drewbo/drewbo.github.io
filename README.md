@@ -1,7 +1,7 @@
 drewbo.github.io
 ================
 
-Pelican based website hostead at drewbo.com
+Pelican based website hosted at [drewbo.com](http://drewbo.com/)
 
 `build` branch has all the content, plug-ins, etc.
 

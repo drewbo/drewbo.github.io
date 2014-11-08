@@ -1,7 +1,7 @@
 [submodule "pelican-plugins"]
       path = pelican-plugins
-      url = git://github.com/drewbo/pelican-plugins.git
+      url = https://github.com/drewbo/pelican-plugins
 
 [submodule "themes/flasky"]
       path = themes/flasky
-      url = git://github.com/drewbo/flasky.git
+      url = https://github.com/drewbo/flasky

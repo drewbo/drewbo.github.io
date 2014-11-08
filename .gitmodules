@@ -2,6 +2,6 @@
       path = pelican-plugins
       url = https://github.com/drewbo/pelican-plugins
 
-[submodule "themes/flasky"]
+[submodule "flasky"]
       path = themes/flasky
       url = https://github.com/drewbo/flasky

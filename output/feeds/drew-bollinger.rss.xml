@@ -1,0 +1,745 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>drewbo.com</title><link>http://drewbo.com/</link><description></description><atom:link href="http://drewbo.com/feeds/drew-bollinger.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 08 Nov 2014 14:00:00 -0500</lastBuildDate><item><title>July...and August, September, and October</title><link>http://drewbo.com/blog/2014/11/08/more-hotels-and-traveling/</link><description>&lt;p&gt;So it's been a little while since I posted. From my last post: &amp;quot;...but hopefully I'm back into my apartment soon and I'll have more time to spend with the site.&amp;quot;
+This did not turn out to be true. Explanations for my absence in photographic form after the jump.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Life:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;My original hotel was sold out one night so I had to move to a &lt;a class="reference external" href="https://dl.dropboxusercontent.com/u/27150206/October%20Blog%20Post/20140730_200614.jpg"&gt;new hotel&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Went to Bosnia for a week for work. We &lt;a class="reference external" href="https://dl.dropboxusercontent.com/u/27150206/October%20Blog%20Post/20140821_155127.jpg"&gt;worked a lot during the day&lt;/a&gt; but got to &lt;a class="reference external" href="https://dl.dropboxusercontent.com/u/27150206/October%20Blog%20Post/20140823_144922.jpg"&gt;explore Sarajevo&lt;/a&gt; a little more afterwards. It's &lt;a class="reference external" href="https://dl.dropboxusercontent.com/u/27150206/October%20Blog%20Post/20140824_130919.jpg"&gt;incredibly beautiful&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;A quick stop in Luxembourg and a quaint train ride through &lt;a class="reference external" href="https://dl.dropboxusercontent.com/u/27150206/October%20Blog%20Post/20140825_130800.jpg"&gt;the German countryside&lt;/a&gt; on the way home.&lt;/li&gt;
+&lt;li&gt;Was supposed to return to my apartment but it &lt;a class="reference external" href="https://dl.dropboxusercontent.com/u/27150206/October%20Blog%20Post/20140803_104656.jpg"&gt;still wasn't fixed&lt;/a&gt; so... &lt;a class="reference external" href="https://dl.dropboxusercontent.com/u/27150206/October%20Blog%20Post/20140825_204811.jpg"&gt;another hotel&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://dl.dropboxusercontent.com/u/27150206/October%20Blog%20Post/20140831_135218.jpg"&gt;Finally back!&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Chicago for a &lt;a class="reference external" href="https://dl.dropboxusercontent.com/u/27150206/October%20Blog%20Post/20141003_204238.jpg"&gt;wedding&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Quick weekend in NYC where I accidentally switched bags with someone. His bag looked like &lt;a class="reference external" href="https://dl.dropboxusercontent.com/u/27150206/October%20Blog%20Post/20141018_112205.jpg"&gt;this&lt;/a&gt; and mine looked &lt;a class="reference external" href="https://dl.dropboxusercontent.com/u/27150206/October%20Blog%20Post/20141018_164856.jpg"&gt;like this&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;No hopeful proclamations this time about my next post. Just happy to have an apartment again.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Drew Bollinger</dc:creator><pubDate>Sat, 08 Nov 2014 14:00:00 -0500</pubDate><guid>tag:drewbo.com,2014-11-08:blog/2014/11/08/more-hotels-and-traveling/</guid><category>blog</category><category>personal</category></item><item><title>NikePlus Running Map</title><link>http://drewbo.com/blog/2014/07/29/nike-plus-running-map/</link><description>&lt;p&gt;Inspired by Garrett Miller's (relatively) recent blog post, &lt;a class="reference external" href="https://www.mapbox.com/blog/mapping-moves/"&gt;Mapping Moves&lt;/a&gt;, I decided to do &lt;a class="reference external" href="http://drewbo.com/blog/2014/05/12/nike-plus-elevation/"&gt;something else&lt;/a&gt; with all my NikePlus data
+and create a map of my runs.
+Unfortunately for me, the Nike data is more difficult to liberate than from other sources. Fortunately for me, and anyone else trying
+to do this, there are some pre-existing tools to solve this issue.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;div id="map" class="map"&gt;&lt;/div&gt;&lt;p class="center"&gt;&lt;span class="blue"&gt;2012&lt;/span&gt; in blue, &lt;span class="orange"&gt;2013&lt;/span&gt; in orange, &lt;span class="green"&gt;2014&lt;/span&gt; in green. View &lt;a class="reference external" href="https://a.tiles.mapbox.com/v4/drewbo19.immnjfdh/page.html?access_token=pk.eyJ1IjoiZHJld2JvMTkiLCJhIjoiWlpRb2lYUSJ9.aT3CQyI2_wYzqKPDqjgvyw#13/38.9105/-77.0424"&gt;fullscreen&lt;/a&gt;&lt;/p&gt;
+&lt;div class="section" id="before-starting"&gt;
+&lt;h2&gt;Before starting&lt;/h2&gt;
+&lt;p&gt;Get these things:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://www.python.org/"&gt;Python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://www.mapbox.com/tilemill/"&gt;TileMill&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;A &lt;a class="reference external" href="https://www.mapbox.com/"&gt;MapBox&lt;/a&gt; account&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/mapbox/togeojson"&gt;togeojson&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="the-data"&gt;
+&lt;h2&gt;The data&lt;/h2&gt;
+&lt;p&gt;First, I used &lt;a class="reference external" href="https://mattstuehler.com/lab/NikePlus/"&gt;Matt Stuehler's site&lt;/a&gt; (again) to export all of my runs as .gpx files. If you have trouble exporting them all at the same time,
+it helps to break them up into 30-40 run groups.&lt;/p&gt;
+&lt;p&gt;The easiest way to import this data into TileMill is going to be as a .geojson file but it will help if we have our data a little more organized
+before converting. I had three years of data so I decided that I would eventually want to style it by year. Here's the folder structure I used:&lt;/p&gt;
+&lt;img alt="Folder Structure" class="align-center" src="/images/folder-structure.png" style="width: 600px; height: 430px;" /&gt;
+&lt;p&gt;The Python file in each folder is a slight modification of &lt;a class="reference external" href="https://github.com/kengggg/osm-gpx-download"&gt;one used for OpenStreetMap exports&lt;/a&gt;. I'm going to post it here because I don't like having to
+clone a GitHub repo just to grab one file.:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;bs4&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;BeautifulSoup&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;glob&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;time&lt;/span&gt;
+
+&lt;span class="n"&gt;output_file_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;merged.gpx&amp;quot;&lt;/span&gt;
+
+&lt;span class="n"&gt;fo&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;output_file_name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;w&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;fo&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;fo&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&amp;lt;gpx version=&amp;quot;1.0&amp;quot;&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;gpx_list&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;glob&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;glob&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;*/*.gpx&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;gpx_file_name&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;gpx_list&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Parsing &amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;gpx_file_name&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s"&gt;&amp;quot; ...&amp;quot;&lt;/span&gt;
+
+    &lt;span class="n"&gt;fi&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gpx_file_name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;r&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;gpx_trace&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;fi&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;fi&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+    &lt;span class="n"&gt;soup&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;BeautifulSoup&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gpx_trace&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;fo&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;soup&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;trk&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;prettify&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+
+    &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;fo&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&amp;lt;/gpx&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;fo&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Copy this, save it as gpx-merger.py, and put one in each folder structure like I did above (it needs to be one folder &amp;quot;below&amp;quot; the data
+it is aggregating). To run it, navigate to that folder in the command line/terminal and type &amp;quot;python gpx-merger.py&amp;quot;. Sit back and wait.&lt;/p&gt;
+&lt;img alt="Terminal gif" class="align-center" src="/images/terminal.gif" style="width: 600px; height: 338px;" /&gt;
+&lt;p&gt;Each time you run it in a new place, it will output a file called 'merged.gpx'.
+Now you can pretty much follow the rest of &lt;a class="reference external" href="https://www.mapbox.com/blog/mapping-moves/"&gt;Garrett's blog post&lt;/a&gt;:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Use togeojson to convert each merged file into a .geojson file&lt;/li&gt;
+&lt;li&gt;Start a new TileMill project and import each file as a separate layer&lt;/li&gt;
+&lt;li&gt;Style, then upload to MapBox&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="styling-tips"&gt;
+&lt;h2&gt;Styling tips&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Bright colors look awesome.&lt;/li&gt;
+&lt;li&gt;Set the 'line-opacity' attribute to ~0.25. This means that it will take four times over the same path to make the line fully opaque and gives a better idea of how often you run in certain areas.&lt;/li&gt;
+&lt;li&gt;Use the satellite imagery (requires a basic MapBox account) with a near-black color and saturated filter settings ( &amp;gt;75%).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img alt="filter settings" class="align-center" src="/images/filter-settings.png" style="width: 600px; height: 338px;" /&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Drew Bollinger</dc:creator><pubDate>Tue, 29 Jul 2014 11:00:00 -0400</pubDate><guid>tag:drewbo.com,2014-07-29:blog/2014/07/29/nike-plus-running-map/</guid><category>blog</category><category>nikeplus</category><category>running</category><category>mapbox</category><category>tutorial</category></item><item><title>June</title><link>http://drewbo.com/blog/2014/07/14/im-hotel-people-now/</link><description>&lt;p&gt;I've been really busy the past month (hence the giant break in posts) but I have some good excuses! I'm also going to use this post to kick off a series of monthly personal updates mixed in with my more project-based posts.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Here's why I wasn't updating for a month:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;I &lt;a class="reference external" href="https://dl.dropboxusercontent.com/u/27150206/20140607_061238.jpg"&gt;ran a 50K&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;I started a &lt;a class="reference external" href="http://developmentseed.org/blog/2014/06/16/drew-joins-developmentseed/"&gt;new job&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;My neighbor's apartment flooded...&lt;/li&gt;
+&lt;li&gt;which led to &lt;a class="reference external" href="https://dl.dropboxusercontent.com/u/27150206/20140706_140212.jpg"&gt;very minor damage&lt;/a&gt; to our unit...&lt;/li&gt;
+&lt;li&gt;but they still decided to &lt;a class="reference external" href="https://dl.dropboxusercontent.com/u/27150206/20140708_182915.jpg"&gt;pull our floors out&lt;/a&gt;...&lt;/li&gt;
+&lt;li&gt;so I've been &lt;a class="reference external" href="https://dl.dropboxusercontent.com/u/27150206/20140706_143623.jpg"&gt;staying in a hotel&lt;/a&gt; for a few weeks.&lt;/li&gt;
+&lt;li&gt;I went to &lt;a class="reference external" href="https://dl.dropboxusercontent.com/u/27150206/20140629_185413.jpg"&gt;Summerfest&lt;/a&gt; with my family.&lt;/li&gt;
+&lt;li&gt;I saw a &lt;a class="reference external" href="https://dl.dropboxusercontent.com/u/27150206/20140605_181246.jpg"&gt;Nationals game&lt;/a&gt; followed by a &lt;a class="reference external" href="https://dl.dropboxusercontent.com/u/27150206/20140605_193149.jpg"&gt;Plain White T's concert&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;I showed my &lt;a class="reference external" href="https://dl.dropboxusercontent.com/u/27150206/IMG_0298.JPG"&gt;Aunt and Uncle&lt;/a&gt; around for their first visit to DC.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;July and August should have some highlights as well but hopefully I'm back into my apartment soon and I'll have more time to spend with the site.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Drew Bollinger</dc:creator><pubDate>Mon, 14 Jul 2014 22:00:00 -0400</pubDate><guid>tag:drewbo.com,2014-07-14:blog/2014/07/14/im-hotel-people-now/</guid><category>blog</category><category>personal</category></item><item><title>Everyday Math</title><link>http://drewbo.com/blog/2014/07/08/its-wing-night/</link><description>&lt;p&gt;Like many pedestrian city-goers, I think about route efficiency a lot: when to cross, which streets are the least crowded, when to take diagonals, etc. I also happen to frequent a bar that is somewhat of an edge case when I try to decide on which route to take. For the first time, I'm going to apply a little rigor to this problem &lt;a class="footnote-reference" href="#id3" id="id1"&gt;[1]&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;div class="section" id="the-setup"&gt;
+&lt;h2&gt;The Setup&lt;/h2&gt;
+&lt;p&gt;On many Tuesdays, I exit the Metro at the Capitol South station (bottom left) and begin heading over to &lt;a class="reference external" href="http://capitolloungedc.com/"&gt;Capitol Lounge&lt;/a&gt; (top right).&lt;/p&gt;
+&lt;img alt="wing-night-map-labeled" class="align-center" src="/images/wing-night-map-labeled.png" style="width: 760px; height: 562px;" /&gt;
+&lt;p&gt;The first steps of the route should seem obvious: North on 1st, East on C (shown in blue). Until sometime last year, I would mindlessly take 2nd north to Pennsylvania, then walk southeast until I arrived (dotted red line). Then one day, while walking the route with my friend Alex, he proposed something radical and claimed that it was faster to stay on C and take 3rd north and backtrack along Pennsylvania (dotted green line).&lt;/p&gt;
+&lt;img alt="wing-night-choices" class="align-center" src="/images/wing-night-choices.png" style="width: 760px; height: 562px;" /&gt;
+&lt;p&gt;At that point, I wasn't convinced but I decided to give it a go. Normally, it's fairly easy to intuit which path is faster but in this case, it didn't seem so obvious. Every week, I would start the consider the geometry of the situation as...&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="an-abstraction"&gt;
+&lt;h2&gt;An Abstraction&lt;/h2&gt;
+&lt;p&gt;Forget about the above map for a moment.&lt;/p&gt;
+&lt;p&gt;When walking from the bottom-left corner of a rectangle to the opposite corner on the top-right, there are two time-equivalent paths we could take (&amp;quot;up then over&amp;quot; and &amp;quot;over then up&amp;quot;). When we are dealing with a &amp;quot;dented rectangle&amp;quot;, this changes our math a bit. I've constructed a simple diagram below with a blue dot at our starting point and an orange one at the break-even point (where either path is time-equivalent):&lt;/p&gt;
+&lt;div id="vis"&gt;&lt;/div&gt;&lt;p&gt;You can move the slider around to change the angle in the upper left corner. When the angle decreases from 90, our break-even point starts to move along the top diagonal to the left. If our destination is on:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;the right of the break-even point, we should take the bottom and right path, then backtrack along the diagonal.&lt;/li&gt;
+&lt;li&gt;the left of the break-even point, we should take the left path then go southeast along the diagonal.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;After playing with this abstraction for a bit (first mentally and later while writing this post) and looking back at the map above, it's apparent that the destination is really close to what we would naively guess the break-even point to be. So, I had to break down and do...&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="the-math"&gt;
+&lt;h2&gt;The Math&lt;/h2&gt;
+&lt;p&gt;Solving for the break-even point isn't actually too difficult &lt;a class="footnote-reference" href="#id4" id="id2"&gt;[2]&lt;/a&gt; : The distance traveled along 2nd plus a portion (x) of Pennsylvania needs to be equal to the distance traveled along C, then 3rd, then the complementary portion of Pennsylvania. Expressed as a formula:&lt;/p&gt;
+&lt;p&gt;$$ height_{1} + \frac{x * width}{sin( \theta )} = width + height_{2} + \frac{(1-x) * width}{sin( \theta )} $$&lt;/p&gt;
+&lt;p&gt;And solving for x:&lt;/p&gt;
+&lt;p&gt;$$ x = \big(  width + (height_{2} - height_{1}) +  \frac{width}{sin( \theta )}\big) *  \big( \frac{sin( \theta) }{2*width} \big) $$&lt;/p&gt;
+&lt;p&gt;Probably not something you can rattle off in your head although it does reduce very nicely if width = height:&lt;/p&gt;
+&lt;p&gt;$$ x =  block unit * \frac{ sin(\theta) - cos(\theta) + 1}{2} $$&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="the-final-solution"&gt;
+&lt;h2&gt;The Final Solution&lt;/h2&gt;
+&lt;p&gt;My very low tech solution for solving this was to look at the pixel values in the map and plug the corresponding lengths in the formulae above. We end up with x ≈ .7136 which shows up on the map like this:&lt;/p&gt;
+&lt;img alt="wing-night-solution" class="align-center" src="/images/wing-night-solution.png" style="width: 760px; height: 562px;" /&gt;
+&lt;p&gt;As suspected, the break-even point is &lt;strong&gt;super&lt;/strong&gt; close to Capitol Lounge which is why this case was so hard to intuit without resorting to math. However, it is slightly faster (depending upon the accuracy of my measurements) to take the &amp;quot;southern&amp;quot; route as proposed by my friend Alex. And if you're rushing to get there before Happy Hour ends at 7, every little bit counts.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="update"&gt;
+&lt;h2&gt;Update&lt;/h2&gt;
+&lt;p&gt;After writing this post, I realized that, should one be willing to bend the rules of the road a bit, the northern route is actually faster. Proposed route:&lt;/p&gt;
+&lt;img alt="wing-night-update" class="align-center" src="/images/wing-night-update.png" style="width: 760px; height: 562px;" /&gt;
+&lt;p&gt;The diagonal across the road saves enough distance that I feel comfortable saying it's a little faster given how close the break-even point was. So, there goes all that work above.&lt;/p&gt;
+&lt;div class="separator container"&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br /&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;table class="docutils footnote" frame="void" id="id3" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id1"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;I finally decided to disect this relatively trivial problem after reading the excellent posts &lt;a class="reference external" href="http://worrydream.com/KillMath/"&gt;Kill Math&lt;/a&gt; and &lt;a class="reference external" href="http://www.evanmiller.org/dont-kill-math.html"&gt;Don't Kill Math&lt;/a&gt; regarding visualization and mathematics education.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id4" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id2"&gt;[2]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Although if you get any joy in watching a math major screw up some simple trig identities, you would have enjoyed looking over my shoulder while writing this.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;script type= "text/javascript"&gt;
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+                ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+                : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+&lt;/script&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Drew Bollinger</dc:creator><pubDate>Tue, 08 Jul 2014 21:00:00 -0400</pubDate><guid>tag:drewbo.com,2014-07-08:blog/2014/07/08/its-wing-night/</guid><category>d3</category><category>blog</category><category>wings</category><category>math</category></item><item><title>Data Visualization Update</title><link>http://drewbo.com/blog/2014/05/26/data-vis-update/</link><description>&lt;p&gt;I've made some more updates to my &lt;a class="reference external" href="../../../../../pages/kpvis.html"&gt;KenPom visualization&lt;/a&gt; and used it to capture a few observations (perhaps very obvious ones) from the last year in college basketball.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;The visualization still isn't a masterpiece of graphic design but it's at a point where it's largerly functional and I'd like to move on to some other projects for the time being.
+There are more explanations on the page itself so &lt;a class="reference external" href="../../../../../pages/kpvis.html"&gt;check it out&lt;/a&gt; and let me know what you think in the comments or via email/twitter. A reminder that the visualization is only exploratory and isn't an attempt to find correlations between the x and y axis (or the circle radius).&lt;/p&gt;
+&lt;div class="section" id="three-observations"&gt;
+&lt;h2&gt;Three Observations&lt;/h2&gt;
+&lt;p&gt;Here are some things I noticed while building and playing with the visualization, let me know if you find any other good stories in the comments:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. Kentucky - Wichita State was the &amp;quot;best&amp;quot; game of the NCAA Tournament (and probably the whole season)&lt;/strong&gt;&lt;/p&gt;
+&lt;img alt="Kentucky Wichita St. Data Visualization" class="align-center" src="/images/Kentucky-Wichita-St.png" style="width: 700px; height: 475px;" /&gt;
+&lt;p&gt;&amp;quot;Best&amp;quot; is a tricky term to define when talking about sports in general. But anyone watching this game could tell you that the numbers confirm what they saw: two lauded teams, a game that remained close throughout, and plenty of offense. The statistics don't even account for the &amp;quot;Wichita State can't do it against real competition&amp;quot; media meme which probably upped the stakes even more prior to tipoff. This game shows up in the top-right hand corner of the visualization and has a Hype rating of 9 so I was glad to see the data I was using match my experience of watching the game. Although it didn't have the highest &lt;a class="reference external" href="http://drewbo.com/blog/2014/04/28/kenpom-drama/"&gt;Drama&lt;/a&gt; score of the tournament (that was Wisconsin-Arizona), the pace and scoring made the game a lot more compelling.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. The Big Ten and SEC both had a particularly nail-biting March Madness&lt;/strong&gt;&lt;/p&gt;
+&lt;img alt="Kentucky Michigan Data Visualization" class="align-center" src="/images/Kentucky-Michigan.png" style="width: 700px; height: 475px;" /&gt;
+&lt;img alt="Tennessee Iowa Data Visualization" class="align-center" src="/images/Tennessee-Iowa.png" style="width: 700px; height: 475px;" /&gt;
+&lt;p&gt;In part due to three crazy games between them (Kentucky-Michigan, Kentucky-Wisconsin, and Tennessee-Iowa), both the Big Ten and the SEC have many tournament games off to the right side of the graph (high Drama scores). I'm not positive which conference actually had the highest average Drama or eFG% but I may pull that in the future to test whether this is a purely visual phenomenom. Shout out to the A10 for having some barn burners as well despite being less heralded. Tournament darling Dayton contributed to this but also St. Joseph's, who &lt;a class="reference external" href="http://www.cbssports.com/collegebasketball/eye-on-college-basketball/24516910/saint-josephs-was-one-rebound-away-from-killing-uconns-story"&gt;nearly knocked out&lt;/a&gt; eventual champions Connecticut in the first round.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3. Syracuse - Duke (part 1) delivered on the hype&lt;/strong&gt;&lt;/p&gt;
+&lt;img alt="Syracuse Duke Data Visualization" class="align-center" src="/images/Syracuse-Duke.png" style="width: 700px; height: 475px;" /&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;The most &amp;quot;hyped&amp;quot; game of the year, according to &lt;a class="reference external" href="http://drewbo.com/blog/2014/05/05/first-data-vis/"&gt;my somewhat flawed metric&lt;/a&gt;, was the first Syracuse-Duke matchup as the teams entered as the number 2 and 3 ranked KenPom squads respectively. The AP ratings were a bit more divergent (2 and 17) but I don't think anyone was exactly discounting Duke coming into this game. And according to the lede of the AP story:&lt;/dt&gt;
+&lt;dd&gt;SYRACUSE, N.Y. -- Coach K said he hoped this game would live up to its billing. It did, and then some.&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;It was definitely among the most dramatic games (top 2%) and the eFG% was suprisingly high for a Syracuse game (top 15%) making it a very noticable large dot on the chart.&lt;/p&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Drew Bollinger</dc:creator><pubDate>Mon, 26 May 2014 23:30:00 -0400</pubDate><guid>tag:drewbo.com,2014-05-26:blog/2014/05/26/data-vis-update/</guid><category>d3</category><category>kenpom</category><category>blog</category><category>college basketball</category></item><item><title>NikePlus Elevation Tracker</title><link>http://drewbo.com/blog/2014/05/12/nike-plus-elevation/</link><description>&lt;p&gt;I'm taking a quick break from my KenPom data visualization work this week (though I have made some updates; work in progress on the &lt;a class="reference external" href="../../../../../pages/projects.html"&gt;projects&lt;/a&gt; page) to talk about
+another project I've been working on. I'm an avid runner and have an upcoming race where I'm a little worried about the elevation changes so I thought bringing in
+some programming could help.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;a class="reference external" href="https://secure-nikeplus.nike.com/plus/"&gt;NikePlus&lt;/a&gt; app that I use to track my runs does show changes in pace and elevation (see chart below) but it doesn't give you any idea of the total change in
+elevation for the whole run. Most people do &amp;quot;point-to-point&amp;quot; runs so the net change is zero but there is still a big difference between 100 feet up then down
+and 1,000 feet up then down over the course of a run.&lt;/p&gt;
+&lt;img alt="NikePlus Pace and Elevation Chart" class="align-center" src="/images/NikePlus-1-20-2013.png" style="width: 800px; height: 90px;" /&gt;
+&lt;p&gt;So, I decided to figure out how to calculate this on my own. I first used the &lt;a class="reference external" href="https://mattstuehler.com/lab/NikePlus/"&gt;this site&lt;/a&gt; by Matt Stuehler to export my data from NikePlus as .gpx files. Then I wrote
+a small function in R to sum all of the changes in elevation throughout the whole run &lt;a class="footnote-reference" href="#id2" id="id1"&gt;[1]&lt;/a&gt; . I'd like to eventually convert this to a standalone Python executable but for
+now, here's the code.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;elevationstats &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;month&lt;span class="p"&gt;,&lt;/span&gt;day&lt;span class="p"&gt;,&lt;/span&gt;res&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+
+&lt;span class="c1"&gt;## get the file and turn it into a numeric vector&lt;/span&gt;
+
+setwd&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;[folder where the file is]&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+filename &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; paste&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;[username]_[year]_&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;month&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;_&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;day&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;.gpx&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;sep&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+fullfile &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; read.csv&lt;span class="p"&gt;(&lt;/span&gt;filename&lt;span class="p"&gt;,&lt;/span&gt;header&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;FALSE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+r &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; gregexpr&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&amp;lt;ele&amp;gt;.*?&amp;lt;/ele&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;as.character&lt;span class="p"&gt;(&lt;/span&gt;fullfile&lt;span class="p"&gt;[[&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]]))&lt;/span&gt;
+x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; regmatches&lt;span class="p"&gt;(&lt;/span&gt;as.character&lt;span class="p"&gt;(&lt;/span&gt;fullfile&lt;span class="p"&gt;[[&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]]),&lt;/span&gt;r&lt;span class="p"&gt;)&lt;/span&gt;
+elevation_list &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; as.numeric&lt;span class="p"&gt;(&lt;/span&gt;gsub&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&amp;lt;ele&amp;gt;|&amp;lt;/ele&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;x&lt;span class="p"&gt;[[&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]]))&lt;/span&gt;
+
+&lt;span class="c1"&gt;## change resolution&lt;/span&gt;
+new_ele &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; elevation_list&lt;span class="p"&gt;[&lt;/span&gt;c&lt;span class="p"&gt;(&lt;/span&gt;rep&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;FALSE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;res&lt;span class="m"&gt;-1&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="kc"&gt;TRUE&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
+
+&lt;span class="c1"&gt;## calculate the total elevation gain and loss&lt;/span&gt;
+
+total_gain &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; sum&lt;span class="p"&gt;(&lt;/span&gt;diff&lt;span class="p"&gt;(&lt;/span&gt;new_ele&lt;span class="p"&gt;)[&lt;/span&gt;diff&lt;span class="p"&gt;(&lt;/span&gt;new_ele&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+total_loss &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; sum&lt;span class="p"&gt;(&lt;/span&gt;diff&lt;span class="p"&gt;(&lt;/span&gt;new_ele&lt;span class="p"&gt;)[&lt;/span&gt;diff&lt;span class="p"&gt;(&lt;/span&gt;new_ele&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+
+c&lt;span class="p"&gt;(&lt;/span&gt;total_gain&lt;span class="p"&gt;,&lt;/span&gt;total_loss&lt;span class="p"&gt;,&lt;/span&gt;length&lt;span class="p"&gt;(&lt;/span&gt;new_ele&lt;span class="p"&gt;))&lt;/span&gt;
+
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Here's what that code does:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Opens the specified file and pulls out the relevant data using some regular expressions.&lt;/li&gt;
+&lt;li&gt;Sets the &amp;quot;resolution&amp;quot; (you might not want to use every point if you think measuring elevation differences every ~10 feet is too much detail)&lt;/li&gt;
+&lt;li&gt;Calculates the total elevation gain and loss by summing up the differences between each point. It uses two variables to keep track of positive and negative differences separately.&lt;/li&gt;
+&lt;li&gt;Outputs the total elevation gain, total elevation loss, and number of GPS points used to the R console.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I ran this code on the run pictured above with resolution = 1 (a GPS point every ~10.9 feet over 9 miles) and got the results:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="m"&gt;381&lt;/span&gt; meters up&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;349&lt;/span&gt; meters down&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;4377&lt;/span&gt; points&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Running it again with resolution = 10 (a GPS points every ~109 feet) gave:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="m"&gt;295&lt;/span&gt; meters up&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;262&lt;/span&gt; meters down&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;437&lt;/span&gt; points&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The truth is probably somewhere in between, especially given the variability of GPS data.&lt;/p&gt;
+&lt;p&gt;If you're a runner who uses NikePlus and is proficient in R, let me know if this is helpful. Hopefully I can put out a more user-friendly version
+in the next few weeks. Happy Trails!&lt;/p&gt;
+&lt;div class="separator container"&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br /&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;table class="docutils footnote" frame="void" id="id2" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id1"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;I'm just now realizing how incredibly similar this is to my KenPom drama metric. My roommate said that he realized this all along when I was talking about it and I'm an idiot.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Drew Bollinger</dc:creator><pubDate>Mon, 12 May 2014 23:30:00 -0400</pubDate><guid>tag:drewbo.com,2014-05-12:blog/2014/05/12/nike-plus-elevation/</guid><category>r</category><category>blog</category><category>nikeplus</category><category>running</category></item><item><title>Baby's First Data Visualization</title><link>http://drewbo.com/blog/2014/05/05/first-data-vis/</link><description>&lt;p&gt;Though I've put up a few smaller exercises before, I finally have a draft version of the first full data visualization that I've done the majority of the work on &lt;a class="footnote-reference" href="#id2" id="id1"&gt;[1]&lt;/a&gt;.
+It's based on a metric I &lt;a class="reference external" href="http://drewbo.com/blog/2014/04/28/kenpom-drama/"&gt;created last week&lt;/a&gt; using &lt;a class="reference external" href="http://kenpom.com/"&gt;kenpom&lt;/a&gt; data.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;It's not especially pretty or user friendly yet but, in the broadest sense of the word, it works. Check it out at the &lt;a class="reference external" href="../../../../../pages/kpvis.html"&gt;direct link&lt;/a&gt; or on the &lt;a class="reference external" href="../../../../../pages/projects.html"&gt;project page&lt;/a&gt; and let me know what you think.&lt;/p&gt;
+&lt;p&gt;Here's an short explanation of the axes since the project page is still light on info:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;x-axis: perDrama, a measure of game excitement described in &lt;a class="reference external" href="http://drewbo.com/blog/2014/04/28/kenpom-drama/"&gt;my earlier post&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;y-axis: combined eFG%, based on Dean Oliver’s four factors concept described &lt;a class="reference external" href="http://kenpom.com/blog/index.php/weblog/four_factors/"&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Circle radius is based on &amp;quot;Hype&amp;quot;, the scaled harmonic mean of kenpom ratings entering the game with an added &amp;quot;penalty&amp;quot; for the lower ranked team. The exact formula (where ranking equals the 351 - the kenpom ranking) looks like:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$ max( \left (\frac{2* rating_{1} * rating_{2} }{rating_{1} + rating_{2}}  \right ) - (351 - min(rating_{1},rating_{2})) - 200, 1) $$&lt;/p&gt;
+&lt;p&gt;Missing features/bugs:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;span class="strike"&gt;Can't select multiple teams/conferences&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class="strike"&gt;Selections options don't update dynamically (which allows for lots of null selections if you aren't as familiar with college basketball) and&lt;/span&gt; teams are poorly organized&lt;/li&gt;
+&lt;li&gt;&lt;span class="strike"&gt;No colors to distinguish conferences or teams&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class="strike"&gt;No legend, title, or sufficient explanations&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;A little slow (we'll find out soon if it's the ~5500 data points or my non-elegant code)&lt;/li&gt;
+&lt;li&gt;Needs additional formatting&lt;/li&gt;
+&lt;li&gt;...?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Next week I'll share an updated version as well as some of the interesting basketball narratives that you can confirm/debunk using it.&lt;/p&gt;
+&lt;div class="separator container"&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br /&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;table class="docutils footnote" frame="void" id="id2" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id1"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;I'll also give a lot of credit to my co-workers Ross and Ilan for talking the idea over with me, as well as Mike Bostock, Scott Murray, Steve Hall, and Justin Palmer for their libraries, tutorials, and code examples.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;script type= "text/javascript"&gt;
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+                ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+                : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+&lt;/script&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Drew Bollinger</dc:creator><pubDate>Mon, 05 May 2014 23:30:00 -0400</pubDate><guid>tag:drewbo.com,2014-05-05:blog/2014/05/05/first-data-vis/</guid><category>d3</category><category>kenpom</category><category>blog</category><category>college basketball</category></item><item><title>Adding Codepen</title><link>http://drewbo.com/blog/2014/05/01/adding-codpen/</link><description>&lt;p&gt;This week, I've been spending my free time trying to read everything that &lt;a class="reference external" href="http://bost.ocks.org/mike/"&gt;Mike Bostock&lt;/a&gt;, creator of the JavaScript visualization library &lt;a class="reference external" href="http://d3js.org/"&gt;D3.js&lt;/a&gt;, has ever written.
+
+I have a handful of trinkets/experiments that I'm hosting on &lt;a class="reference external" href="http://codepen.io/"&gt;CodePen&lt;/a&gt; while I try to get a handle on the library. I've added a link to the footer of my site in case you're interested in checking out what I'm working on. My &lt;a class="reference external" href="http://codepen.io/drewbo/full/BCmof/"&gt;current project&lt;/a&gt; is an extension of my last blog post and involves creating a new visualization (for me at least) for Ken Pomeroy's college basketball data.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Drew Bollinger</dc:creator><pubDate>Thu, 01 May 2014 20:15:00 -0400</pubDate><guid>tag:drewbo.com,2014-05-01:blog/2014/05/01/adding-codpen/</guid><category>blog</category><category>codepen</category><category>d3</category></item><item><title>New KenPom Metric</title><link>http://drewbo.com/blog/2014/04/28/kenpom-drama/</link><description>&lt;p&gt;In the process of writing an article about March Madness ticket prices (coming soon), I ended up on &lt;a class="reference external" href="http://kenpom.com/"&gt;kenpom.com&lt;/a&gt;, an absolutely fantastic site
+for college basketball analysis. The rankings and associated metrics produced by the site's namesake, Ken Pomeroy, have become nearly industry standard for coaches and fans alike.
+Note that parts of the site are behind a paywall but if you have even the slightest overlaping interesting in college basketball and statistics,
+it's definitely worth the subscription fee of $19.99.&lt;/p&gt;
+&lt;p&gt;The whole site is worth a look but I'd like to focus on one particular statistic here:  win probability.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;div class="section" id="win-probability"&gt;
+&lt;h2&gt;Win Probability&lt;/h2&gt;
+&lt;p&gt;Win Probability, or Win Expectancy, is a way of answering the question, &amp;quot;Given the current game state, what are the chances a selected team wins the game?&amp;quot; To figure this out, we look back at
+previous games to find similar situations (score differential, time remaining, etc.) and see how many times those games ended in a given result. For instance, if a team was leading by 20 at halftime
+in a college basketball game, they end up winning about 94% of the time.&lt;/p&gt;
+&lt;p&gt;This can be applied to all sports: &lt;a class="reference external" href="http://www.fangraphs.com/library/misc/we/"&gt;Fangraphs&lt;/a&gt; has a nice primer on the idea in the context of baseball that's worth a read. For college basketball, &lt;a class="reference external" href="http://kenpom.com/blog/index.php/weblog/entry/win_probability_for_grown_ups"&gt;Ken Pomeroy has created a model&lt;/a&gt; based on
+historical data and his own ratings to &lt;a class="reference external" href="http://kenpom.com/blog/index.php/weblog/entry/win_probability_for_every_college_game"&gt;create win probability graphs for each game&lt;/a&gt;. I used &lt;a class="reference external" href="http://www.highcharts.com/"&gt;Highcharts.js&lt;/a&gt; to reproduce one of these graphs below:&lt;/p&gt;
+&lt;div class="container" id="container"&gt;
+Script failed to load&lt;/div&gt;
+&lt;p&gt;The game was 30-27 at halftime and Michigan slowly pulled away before it got a bit close in the waning minutes. Given that Stanford had a shot to tie at the end, it seems like these probabilities may be overstated but
+I'll include KenPom's word of caution from the post linked above here:&lt;/p&gt;
+&lt;blockquote&gt;
+A note of caution when using probabilities: It’s worth mentioning that 90% doesn’t mean 100%. A team with a true 90% win probability is in a great position, but they will
+lose 10% of the time. In addition, these are win probabilities, not chance-of-game-getting-interesting probabilities. If this system is calibrated, a team with a 90% chance
+of winning will lose 10% of the time, but the game will become interesting significantly more often than that. The 90% team will even trail in more than 10% of the
+cases, because all this method cares about is the end result. (End of note of caution.)&lt;/blockquote&gt;
+&lt;p&gt;Note that the graphs on KenPom's site also show the game score and introduce the concept of leverage (how important each possession is) but I don't want to liberate everything from behind the paywall.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="game-drama"&gt;
+&lt;h2&gt;Game Drama&lt;/h2&gt;
+&lt;p&gt;While Win Probability (WP) is a great way to quantify current game state, I wanted to expand it into something which described the game as a whole.
+As such, I'd like to introduce the concept of &amp;quot;game drama&amp;quot;. The goal of this statistic is to quantify how &amp;quot;crazy&amp;quot; the game was as measured in changes to WP.
+I'm probably not the first to experiment with this idea but I'm going to try some new things to refine it a bit.&lt;/p&gt;
+&lt;p&gt;The basic concept is to sum up the total vertical movement of the WP graph. As a fan, you experience each of these swings as stress or excitment in realizing your
+team is either further or closer to winning. In R, it looks like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sum&lt;span class="p"&gt;(&lt;/span&gt;abs&lt;span class="p"&gt;(&lt;/span&gt;diff&lt;span class="p"&gt;(&lt;/span&gt;yvalues&lt;span class="p"&gt;)))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In my data, I refer to this as 'totalDrama'. I've also divided by possessions to control for longer or shorter games &lt;a class="footnote-reference" href="#id3" id="id1"&gt;[1]&lt;/a&gt;; this shows up as 'perDrama' in the data &lt;a class="footnote-reference" href="#id4" id="id2"&gt;[2]&lt;/a&gt;.
+The game shown above had a Drama score of 4.29 (meaning it's total movement was 4.29 times the height of the graph) and a 3.25% change in WP per possession. For the
+past season, this was 1600th most dramatic game out of the 5477 games with available data.&lt;/p&gt;
+&lt;p&gt;Sorting by totalDrama tends to put longer games on top (not necessarily a flaw if you like long, roller-coaster games). The possession controlled metric attempts to control for this a bit
+but still leaves a lot of OT games on top. You can view this as either (1) a flaw in the metric or (2) an accurate reflection of the fact that lots of drama goes into forcing overtime and
+especially remaining tied through multiple overtimes.&lt;/p&gt;
+&lt;p&gt;The two extensions of the metric I'd like to explore in the future:&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;Is there a way to &amp;quot;penalize&amp;quot; games with lots of fouls at the end? It does keep the game closer (and potentially lead to game-winning shots later on) but the drama tends to let down during free-throws.&lt;/li&gt;
+&lt;li&gt;Which individual possession had the biggest WP impact? They will all likely be buzzer beaters but which was the most unlikely?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;I'll get to those at some point in the future but without further ado, here's the link to the &lt;a class="reference external" href="../../../../../pages/projects.html"&gt;project page&lt;/a&gt; which contains all of last year's drama scores.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="selected-games"&gt;
+&lt;h2&gt;Selected Games&lt;/h2&gt;
+&lt;p&gt;This whole concept is non-predictive and mostly offers a retroactive look at which games were the most dramatic over a given season. As such, I've selected a few games
+to display just to gut check the statistic. Even if some of them look like they are being played in high school gyms, it's hard to deny that the following games didn't
+get the blood pressure up.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Top 5 Most Dramatic College Basketball Games of 2014 (on a per possession basis)&lt;/strong&gt;&lt;/p&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="70%" /&gt;
+&lt;col width="5%" /&gt;
+&lt;col width="14%" /&gt;
+&lt;col width="11%" /&gt;
+&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;Game&lt;/td&gt;
+&lt;td&gt;Pos.&lt;/td&gt;
+&lt;td&gt;totalDrama&lt;/td&gt;
+&lt;td&gt;perDrama&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a class="reference external" href="https://www.youtube.com/watch?v=VUplP4vx8Es"&gt;Arkansas St. 116 Arkansas Little Rock 114&lt;/a&gt;  (4OT)&lt;/td&gt;
+&lt;td&gt;96&lt;/td&gt;
+&lt;td&gt;14.02&lt;/td&gt;
+&lt;td&gt;7.46%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a class="reference external" href="https://www.youtube.com/watch?v=IzCt3gSCu4U"&gt;Purdue 77 Minnesota 74&lt;/a&gt;  (3OT)&lt;/td&gt;
+&lt;td&gt;77&lt;/td&gt;
+&lt;td&gt;10.84&lt;/td&gt;
+&lt;td&gt;7.09%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a class="reference external" href="https://www.youtube.com/watch?v=jtIT8BtxNnQ"&gt;Iowa St. 98 Oklahoma St. 97&lt;/a&gt;  (3OT)&lt;/td&gt;
+&lt;td&gt;90&lt;/td&gt;
+&lt;td&gt;12.52&lt;/td&gt;
+&lt;td&gt;6.77%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a class="reference external" href="http://www.standard.net/stories/2014/02/01/oh-my-weber-state-loses-sac-state-after-unbelievable-finish"&gt;Sacramento St. 78 Weber St. 75&lt;/a&gt;  (OT)&lt;/td&gt;
+&lt;td&gt;70&lt;/td&gt;
+&lt;td&gt;9.20&lt;/td&gt;
+&lt;td&gt;6.57%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a class="reference external" href="https://www.youtube.com/watch?v=a_ZeJ715obo"&gt;Portland St. 81  Montana 78&lt;/a&gt; (3OT)&lt;/td&gt;
+&lt;td&gt;77&lt;/td&gt;
+&lt;td&gt;10.18&lt;/td&gt;
+&lt;td&gt;6.57%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The Arkansas St./Arkansas Little Rock game is insanely far away from the pack in totalDrama. As mentioned above, it gets some benefit for going to extra overtimes
+even when controlling for possessions. I've included links to all the highlights; I'd especially recommend the Sacramento St. game as it features a pretty ridiculous combination of
+late game shots (turn your headphones/speakers down first).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Top 5 Least Dramatic College Basketball Games of 2014 (on a per possession basis)&lt;/strong&gt;&lt;/p&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="69%" /&gt;
+&lt;col width="6%" /&gt;
+&lt;col width="14%" /&gt;
+&lt;col width="11%" /&gt;
+&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;Game&lt;/td&gt;
+&lt;td&gt;Pos.&lt;/td&gt;
+&lt;td&gt;totalDrama&lt;/td&gt;
+&lt;td&gt;perDrama&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Pittsburgh 84 Howard 52&lt;/td&gt;
+&lt;td&gt;62&lt;/td&gt;
+&lt;td&gt;0.0189&lt;/td&gt;
+&lt;td&gt;0.015%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Iowa 109 Maryland Eastern Shore 63&lt;/td&gt;
+&lt;td&gt;82&lt;/td&gt;
+&lt;td&gt;0.0220&lt;/td&gt;
+&lt;td&gt;0.013%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;San Diego St. 76 Southern Utah 39&lt;/td&gt;
+&lt;td&gt;63&lt;/td&gt;
+&lt;td&gt;0.0137&lt;/td&gt;
+&lt;td&gt;0.011%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Louisville 99 Cornell 54&lt;/td&gt;
+&lt;td&gt;76&lt;/td&gt;
+&lt;td&gt;0.0162&lt;/td&gt;
+&lt;td&gt;0.010%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Iowa 86 Arkansas Pine Bluff 61&lt;/td&gt;
+&lt;td&gt;76&lt;/td&gt;
+&lt;td&gt;0.0155&lt;/td&gt;
+&lt;td&gt;0.010%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The teams that won these games were heavily favored going in and never relented. Thus, the WP line never moved very far off one edge of the graph.
+So unless you were looking forward to a blowout, I apologize to anyone who had to watch one of these games (I didn't even include links for them). Good for Iowa for blowing away two overmatched opponents I guess?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Top 3 Most Dramatic March Madness Games of 2014 (on a per possession basis)&lt;/strong&gt;&lt;/p&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="69%" /&gt;
+&lt;col width="6%" /&gt;
+&lt;col width="14%" /&gt;
+&lt;col width="11%" /&gt;
+&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;Game&lt;/td&gt;
+&lt;td&gt;Pos.&lt;/td&gt;
+&lt;td&gt;totalDrama&lt;/td&gt;
+&lt;td&gt;perDrama&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Wisconsin 64 Arizona 63  (OT)&lt;/td&gt;
+&lt;td&gt;61&lt;/td&gt;
+&lt;td&gt;7.40&lt;/td&gt;
+&lt;td&gt;5.92%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;North Dakota St. 80 Oklahoma 75  (OT)&lt;/td&gt;
+&lt;td&gt;72&lt;/td&gt;
+&lt;td&gt;7.92&lt;/td&gt;
+&lt;td&gt;5.46%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Dayton 55 Syracuse 53&lt;/td&gt;
+&lt;td&gt;58&lt;/td&gt;
+&lt;td&gt;6.40&lt;/td&gt;
+&lt;td&gt;5.37%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Having watched a good deal of tournament games, I was surprised how low these were rated compared to the top games above. For one, the statistic doesn't take into
+account the stakes of the game, so it's hard to recreate the &amp;quot;win-or-go-home&amp;quot; feel in mathmatical form. But another thing it illustrates is that &amp;quot;dramatic&amp;quot; games
+don't necessarily imply good basketball. The Dayton/Syracuse game was a low-possession but also low scoring game that was pretty difficult to watch. However, it
+did stay relatively close throughout and come down to the wire, in the process experiencing a lot of swings in Win Probability.&lt;/p&gt;
+&lt;p&gt;Let me know if you've noticed anything else yourself or have suggestions about the metric. Here's another data link to the &lt;a class="reference external" href="../../../../../pages/projects.html"&gt;project page&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="separator container"&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br /&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;table class="docutils footnote" frame="void" id="id3" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id1"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Controlling for number of possession is a hallmark of KenPom metrics.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id4" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id2"&gt;[2]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;This is technically the totalDrama divided by number of points in the Win Probability graph which is very close to, or in some cases exactly equal to, possessions * 2.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Drew Bollinger</dc:creator><pubDate>Mon, 28 Apr 2014 22:30:00 -0400</pubDate><guid>tag:drewbo.com,2014-04-28:blog/2014/04/28/kenpom-drama/</guid><category>blog</category><category>r</category><category>college basketball</category><category>kenpom</category></item><item><title>Benford's Law</title><link>http://drewbo.com/blog/2014/04/21/benfords-law/</link><description>&lt;p&gt;The last thing the internet needs is one more demonstration of &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Benford's_law"&gt;Benford's Law&lt;/a&gt; but I'm going to do it anyway for three reasons:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;it's a good way to experiment with the formatting of the site &lt;a class="footnote-reference" href="#id4" id="id2"&gt;[1]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;it's a fairly simple concept that is still a little non-intuitive&lt;/li&gt;
+&lt;li&gt;it's a good demonstration of how more local governments are making their financial data publicly available&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Tons of credit for this idea goes to my old college friend, &lt;a class="reference external" href="http://aaronoellis.com/articles/benfords-law-and-the-denver-city-checkbook"&gt;Aaron&lt;/a&gt;, who did a very similar analysis over on his website.&lt;/p&gt;
+&lt;div class="section" id="a-short-explanation"&gt;
+&lt;h2&gt;A Short Explanation&lt;/h2&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;From Wikipedia:&lt;/dt&gt;
+&lt;dd&gt;&lt;p class="first"&gt;Benford's Law, also called the First-Digit Law, refers to the frequency distribution of digits in many (but not all) real-life sources of data.
+In this distribution, the number 1 occurs as the leading digit about 30% of the time, while larger numbers occur in that position less frequently:
+9 as the first digit less than 5% of the time.&lt;/p&gt;
+&lt;p&gt;...&lt;/p&gt;
+&lt;p class="last"&gt;This result has been found to apply to a wide variety of data sets, including electricity bills, street addresses, stock prices, population numbers,
+death rates, lengths of rivers, physical and mathematical constants, and processes described by power laws (which are very common in nature).
+It tends to be most accurate when values are distributed across multiple orders of magnitude.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;I'd recommend reading the whole article as it also does a good job of explaining a few different ways to understand how this distribution arises.
+Specifically, this is the expected distribution of first digits:&lt;/p&gt;
+&lt;table border="1" class="center docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="55%" /&gt;
+&lt;col width="45%" /&gt;
+&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;First Digit&lt;/td&gt;
+&lt;td&gt;Frequency&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;30.1%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;17.6%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;12.5%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;9.7%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;7.9%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;6&lt;/td&gt;
+&lt;td&gt;6.7%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;7&lt;/td&gt;
+&lt;td&gt;5.8%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;5.1%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;9&lt;/td&gt;
+&lt;td&gt;4.6%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Now let's look for some data to test this on.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="the-springfield-massachusetts-open-checkbook"&gt;
+&lt;h2&gt;The Springfield Massachusetts Open Checkbook&lt;/h2&gt;
+&lt;p&gt;For my &amp;quot;real-life source of data&amp;quot;, I searched for open city checkbooks on Google because a large source of financial transaction data should
+demonstrate Benford's Law really well and I was secretly hoping to expose some fraud (more on this shortly). The easiest to download option on the front page was
+for &lt;a class="reference external" href="http://www3.springfield-ma.gov/finance/opencheckbook.html"&gt;Springfield, Massachusetts&lt;/a&gt;. I would have liked to use DC but I couldn't find their information publicly available.&lt;/p&gt;
+&lt;p&gt;What's cool about Benford's Law is that it can be used to identify fraudulent activity given large volumes of transaction data.
+Humans tend to make up numbers that are distributed uniformly which would very obviously not match the distribution seen above.
+But the conundrum, at least for trying to uncover fraud via the internet, is this: any city treasurer commiting fraud probably isn't making the records publicly available
+and vice versa. So until I get subpoena power, this analysis will be a confirmation of the statistics rathern than uncovering any devious activities.&lt;/p&gt;
+&lt;p&gt;The downloaded data has 41,279 transactions totalling $294.3MM as of April 21st, 2014 (Their fiscal year appears to begin in July).
+If you're interested in city expenditures, the data is pretty detailed but I was really only after the transactions amounts.
+After a little bit of data cleaning, I wrote a quick R script to pull out the first digit from all the transactions:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;benford &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;transaction_vector&lt;span class="p"&gt;){&lt;/span&gt;
+    textv &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; as.character&lt;span class="p"&gt;(&lt;/span&gt;transaction_vector&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="m"&gt;100&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    digit_vector &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; sapply&lt;span class="p"&gt;(&lt;/span&gt;textv&lt;span class="p"&gt;,&lt;/span&gt; substr&lt;span class="p"&gt;,&lt;/span&gt; start &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; stop &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; USE.NAMES &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;FALSE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    as.numeric&lt;span class="p"&gt;(&lt;/span&gt;digit_vector&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Comparing the frequency from our data to the expected distribution:&lt;/p&gt;
+&lt;table border="1" class="center docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="42%" /&gt;
+&lt;col width="35%" /&gt;
+&lt;col width="23%" /&gt;
+&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;First Digit&lt;/td&gt;
+&lt;td&gt;Expected&lt;/td&gt;
+&lt;td&gt;Actual&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;30.1%&lt;/td&gt;
+&lt;td&gt;29.8%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;17.6%&lt;/td&gt;
+&lt;td&gt;18.3%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;12.5%&lt;/td&gt;
+&lt;td&gt;10.8%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;9.7%&lt;/td&gt;
+&lt;td&gt;8.5%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;7.9%&lt;/td&gt;
+&lt;td&gt;7.9%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;6&lt;/td&gt;
+&lt;td&gt;6.7%&lt;/td&gt;
+&lt;td&gt;7.3%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;7&lt;/td&gt;
+&lt;td&gt;5.8%&lt;/td&gt;
+&lt;td&gt;6.3%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;5.1%&lt;/td&gt;
+&lt;td&gt;5.2%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;9&lt;/td&gt;
+&lt;td&gt;4.6%&lt;/td&gt;
+&lt;td&gt;5.9%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Looks like a pretty close match, though if I we're actually auditing them, I'd want additional information to explain why 9 is so common  as
+a first digit in their transaction list. &lt;a class="footnote-reference" href="#id5" id="id3"&gt;[2]&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Next let's try out the excellent tool &lt;a class="reference external" href="https://github.com/Quartz/Chartbuilder/"&gt;Chartbuilder&lt;/a&gt; to plot the frequency of first digits against expected distribution from above:&lt;/p&gt;
+&lt;img alt="Benfords-Law-Example-1" class="align-center" src="/images/Benfords-Law-Example-1.png" style="width: 600px; height: 338px;" /&gt;
+&lt;p&gt;Cool. Chartbuilder isn't meant to be a super powerful plotting tool but it does make it easy to create great looking charts really quickly, hence its use
+in a lot of digital newsrooms (NRP, WSJ, 538, etc.).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="scale-invariance"&gt;
+&lt;h2&gt;Scale Invariance&lt;/h2&gt;
+&lt;p&gt;I wanted to extend the demonstration just slightly to show an additional feature of the distribution:
+it should be &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Benford's_law#Scale_invariance"&gt;scale invariant&lt;/a&gt; so we can multiply our whole transaction list by any number and the law should still hold (this also means that Benford's Law will
+hold even if you measure your target variable in another scale; think switching from dollars to euro or feet to meters).&lt;/p&gt;
+&lt;p&gt;Let's run through an example first and then I'll reveal the visualization. Using the case where the constant is 2, think about what happens to all of our original
+numbers: things that start with 1 (30.1%) will now start with 2 or 3, things that start with 2 become 4 or 5, and so on. We look to the expected
+distributions above and see that numbers starting with 5 through 9 should make up (7.9% + 6.7% + 5.8% + 5.1% + 4.6%) = 30.1% of the first digits and these are
+all the numbers which when multiplied by 2, will now have a first digit of 1. The distribution, at least for ones, matches between the two groups!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="visualization"&gt;
+&lt;h2&gt;Visualization&lt;/h2&gt;
+&lt;p&gt;I refit a very cool visualization technique called &lt;a class="reference external" href="http://www.jasondavies.com/parallel-sets/"&gt;Parallel Sets&lt;/a&gt; from &lt;a class="reference external" href="http://www.jasondavies.com/"&gt;Jason Davies&lt;/a&gt; using the &lt;a class="reference external" href="http://d3js.org/"&gt;D3.js&lt;/a&gt; library. Let's take a look first then I'll explain below:&lt;/p&gt;
+&lt;div id="vis"&gt;&lt;noscript&gt;Visualization failed to load&lt;/noscript&gt;&lt;/div&gt;&lt;p&gt;Sorry if it's a lot to handle. Things to notice:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Each color/shade represents a different &amp;quot;first digit group&amp;quot; from our original transaction list. You can hover over to see the value if you get lost.&lt;/li&gt;
+&lt;li&gt;Each black bar with a number above it represents the associated first digit frequency for that transformation -- from original at the top to &amp;quot;multiplied by nine&amp;quot; at the bottom. You can hover over the bar/digit to see what portion of the total it represents. Notice that the lengths of these bars are remarkably consistent across the transformations (which is the point of this exercise).&lt;/li&gt;
+&lt;li&gt;Each colored path shows how transaction amounts from the original list move to different &amp;quot;first digit groups&amp;quot; when multiplied by the different constants: In the first row, the 1's go to 2's and 3's, the 2's go to 4's and 5's and so on (as mentioned in the example before).&lt;/li&gt;
+&lt;li&gt;All of the rows can be sorted by &amp;quot;numeric&amp;quot; and &amp;quot;size&amp;quot;: there is at least one use to this (let me know if you find more) but it is more a relic of the original visulation. The one thing I would recommend is sorting the first row by reverse numeric (&amp;quot;&amp;lt;&amp;lt; numeric&amp;quot;) and you can really clearly see how the 5's-9's from the original group end up as 1's when multiplied by 2 (and in the same proportion).&lt;/li&gt;
+&lt;li&gt;The data is a little jumbled towards the end, that's just an artifact of a bad sorting attempt by me. Sorry.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So, that's Benford's Law and my first real post, hope you enjoyed it!&lt;/p&gt;
+&lt;div class="separator container"&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br /&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;table class="docutils footnote" frame="void" id="id4" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id2"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;See if you can keep track of how many times I use not entirely necessary formatting during this post for testing reasons...this is one.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id5" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id3"&gt;[2]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;While previewing this document, the aforementioned Aaron brought up a good point: deviations from the expected distribution can happen if the data source is signficantly influenced by human behaviors. In the instance of 9's, people may have a natural aversion to going to the next order of magnitude and set prices for things at $0.99 or $9.99, raising the observed distribution for that digit.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;script type= "text/javascript"&gt;
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+                ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+                : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+&lt;/script&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Drew Bollinger</dc:creator><pubDate>Mon, 21 Apr 2014 21:00:00 -0400</pubDate><guid>tag:drewbo.com,2014-04-21:blog/2014/04/21/benfords-law/</guid><category>blog</category><category>r</category><category>chartbuilder</category><category>d3</category></item><item><title>New Website</title><link>http://drewbo.com/blog/2014/04/14/new-website/</link><description>&lt;dl class="docutils"&gt;
+&lt;dt&gt;I'm going to start writing this new website using &lt;a class="reference external" href="http://docs.getpelican.com/en/3.3.0/"&gt;Pelican&lt;/a&gt;, which uses &lt;a class="reference external" href="http://www.python.org/"&gt;Python&lt;/a&gt; to generate static websites from &lt;a class="reference external" href="http://docutils.sourceforge.net/rst.html"&gt;reStructuredText&lt;/a&gt;. The &lt;a class="reference external" href="https://github.com/fjavieralba/flasky"&gt;theme&lt;/a&gt; is borrowed from &lt;a class="reference external" href="http://fjavieralba.com/"&gt;fjavieralba&lt;/a&gt; which I will continue to customize to suit my needs as necessary. New content coming soon (when I figure out how to use all of this).&lt;/dt&gt;
+&lt;dd&gt;-Drew&lt;/dd&gt;
+&lt;/dl&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Drew Bollinger</dc:creator><pubDate>Mon, 14 Apr 2014 21:00:00 -0400</pubDate><guid>tag:drewbo.com,2014-04-14:blog/2014/04/14/new-website/</guid><category>blog</category><category>python</category><category>pelican</category></item></channel></rss>

@@ -16,7 +16,4 @@ I'm constantly updating the look of this site but it is based on a theme_ from f
 
 The base font is `Source Sans Pro`_ made available via the `SIL Open Font License`_.
 
-You can view the `development of my theme` on my GitHub profile.
-
-
-
+You can view the `development of my theme`_ on my GitHub profile.

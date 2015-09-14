@@ -1,6 +1,18 @@
-﻿/* general style */
-body    {font-family:'Source Sans Pro',sans-serif;font-size:16px;line-height:1.42857143;
-          margin: 0; padding: 0; }
+@font-face {
+  font-family: Bitter;
+  src: url("../font/Bitter-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Bitter;
+  font-weight: bold;
+  src: url("../font/Bitter-Bold.otf") format("opentype");
+}﻿
+
+
+/* general style */
+body, html    {font-family:'Roboto Slab',sans-serif;font-size:16px;line-height:1.42857143;
+          margin: 0; padding: 0; font-weight: 300;}
 a       { color: #234764; }
 a:hover { color: #6582BD; }
 a.footnote-reference {font-size: .75em; vertical-align: top;}
@@ -8,7 +20,7 @@ a.title { color: #006BB2; font-weight: 600;}
 
 
 /* headlines */
-h1, h2, h3, h4, h5, h6      { font-family:'Source Sans Pro',sans-serif;
+h1, h2, h3, h4, h5, h6      { font-family:'Bitter',sans-serif;
                               font-weight: normal; color: #222;  }
 h1 a, h2 a, h3 a, h4 a,
 h5 a, h6 a                  { text-decoration: none; }
@@ -26,10 +38,10 @@ h2                          { font-size: 36px; line-height: 40px; }
 
 /* layout elements */
 div.container               { max-width: 800px; margin: 48px auto; padding: 0; }
-div.header                  { float: left; }
-div.navigation              { float: right; }
-div.header a, div.navigation a	{ text-decoration: none; 
-				  font-size: 22px; 
+div.header                  { float: left; font-family: 'Bitter'; }
+div.navigation              { float: right; font-family: 'Bitter'; }
+div.header a, div.navigation a	{ text-decoration: none;
+				  font-size: 22px;
 				  padding: 10px;
 				}
 
@@ -134,9 +146,9 @@ div.blog-epilogue a         {text-decoration: none;
                              padding-left: 30px; padding-right: 30px;}
 
 /* about img */
-img.align-left { 
-    float: left; 
-    margin: 20px; 
+img.align-left {
+    float: left;
+    margin: 20px;
 }
 
 img.align-center {
@@ -177,4 +189,3 @@ img.align-center {
   -webkit-border-top-right-radius: 10px !important;
   font-size: 0.85em !important;
 }
-

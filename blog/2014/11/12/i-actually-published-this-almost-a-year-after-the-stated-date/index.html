@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <title>drewbo.com</title>
+        <meta charset="utf-8" />
+
+
+
+    <meta name="tags" contents="blog" />
+    <meta name="tags" contents="football" />
+    <meta name="tags" contents="failure" />
+
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="../../../../../">drewbo.com <strong></strong></a></h1>
+        </header><!-- /#banner -->
+        <nav id="menu"><ul>
+            <li><a href="../../../../../pages/about-me.html">About Me</a></li>
+            <li><a href="../../../../../pages/projects.html">Projects</a></li>
+            <li><a href="../../../../../pages/theme-info.html">Theme Info</a></li>
+        </ul></nav><!-- /#menu -->
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="../../../../../blog/2014/11/12/i-actually-published-this-almost-a-year-after-the-stated-date/" rel="bookmark"
+         title="Permalink to Moon Problems">Moon Problems</a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <abbr class="published" title="2014-11-12T20:15:00">
+      11 12 2014
+    </abbr>
+    <address class="vcard author">
+      By           <a class="url fn" href="../../../../../author/drew-bollinger.html">Drew Bollinger</a>
+    </address>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <p>This past weekend, I updated the blog for the <a class="reference external" href="http://drewbo.com/blog/2014/11/08/more-hotels-and-traveling/">first time in a while</a>. I do web development now at work, and while I'm still inexperienced, it was pretty jarring to return to my site and see how inefficiently I had set up the workflow for updating it.</p>
+<p>!END-SUMMARY!</p>
+<img alt="There are probably children out there holding down spacebar to stay warm in the winter! YOUR UPDATE MURDERS CHILDREN." class="align-center" src="/images/workflow.png" style="width: 278px; height: 386px;" />
+<p class="center">from <a class="reference external" href="http://xkcd.com/1172/*">http://xkcd.com/1172/*</a></p>
+<p>### The Set-Up</p>
+<p>My old workflow involved two separate repositories: one for the content, plug-ins, configuration files for building the site (I use <a class="reference external" href="http://docs.getpelican.com/en/3.5.0/">Pelican</a>, and a separate repository for the deployed site. This seemed suboptimal because it meant that I had to maintain two separate repositories and when I wanted to deploy, I had to copy the output folder from one to the other. I <em>really</em> wanted to use the <a class="reference external" href="http://git-scm.com/book/en/v1/Git-Tools-Subtree-Merging">git subtree push</a> command like I do in the office <a class="footnote-reference" href="#id2" id="id1">[1]</a> .</p>
+<p>I thought that this was going to be a short, straight-forward operation: delete the old deployment repository, add a <cite>gh-pages</cite> branch to my old content repo, then the magic command: <cite>git subtree push --prefix output origin gh-pages</cite>.</p>
+<p>I thought wrong.</p>
+<img alt="Movie poster, van burning." class="align-center" src="/images/wrong-motion-poster2.gif" style="width: 600px; height: 324px;" />
+<p class="center">on the left: my website</p>
+<p>Anyway, I did end up getting this all to work but it took about three hours.</p>
+<p>### A Parallel</p>
+<p>At the same time, I was watching the first half of the Michigan-Northwestern football game. Both teams were playing very poorly and because the scored stayed 0-0 for so long, it became known as the 'M00N' game on twitter:</p>
+<img alt="M00N." class="align-center" src="/images/M00N.jpg" style="width: 512px; height: 287px;" />
+<p class="center"><em>via `&#64;MGoShoe`_</em></p>
+<p>When the game finally ended with Trevor Simian, Northwestern's quarterback, falling over on a 2-pt conversion to lose the game, I noticed some remarkable parallels with my current website task: everything was terrible the whole time but eventually the 'good guys' (Me, Michigan) won. I thought about extending this metaphor further but by the time I started this post, I really didn't want to relive any of the game again.</p>
+<p>The real reason I wanted to write after undergoing this 'ordeal' was so that I wouldn't forget how to do all these steps again and maybe help someone else out with similar issues.</p>
+<p>### 5 Things I Learned Last Saturday</p>
+<p>#### 1. User pages serve out of master branch</p>
+<p>I thought all GitHub repositories served off of the <cite>gh-pages</cite> branch. This is <a class="reference external" href="https://help.github.com/articles/user-organization-and-project-pages/#user--organization-pages">not true</a>.</p>
+<p>#### 2. There are multiple ways to deal with unruly subtree pushes</p>
+<p>If everything is going well, the 'standard' <cite>git subtree push --prefix output origin master</cite> command works fine. But sometimes you'll see this:</p>
+<blockquote>
+error: failed to push some refs to <a class="reference external" href="mailto:'git&#64;github.com">'git&#64;github.com</a>:drewbo/drewbo.com.git'
+hint: Updates were rejected because a pushed branch tip is behind its remote
+hint: counterpart. Check out this branch and integrate the remote changes
+hint: (e.g. 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details</blockquote>
+<p>You might not have the &quot;served&quot; branch on your local machine so it's not as simple as just doing <cite>git pull</cite>. My three solutions, in order of how I try them:</p>
+<ol class="arabic">
+<li><p class="first">Magic Command</p>
+<blockquote>
+<p><tt class="docutils literal">git push origin `git subtree split <span class="pre">--prefix</span> build_folder <span class="pre">master`:gh-pages</span> <span class="pre">--force</span></tt></p>
+<p>I don't totally understand this but sometimes it works (h/t <a class="reference external" href="http://stevenclontz.com/blog/2014/05/08/git-subtree-push-for-deployment/">some blog</a>)</p>
+</blockquote>
+</li>
+<li><p class="first">Pull Request</p>
+<blockquote>
+<p>Do the subtree push to a temporary branch and then merge that to master/gh-pages (whatever branch hosts your output files).</p>
+</blockquote>
+</li>
+<li><p class="first">Delete gh-pages/master (remote and locally)</p>
+<blockquote>
+<p>Then rebuild and push.</p>
+</blockquote>
+</li>
+</ol>
+<p>#### 3. DNS changes take time to propagate. Chill</p>
+<ul class="simple">
+<li>Any time you make DNS changes with your domain name, just wait a bit.</li>
+<li>Maybe use the DNS Lookup Utility if you're <a class="reference external" href="http://linux.die.net/man/1/dig">impatient</a></li>
+<li><a class="reference external" href="http://imakewebthings.com/blog/github-pages-email/">Don't screw up your email</a></li>
+</ul>
+<p>#### 4. Git submodules are confusing the first time you try them</p>
+<p>Especially when you put submodules in submodules. <a class="reference external" href="https://chrisjean.com/git-submodules-adding-using-removing-and-updating/">This article</a> was a big help.</p>
+<p>#### 5. Always check <cite>.gitignore</cite></p>
+<p>I was ignoring the <cite>output</cite> folder in <cite>.gitignore</cite> which I seem to do pretty often. This was a boilerplate <cite>.gitignore</cite> from another project and many times you don't want to commit the output but if you're going to do the subtree push, you need it.</p>
+<p>Good luck out there.</p>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Since retired in favor of Continuous Intergration via <a class="reference external" href="https://travis-ci.com/">Travis</a>. My even older deployment workflow involved zipping the output folder so I could more easily upload it to the remote hosting server and then copying it over the prior files. It was a huge pain but I made the move to GitHub hosting back in July.</td></tr>
+</tbody>
+</table>
+
+  </div><!-- /.entry-content -->
+</section>
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+        </footer><!-- /#contentinfo -->
+</body>
+</html>

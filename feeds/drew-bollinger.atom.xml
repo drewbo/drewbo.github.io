@@ -1,33 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>drewbo.com</title><link href="http://drewbo.com/" rel="alternate"></link><link href="http://drewbo.com/feeds/drew-bollinger.atom.xml" rel="self"></link><id>http://drewbo.com/</id><updated>2014-11-12T20:15:00-05:00</updated><entry><title>Moon Problems</title><link href="http://drewbo.com/blog/2014/11/12/i-actually-published-this-almost-a-year-after-the-stated-date/" rel="alternate"></link><updated>2014-11-12T20:15:00-05:00</updated><author><name>Drew Bollinger</name></author><id>tag:drewbo.com,2014-11-12:blog/2014/11/12/i-actually-published-this-almost-a-year-after-the-stated-date/</id><summary type="html">&lt;p&gt;This past weekend, I updated the blog for the &lt;a class="reference external" href="http://drewbo.com/blog/2014/11/08/more-hotels-and-traveling/"&gt;first time in a while&lt;/a&gt;. I do web development now at work, and while I'm still inexperienced, it was pretty jarring to return to my site and see how inefficiently I had set up the workflow for updating it.&lt;/p&gt;
-&lt;p&gt;!END-SUMMARY!&lt;/p&gt;
-&lt;img alt="There are probably children out there holding down spacebar to stay warm in the winter! YOUR UPDATE MURDERS CHILDREN." class="align-center" src="/images/workflow.png" style="width: 278px; height: 386px;" /&gt;
-&lt;p class="center"&gt;from &lt;a class="reference external" href="http://xkcd.com/1172/*"&gt;http://xkcd.com/1172/*&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;### The Set-Up&lt;/p&gt;
-&lt;p&gt;My old workflow involved two separate repositories: one for the content, plug-ins, configuration files for building the site (I use &lt;a class="reference external" href="http://docs.getpelican.com/en/3.5.0/"&gt;Pelican&lt;/a&gt;, and a separate repository for the deployed site. This seemed suboptimal because it meant that I had to maintain two separate repositories and when I wanted to deploy, I had to copy the output folder from one to the other. I &lt;em&gt;really&lt;/em&gt; wanted to use the &lt;a class="reference external" href="http://git-scm.com/book/en/v1/Git-Tools-Subtree-Merging"&gt;git subtree push&lt;/a&gt; command like I do in the office &lt;a class="footnote-reference" href="#id2" id="id1"&gt;[1]&lt;/a&gt; .&lt;/p&gt;
-&lt;p&gt;I thought that this was going to be a short, straight-forward operation: delete the old deployment repository, add a &lt;cite&gt;gh-pages&lt;/cite&gt; branch to my old content repo, then the magic command: &lt;cite&gt;git subtree push --prefix output origin gh-pages&lt;/cite&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;img alt="XKCD Comic" title="There are probably children out there holding down spacebar to stay warm in the winter! YOUR UPDATE MURDERS CHILDREN." class="align-center" src="/images/workflow.png" style="width: 278px; height: 386px;"&gt;&lt;p style="text-align:center"&gt;&lt;em&gt;from &lt;a href="http://xkcd.com/1172/"&gt;xkcd&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&lt;div class="section" id="the-set-up"&gt;
+&lt;h2&gt;The Set-Up&lt;/h2&gt;
+&lt;p&gt;My old workflow involved two separate repositories: one for the content, plug-ins, configuration files for building the site (I use &lt;a class="reference external" href="http://docs.getpelican.com/en/3.5.0/"&gt;Pelican&lt;/a&gt;), and a separate repository for the deployed site. This seemed suboptimal because it meant that I had to maintain two separate repositories and when I wanted to deploy, I had to copy the output folder from one to the other. I &lt;em&gt;really&lt;/em&gt; wanted to use the &lt;code&gt;git subtree push&lt;/code&gt; &lt;a class="reference external" href="http://git-scm.com/book/en/v1/Git-Tools-Subtree-Merging"&gt;command&lt;/a&gt; like I do in the office &lt;a class="footnote-reference" href="#id2" id="id1"&gt;[1]&lt;/a&gt; .&lt;/p&gt;
+&lt;p&gt;I thought that this was going to be a short, straight-forward operation: delete the old deployment repository, add a &lt;code&gt;gh-pages&lt;/code&gt; branch to my old content repo, then the magic command: &lt;code&gt;git subtree push --prefix output origin gh-pages&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;I thought wrong.&lt;/p&gt;
 &lt;img alt="Movie poster, van burning." class="align-center" src="/images/wrong-motion-poster2.gif" style="width: 600px; height: 324px;" /&gt;
-&lt;p class="center"&gt;on the left: my website&lt;/p&gt;
-&lt;p&gt;Anyway, I did end up getting this all to work but it took about three hours.&lt;/p&gt;
-&lt;p&gt;### A Parallel&lt;/p&gt;
+&lt;p style="text-align:center"&gt;&lt;em&gt;on the left: my website&lt;/em&gt;&lt;/p&gt;&lt;p&gt;Anyway, I did end up getting this all to work but it took about three hours.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="a-parallel"&gt;
+&lt;h2&gt;A Parallel&lt;/h2&gt;
 &lt;p&gt;At the same time, I was watching the first half of the Michigan-Northwestern football game. Both teams were playing very poorly and because the scored stayed 0-0 for so long, it became known as the 'M00N' game on twitter:&lt;/p&gt;
-&lt;img alt="M00N." class="align-center" src="/images/M00N.jpg" style="width: 512px; height: 287px;" /&gt;
-&lt;p class="center"&gt;&lt;em&gt;via `&amp;#64;MGoShoe`_&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;When the game finally ended with Trevor Simian, Northwestern's quarterback, falling over on a 2-pt conversion to lose the game, I noticed some remarkable parallels with my current website task: everything was terrible the whole time but eventually the 'good guys' (Me, Michigan) won. I thought about extending this metaphor further but by the time I started this post, I really didn't want to relive any of the game again.&lt;/p&gt;
+&lt;img alt="M00N" class="align-center" src="/images/M00N.jpg" style="width: 512px; height: 287px;" /&gt;
+&lt;p style="text-align:center"&gt;&lt;em&gt;via &lt;a href="https://twitter.com/MGoShoe/status/531192890132013056/photo/1"&gt;@MGoShoe&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&lt;p&gt;When the game finally ended with Trevor Simian, Northwestern's quarterback, falling over on a 2-pt conversion to lose the game, I noticed some remarkable parallels with my current website task: everything was terrible the whole time but eventually the 'good guys' (Me, Michigan) won. I thought about extending this metaphor further but by the time I started this post, I really didn't want to relive any of the game again.&lt;/p&gt;
 &lt;p&gt;The real reason I wanted to write after undergoing this 'ordeal' was so that I wouldn't forget how to do all these steps again and maybe help someone else out with similar issues.&lt;/p&gt;
-&lt;p&gt;### 5 Things I Learned Last Saturday&lt;/p&gt;
-&lt;p&gt;#### 1. User pages serve out of master branch&lt;/p&gt;
-&lt;p&gt;I thought all GitHub repositories served off of the &lt;cite&gt;gh-pages&lt;/cite&gt; branch. This is &lt;a class="reference external" href="https://help.github.com/articles/user-organization-and-project-pages/#user--organization-pages"&gt;not true&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;#### 2. There are multiple ways to deal with unruly subtree pushes&lt;/p&gt;
-&lt;p&gt;If everything is going well, the 'standard' &lt;cite&gt;git subtree push --prefix output origin master&lt;/cite&gt; command works fine. But sometimes you'll see this:&lt;/p&gt;
-&lt;blockquote&gt;
-error: failed to push some refs to &lt;a class="reference external" href="mailto:'git&amp;#64;github.com"&gt;'git&amp;#64;github.com&lt;/a&gt;:drewbo/drewbo.com.git'
+&lt;/div&gt;
+&lt;div class="section" id="things-i-learned-last-saturday"&gt;
+&lt;h2&gt;5 Things I Learned Last Saturday&lt;/h2&gt;
+&lt;div class="section" id="user-pages-serve-out-of-master-branch"&gt;
+&lt;h3&gt;1. User pages serve out of master branch&lt;/h3&gt;
+&lt;p&gt;I thought all GitHub repositories served off of the &lt;code&gt;gh-pages&lt;/code&gt; branch. This is &lt;a class="reference external" href="https://help.github.com/articles/user-organization-and-project-pages/#user--organization-pages"&gt;not true&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="there-are-multiple-ways-to-deal-with-unruly-subtree-pushes"&gt;
+&lt;h3&gt;2. There are multiple ways to deal with unruly subtree pushes&lt;/h3&gt;
+&lt;p&gt;If everything is going well, the 'standard' &lt;code&gt;git subtree push --prefix output origin master&lt;/code&gt; command works fine. But sometimes you'll see this:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+error: failed to push some refs to &lt;span class="s1"&gt;'git&amp;#64;github.com:drewbo/drewbo.com.git'&lt;/span&gt;
 hint: Updates were rejected because a pushed branch tip is behind its remote
 hint: counterpart. Check out this branch and integrate the remote changes
-hint: (e.g. 'git pull ...') before pushing again.
-hint: See the 'Note about fast-forwards' in 'git push --help' for details&lt;/blockquote&gt;
-&lt;p&gt;You might not have the &amp;quot;served&amp;quot; branch on your local machine so it's not as simple as just doing &lt;cite&gt;git pull&lt;/cite&gt;. My three solutions, in order of how I try them:&lt;/p&gt;
+hint: &lt;span class="o"&gt;(&lt;/span&gt;e.g. &lt;span class="s1"&gt;'git pull ...'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; before pushing again.
+hint: See the &lt;span class="s1"&gt;'Note about fast-forwards'&lt;/span&gt; in &lt;span class="s1"&gt;'git push --help'&lt;/span&gt; &lt;span class="k"&gt;for &lt;/span&gt;details
+&lt;/pre&gt;
+&lt;p&gt;You might not have the &amp;quot;served&amp;quot; branch on your local machine so it's not as simple as just doing &lt;code&gt;git pull&lt;/code&gt;. My three solutions, in order of how I try them:&lt;/p&gt;
 &lt;ol class="arabic"&gt;
 &lt;li&gt;&lt;p class="first"&gt;Magic Command&lt;/p&gt;
 &lt;blockquote&gt;
@@ -46,16 +51,22 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details&lt;/bl
 &lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;#### 3. DNS changes take time to propagate. Chill&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="dns-changes-take-time-to-propagate-chill"&gt;
+&lt;h3&gt;3. DNS changes take time to propagate. Chill&lt;/h3&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;Any time you make DNS changes with your domain name, just wait a bit.&lt;/li&gt;
 &lt;li&gt;Maybe use the DNS Lookup Utility if you're &lt;a class="reference external" href="http://linux.die.net/man/1/dig"&gt;impatient&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference external" href="http://imakewebthings.com/blog/github-pages-email/"&gt;Don't screw up your email&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;#### 4. Git submodules are confusing the first time you try them&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="git-submodules-are-confusing-the-first-time-you-try-them"&gt;
+&lt;h3&gt;4. Git submodules are confusing the first time you try them&lt;/h3&gt;
 &lt;p&gt;Especially when you put submodules in submodules. &lt;a class="reference external" href="https://chrisjean.com/git-submodules-adding-using-removing-and-updating/"&gt;This article&lt;/a&gt; was a big help.&lt;/p&gt;
-&lt;p&gt;#### 5. Always check &lt;cite&gt;.gitignore&lt;/cite&gt;&lt;/p&gt;
-&lt;p&gt;I was ignoring the &lt;cite&gt;output&lt;/cite&gt; folder in &lt;cite&gt;.gitignore&lt;/cite&gt; which I seem to do pretty often. This was a boilerplate &lt;cite&gt;.gitignore&lt;/cite&gt; from another project and many times you don't want to commit the output but if you're going to do the subtree push, you need it.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="always-check-gitignore"&gt;
+&lt;h3&gt;5. Always check &lt;code&gt;.gitignore&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;I was ignoring the &lt;code&gt;output&lt;/code&gt; folder in &lt;code&gt;.gitignore&lt;/code&gt; which I seem to do pretty often. This was a boilerplate &lt;code&gt;.gitignore&lt;/code&gt; from another project and many times you don't want to commit the output but if you're going to do the subtree push, you need it.&lt;/p&gt;
 &lt;p&gt;Good luck out there.&lt;/p&gt;
 &lt;table class="docutils footnote" frame="void" id="id2" rules="none"&gt;
 &lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
@@ -63,9 +74,11 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details&lt;/bl
 &lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id1"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Since retired in favor of Continuous Intergration via &lt;a class="reference external" href="https://travis-ci.com/"&gt;Travis&lt;/a&gt;. My even older deployment workflow involved zipping the output folder so I could more easily upload it to the remote hosting server and then copying it over the prior files. It was a huge pain but I made the move to GitHub hosting back in July.&lt;/td&gt;&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 </summary><category term="blog"></category><category term="football"></category><category term="failure"></category></entry><entry><title>July...and August, September, and October</title><link href="http://drewbo.com/blog/2014/11/08/more-hotels-and-traveling/" rel="alternate"></link><updated>2014-11-08T14:00:00-05:00</updated><author><name>Drew Bollinger</name></author><id>tag:drewbo.com,2014-11-08:blog/2014/11/08/more-hotels-and-traveling/</id><summary type="html">&lt;p&gt;So it's been a little while since I posted. From my last post: &amp;quot;...but hopefully I'm back into my apartment soon and I'll have more time to spend with the site.&amp;quot;
 This did not turn out to be true. Explanations for my absence in photographic form after the jump.&lt;/p&gt;
-&lt;p&gt;!END-SUMMARY!&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
 &lt;p&gt;Life:&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;My original hotel was sold out one night so I had to move to a &lt;a class="reference external" href="https://dl.dropboxusercontent.com/u/27150206/October%20Blog%20Post/20140730_200614.jpg"&gt;new hotel&lt;/a&gt;.&lt;/li&gt;
@@ -81,7 +94,7 @@ This did not turn out to be true. Explanations for my absence in photographic fo
 and create a map of my runs.
 Unfortunately for me, the Nike data is more difficult to liberate than from other sources. Fortunately for me, and anyone else trying
 to do this, there are some pre-existing tools to solve this issue.&lt;/p&gt;
-&lt;p&gt;!END-SUMMARY!&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
 &lt;div id="map" class="map"&gt;&lt;/div&gt;&lt;p class="center"&gt;&lt;span class="blue"&gt;2012&lt;/span&gt; in blue, &lt;span class="orange"&gt;2013&lt;/span&gt; in orange, &lt;span class="green"&gt;2014&lt;/span&gt; in green. View &lt;a class="reference external" href="https://a.tiles.mapbox.com/v4/drewbo19.immnjfdh/page.html?access_token=pk.eyJ1IjoiZHJld2JvMTkiLCJhIjoiWlpRb2lYUSJ9.aT3CQyI2_wYzqKPDqjgvyw#13/38.9105/-77.0424"&gt;fullscreen&lt;/a&gt;&lt;/p&gt;
 &lt;div class="section" id="before-starting"&gt;
 &lt;h2&gt;Before starting&lt;/h2&gt;
@@ -150,7 +163,7 @@ Now you can pretty much follow the rest of &lt;a class="reference external" href
 &lt;img alt="filter settings" class="align-center" src="/images/filter-settings.png" style="width: 600px; height: 338px;" /&gt;
 &lt;/div&gt;
 </summary><category term="blog"></category><category term="nikeplus"></category><category term="running"></category><category term="mapbox"></category><category term="tutorial"></category></entry><entry><title>June</title><link href="http://drewbo.com/blog/2014/07/14/im-hotel-people-now/" rel="alternate"></link><updated>2014-07-14T22:00:00-04:00</updated><author><name>Drew Bollinger</name></author><id>tag:drewbo.com,2014-07-14:blog/2014/07/14/im-hotel-people-now/</id><summary type="html">&lt;p&gt;I've been really busy the past month (hence the giant break in posts) but I have some good excuses! I'm also going to use this post to kick off a series of monthly personal updates mixed in with my more project-based posts.&lt;/p&gt;
-&lt;p&gt;!END-SUMMARY!&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
 &lt;p&gt;Here's why I wasn't updating for a month:&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;I &lt;a class="reference external" href="https://dl.dropboxusercontent.com/u/27150206/20140607_061238.jpg"&gt;ran a 50K&lt;/a&gt;.&lt;/li&gt;
@@ -165,7 +178,7 @@ Now you can pretty much follow the rest of &lt;a class="reference external" href
 &lt;/ul&gt;
 &lt;p&gt;July and August should have some highlights as well but hopefully I'm back into my apartment soon and I'll have more time to spend with the site.&lt;/p&gt;
 </summary><category term="blog"></category><category term="personal"></category></entry><entry><title>Everyday Math</title><link href="http://drewbo.com/blog/2014/07/08/its-wing-night/" rel="alternate"></link><updated>2014-07-08T21:00:00-04:00</updated><author><name>Drew Bollinger</name></author><id>tag:drewbo.com,2014-07-08:blog/2014/07/08/its-wing-night/</id><summary type="html">&lt;p&gt;Like many pedestrian city-goers, I think about route efficiency a lot: when to cross, which streets are the least crowded, when to take diagonals, etc. I also happen to frequent a bar that is somewhat of an edge case when I try to decide on which route to take. For the first time, I'm going to apply a little rigor to this problem &lt;a class="footnote-reference" href="#id3" id="id1"&gt;[1]&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;!END-SUMMARY!&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
 &lt;div class="section" id="the-setup"&gt;
 &lt;h2&gt;The Setup&lt;/h2&gt;
 &lt;p&gt;On many Tuesdays, I exit the Metro at the Capitol South station (bottom left) and begin heading over to &lt;a class="reference external" href="http://capitolloungedc.com/"&gt;Capitol Lounge&lt;/a&gt; (top right).&lt;/p&gt;
@@ -223,8 +236,38 @@ Now you can pretty much follow the rest of &lt;a class="reference external" href
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;/div&gt;
+&lt;script type= "text/javascript"&gt;
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+                ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+                : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+&lt;/script&gt;
 </summary><category term="d3"></category><category term="blog"></category><category term="wings"></category><category term="math"></category></entry><entry><title>Data Visualization Update</title><link href="http://drewbo.com/blog/2014/05/26/data-vis-update/" rel="alternate"></link><updated>2014-05-26T23:30:00-04:00</updated><author><name>Drew Bollinger</name></author><id>tag:drewbo.com,2014-05-26:blog/2014/05/26/data-vis-update/</id><summary type="html">&lt;p&gt;I've made some more updates to my &lt;a class="reference external" href="../../../../../pages/kpvis.html"&gt;KenPom visualization&lt;/a&gt; and used it to capture a few observations (perhaps very obvious ones) from the last year in college basketball.&lt;/p&gt;
-&lt;p&gt;!END-SUMMARY!&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
 &lt;p&gt;The visualization still isn't a masterpiece of graphic design but it's at a point where it's largerly functional and I'd like to move on to some other projects for the time being.
 There are more explanations on the page itself so &lt;a class="reference external" href="../../../../../pages/kpvis.html"&gt;check it out&lt;/a&gt; and let me know what you think in the comments or via email/twitter. A reminder that the visualization is only exploratory and isn't an attempt to find correlations between the x and y axis (or the circle radius).&lt;/p&gt;
 &lt;div class="section" id="three-observations"&gt;
@@ -248,7 +291,7 @@ There are more explanations on the page itself so &lt;a class="reference externa
 </summary><category term="d3"></category><category term="kenpom"></category><category term="blog"></category><category term="college basketball"></category></entry><entry><title>NikePlus Elevation Tracker</title><link href="http://drewbo.com/blog/2014/05/12/nike-plus-elevation/" rel="alternate"></link><updated>2014-05-12T23:30:00-04:00</updated><author><name>Drew Bollinger</name></author><id>tag:drewbo.com,2014-05-12:blog/2014/05/12/nike-plus-elevation/</id><summary type="html">&lt;p&gt;I'm taking a quick break from my KenPom data visualization work this week (though I have made some updates; work in progress on the &lt;a class="reference external" href="../../../../../pages/projects.html"&gt;projects&lt;/a&gt; page) to talk about
 another project I've been working on. I'm an avid runner and have an upcoming race where I'm a little worried about the elevation changes so I thought bringing in
 some programming could help.&lt;/p&gt;
-&lt;p&gt;!END-SUMMARY!&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
 &lt;p&gt;The &lt;a class="reference external" href="https://secure-nikeplus.nike.com/plus/"&gt;NikePlus&lt;/a&gt; app that I use to track my runs does show changes in pace and elevation (see chart below) but it doesn't give you any idea of the total change in
 elevation for the whole run. Most people do &amp;quot;point-to-point&amp;quot; runs so the net change is zero but there is still a big difference between 100 feet up then down
 and 1,000 feet up then down over the course of a run.&lt;/p&gt;
@@ -308,7 +351,7 @@ in the next few weeks. Happy Trails!&lt;/p&gt;
 &lt;/table&gt;
 </summary><category term="r"></category><category term="blog"></category><category term="nikeplus"></category><category term="running"></category></entry><entry><title>Baby's First Data Visualization</title><link href="http://drewbo.com/blog/2014/05/05/first-data-vis/" rel="alternate"></link><updated>2014-05-05T23:30:00-04:00</updated><author><name>Drew Bollinger</name></author><id>tag:drewbo.com,2014-05-05:blog/2014/05/05/first-data-vis/</id><summary type="html">&lt;p&gt;Though I've put up a few smaller exercises before, I finally have a draft version of the first full data visualization that I've done the majority of the work on &lt;a class="footnote-reference" href="#id2" id="id1"&gt;[1]&lt;/a&gt;.
 It's based on a metric I &lt;a class="reference external" href="http://drewbo.com/blog/2014/04/28/kenpom-drama/"&gt;created last week&lt;/a&gt; using &lt;a class="reference external" href="http://kenpom.com/"&gt;kenpom&lt;/a&gt; data.&lt;/p&gt;
-&lt;p&gt;!END-SUMMARY!&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
 &lt;p&gt;It's not especially pretty or user friendly yet but, in the broadest sense of the word, it works. Check it out at the &lt;a class="reference external" href="../../../../../pages/kpvis.html"&gt;direct link&lt;/a&gt; or on the &lt;a class="reference external" href="../../../../../pages/projects.html"&gt;project page&lt;/a&gt; and let me know what you think.&lt;/p&gt;
 &lt;p&gt;Here's an short explanation of the axes since the project page is still light on info:&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -339,15 +382,45 @@ It's based on a metric I &lt;a class="reference external" href="http://drewbo.co
 &lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id1"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;I'll also give a lot of credit to my co-workers Ross and Ilan for talking the idea over with me, as well as Mike Bostock, Scott Murray, Steve Hall, and Justin Palmer for their libraries, tutorials, and code examples.&lt;/td&gt;&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;script type= "text/javascript"&gt;
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+                ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+                : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+&lt;/script&gt;
 </summary><category term="d3"></category><category term="kenpom"></category><category term="blog"></category><category term="college basketball"></category></entry><entry><title>Adding Codepen</title><link href="http://drewbo.com/blog/2014/05/01/adding-codpen/" rel="alternate"></link><updated>2014-05-01T20:15:00-04:00</updated><author><name>Drew Bollinger</name></author><id>tag:drewbo.com,2014-05-01:blog/2014/05/01/adding-codpen/</id><summary type="html">&lt;p&gt;This week, I've been spending my free time trying to read everything that &lt;a class="reference external" href="http://bost.ocks.org/mike/"&gt;Mike Bostock&lt;/a&gt;, creator of the JavaScript visualization library &lt;a class="reference external" href="http://d3js.org/"&gt;D3.js&lt;/a&gt;, has ever written.
-!END-SUMMARY!
+
 I have a handful of trinkets/experiments that I'm hosting on &lt;a class="reference external" href="http://codepen.io/"&gt;CodePen&lt;/a&gt; while I try to get a handle on the library. I've added a link to the footer of my site in case you're interested in checking out what I'm working on. My &lt;a class="reference external" href="http://codepen.io/drewbo/full/BCmof/"&gt;current project&lt;/a&gt; is an extension of my last blog post and involves creating a new visualization (for me at least) for Ken Pomeroy's college basketball data.&lt;/p&gt;
 </summary><category term="blog"></category><category term="codepen"></category><category term="d3"></category></entry><entry><title>New KenPom Metric</title><link href="http://drewbo.com/blog/2014/04/28/kenpom-drama/" rel="alternate"></link><updated>2014-04-28T22:30:00-04:00</updated><author><name>Drew Bollinger</name></author><id>tag:drewbo.com,2014-04-28:blog/2014/04/28/kenpom-drama/</id><summary type="html">&lt;p&gt;In the process of writing an article about March Madness ticket prices (coming soon), I ended up on &lt;a class="reference external" href="http://kenpom.com/"&gt;kenpom.com&lt;/a&gt;, an absolutely fantastic site
 for college basketball analysis. The rankings and associated metrics produced by the site's namesake, Ken Pomeroy, have become nearly industry standard for coaches and fans alike.
 Note that parts of the site are behind a paywall but if you have even the slightest overlaping interesting in college basketball and statistics,
 it's definitely worth the subscription fee of $19.99.&lt;/p&gt;
 &lt;p&gt;The whole site is worth a look but I'd like to focus on one particular statistic here:  win probability.&lt;/p&gt;
-&lt;p&gt;!END-SUMMARY!&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
 &lt;div class="section" id="win-probability"&gt;
 &lt;h2&gt;Win Probability&lt;/h2&gt;
 &lt;p&gt;Win Probability, or Win Expectancy, is a way of answering the question, &amp;quot;Given the current game state, what are the chances a selected team wins the game?&amp;quot; To figure this out, we look back at
@@ -540,7 +613,7 @@ did stay relatively close throughout and come down to the wire, in the process e
 &lt;li&gt;it's a fairly simple concept that is still a little non-intuitive&lt;/li&gt;
 &lt;li&gt;it's a good demonstration of how more local governments are making their financial data publicly available&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;!END-SUMMARY!&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
 &lt;p&gt;Tons of credit for this idea goes to my old college friend, &lt;a class="reference external" href="http://aaronoellis.com/articles/benfords-law-and-the-denver-city-checkbook"&gt;Aaron&lt;/a&gt;, who did a very similar analysis over on his website.&lt;/p&gt;
 &lt;div class="section" id="a-short-explanation"&gt;
 &lt;h2&gt;A Short Explanation&lt;/h2&gt;
@@ -712,6 +785,36 @@ all the numbers which when multiplied by 2, will now have a first digit of 1. Th
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;/div&gt;
+&lt;script type= "text/javascript"&gt;
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+                ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+                : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+&lt;/script&gt;
 </summary><category term="blog"></category><category term="r"></category><category term="chartbuilder"></category><category term="d3"></category></entry><entry><title>New Website</title><link href="http://drewbo.com/blog/2014/04/14/new-website/" rel="alternate"></link><updated>2014-04-14T21:00:00-04:00</updated><author><name>Drew Bollinger</name></author><id>tag:drewbo.com,2014-04-14:blog/2014/04/14/new-website/</id><summary type="html">&lt;dl class="docutils"&gt;
 &lt;dt&gt;I'm going to start writing this new website using &lt;a class="reference external" href="http://docs.getpelican.com/en/3.3.0/"&gt;Pelican&lt;/a&gt;, which uses &lt;a class="reference external" href="http://www.python.org/"&gt;Python&lt;/a&gt; to generate static websites from &lt;a class="reference external" href="http://docutils.sourceforge.net/rst.html"&gt;reStructuredText&lt;/a&gt;. The &lt;a class="reference external" href="https://github.com/fjavieralba/flasky"&gt;theme&lt;/a&gt; is borrowed from &lt;a class="reference external" href="http://fjavieralba.com/"&gt;fjavieralba&lt;/a&gt; which I will continue to customize to suit my needs as necessary. New content coming soon (when I figure out how to use all of this).&lt;/dt&gt;
 &lt;dd&gt;-Drew&lt;/dd&gt;

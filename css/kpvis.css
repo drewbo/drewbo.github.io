@@ -1,28 +1,32 @@
 body {
-  font: 14px sans-serif;
+  font-family: 'Droid Sans', sans-serif;
+  font-size: 15px;
+  margin: 0;
 }
 
 div {
-   padding: 5px 5px 5px 5px
+   padding: 10px;
 }
 
 div.toolbar{
-   width: 200px;
+   width: 250px;
    height: 100%;
    float: right;
-   background: rgba(112, 128, 144, 0.7); 
+   background: rgba(112, 128, 144, 0.7);
+   overflow: auto;
 }
 
 div.explain{
-    width: 200px;
+    width: 250px;
     height: 100%;
     float: left;
     background: rgba(112, 128, 144, 0.7);
+    overflow: auto;
 }
 
 div.main{
-    margin-left: 210px;
-    margin-right: 210px;
+    margin-left: 250px;
+    margin-right: 250px;
     max-width: 960px;
 }
 
@@ -42,13 +46,13 @@ a:hover { color: rgb(86, 86, 175); }
 .dot {
   stroke: #FFF;
   stroke-width: 1px;
- 
+
 }
 
 .dot:hover {
    stroke: #000;
    stroke-width: 1px;
-   opacity: 0.8;   
+   opacity: 0.8;
 }
 
 .d3-tip {
@@ -59,4 +63,3 @@ a:hover { color: rgb(86, 86, 175); }
   color: #fff;
   border-radius: 2px;
 }
-

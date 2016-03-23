@@ -4,20 +4,18 @@ var confopt = ["All", "American", "America East", "ACC", "Atlantic Sun", "A10", 
         "SEC", "Southern", "Southland", "SWAC", "Summit League", "Sun Belt", "WCC", "WAC", "Independent"]; // hardcoded
 var teamopt = [];  // updates in data loop
 
-// for future window resizing
-
-//d3.select(window).on('resize', resize);
 var width = parseInt(d3.select('#vis').style('width'), 10);
+var height = parseInt(d3.select('#vis').style('height'), 10);
 
 // define some non-data dependent parts
 
 var margin = {top: 60, right: 20, bottom: 50, left: 60},
     width = width - margin.left - margin.right,
-    height = 700 - margin.top - margin.bottom;
+    height = height - margin.top - margin.bottom;
 
 var x = d3.scale.linear()
     .range([0, width ]);
-  
+
 var y = d3.scale.linear()
     .range([height, 0]);
 
@@ -103,9 +101,9 @@ var ymed = 0;
 d3.csv("../data/tcmatch.csv", function (error, tcdata) {
     d3.csv("../data/kpdata.csv", function (error, data) {
         tc = tcdata.map(function (d) {return [ d["Conference"], d["Team"]]; });
-        
+
         dataset = data.map(function (d) { return [ +d["game"], +d["hype"], d["team1"], d["team2"], d["shortDate"], d["gameInfo"], +d["possessions"], +d["eFG"], +d["perDrama"], d["conference1"], d["conference2"], +d["conference"], +d["tournament"]]; });
- 
+
         svg.append("g")
             .attr("class", "x axis")
             .attr("transform", "translate(0," + height + ")")
@@ -130,27 +128,27 @@ d3.csv("../data/tcmatch.csv", function (error, tcdata) {
             .text("eFG%");
 
     // menu initialization for those which later dynamically update
-        
+
         teammenu.selectAll("option")
         .data(tc, function key(d) {return d[1]; })
         .enter().append("option")
         .text(function (d) { return d[1]; });
-        
+
         teammenu.property("value", "All");
-        
+
         hlteam.selectAll("option")
         .data(tc, function key(d) {return d[1]; })
         .enter().append("option")
         .text(function (d) { return d[1]; });
-        
+
         hlteam.property("value", "All");
-        
-// call our rendering function to kick things off 
+
+// call our rendering function to kick things off
         change();
-    
+
     });
 });
-       
+
 // this function updates the drop down menus, rescales the axes for the new data and draws all the dots
 
 function change() {
@@ -158,7 +156,7 @@ function change() {
     curTeamSel = [];
     d3.select("#conf").selectAll("option").each(confsel);
     d3.select("#team").selectAll("option").each(teamsel);
-    
+
     // menu updates
     if (curConfSel == "All") {
         teamupdate = tc;
@@ -166,29 +164,29 @@ function change() {
         else {
             teamupdate = tc.filter(function (d) { return curConfSel.indexOf(d[0]) > -1; });
         }
-        
+
     teammenu.selectAll("option")
         .data(teamupdate, function key(d) {return d[1]; })
-        .text(function (d) { return d[1]; }); 
-    
+        .text(function (d) { return d[1]; });
+
     teammenu.selectAll("option")
         .data(teamupdate, function key(d) {return d[1]; })
         .enter().append("option")
         .text(function (d) { return d[1]; });
-    
+
     teammenu.selectAll("option")
         .data(teamupdate, function key(d) {return d[1]; })
-        .exit().remove(); 
-    
+        .exit().remove();
+
     hlteam.selectAll("option")
         .data(teamupdate, function key(d) {return d[1]; })
         .enter().append("option")
         .text(function (d) { return d[1]; });
-    
-    
+
+
     hlconfsel = hlconf.property("value");
     hlteamsel = hlteam.property("value");
-    
+
     // set the filtering arrays
 
     if (d3.select("#showall").property("checked") == true) {
@@ -203,28 +201,28 @@ function change() {
             confarray = [0, 1];
             tournarray = [1];
         }
-    
+
     datafilter();
-    
+
     // this catches empty sets
-    
+
     if (filtered == 0) {
         curTeamSel = [];
         teammenu.property("value", "All");
         d3.select("#team").selectAll("option").each(teamsel);
         datafilter();
     }
-    
+
     // gives median for lines
-    
+
     xmed = x(d3.median(filtered, function (d) {return d[8]; }));
     ymed = y(d3.median(filtered, function (d) {return d[7]; }));
-        
+
     // axes
-    
+
     svg.transition().duration(750).selectAll(".x.axis").call(xAxis);
     svg.transition().duration(750).selectAll(".y.axis").call(yAxis);
-    
+
     // update existing dots
     var dots = svg.selectAll(".dot")
         .data(filtered, function key(d) {return d[0]; })
@@ -235,8 +233,8 @@ function change() {
         .attr("r", function (d) { return d[1] * 4.5; })
         .attr("cx", function (d) { return x(d[8]); })
         .attr("cy", function (d) { return y(d[7]); });
-    
-    // dots come in 
+
+    // dots come in
     svg.selectAll(".dot")
         .data(filtered, function key(d) {return d[0]; })
         .enter().append("circle")
@@ -251,7 +249,7 @@ function change() {
         .attr("r", function (d) { return d[1] * 4.5; })
         .attr("cx", function (d) { return x(d[8]); })
         .attr("cy", function (d) { return y(d[7]); });
-             
+
      // dots go out; never a miscommunication
     svg.selectAll(".dot")
         .data(filtered, function key(d) {return d[0]; })
@@ -259,9 +257,9 @@ function change() {
    //     .transition()
 //        .duration(750)
 //        .attr("r", 1e-6)     if you leave this transition, chain it first (because it takes a while and interferes with the cooler update transition)
-        .remove();      
-    
-    // call the quadrants function 
+        .remove();
+
+    // call the quadrants function
     quadrants();
 }
 
@@ -305,7 +303,7 @@ function teamsel() {
 
 function quadrants() {
     svg.selectAll("line").remove();
-  
+
     if (d3.select("#medgrid").property("checked") == true){
         svg.append("line")
         .attr("x1", xmed)
@@ -314,7 +312,7 @@ function quadrants() {
         .attr("y2", height)
         .attr("stroke-width", 1)
         .attr("stroke", "gray");
-    
+
        svg.append("line")
         .attr("x1", 0)
         .attr("y1", ymed)
@@ -334,4 +332,3 @@ function hl(d) {
     }
     else{ return "slategray";}
 }
-

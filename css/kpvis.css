@@ -1,33 +1,53 @@
 body {
-  font-family: 'Droid Sans', sans-serif;
   font-size: 15px;
   margin: 0;
+  height: 100%;
 }
+
+* {
+  box-sizing: border-box;
+  font-family: 'Droid Sans', sans-serif;
+}
+
+#site-canvas {
+  padding: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+}
+
+h4 { margin: 0.5rem 0; }
 
 div {
    padding: 10px;
 }
 
-div.toolbar{
+div.sidebar {
+  height: 100%;
+  background: #eee;
+  overflow: auto;
+}
+
+div.toolbar {
    width: 250px;
-   height: 100%;
    float: right;
-   background: rgba(112, 128, 144, 0.7);
-   overflow: auto;
+   border-left: 1px solid #ddd;
 }
 
 div.explain{
     width: 250px;
-    height: 100%;
     float: left;
-    background: rgba(112, 128, 144, 0.7);
-    overflow: auto;
+    border-right: 1px solid #ddd;
 }
 
 div.main{
-    margin-left: 250px;
-    margin-right: 250px;
-    max-width: 960px;
+    margin-left: 270px;
+    margin-right: 270px;
+    padding: 0;
+    width: calc(100% - 560px);
+    height: 100%;
 }
 
 a       { color: darkblue; }
@@ -61,5 +81,8 @@ a:hover { color: rgb(86, 86, 175); }
   padding: 12px;
   background: rgba(0, 0, 0, 0.8);
   color: #fff;
-  border-radius: 2px;
+}
+
+#hlteam {
+  margin-bottom: 1rem;
 }

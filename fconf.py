@@ -75,3 +75,6 @@ STATIC_PATHS = ['images','css','js','data']
 
 # A list of files to copy from the source to the destination
 #FILES_TO_COPY = (('extra/robots.txt', 'robots.txt'),)
+
+# Read more link format
+READ_MORE_LINK_FORMAT = '<a class="read-more" href="/{url}">{text}</a>'

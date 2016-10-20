@@ -2,14 +2,15 @@
 <html lang="en">
   <head>
     <link href='http://fonts.googleapis.com/css?family=Noticia+Text:400,700' rel='stylesheet' type='text/css' />
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,300' rel='stylesheet' type='text/css'>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="shortcut icon" href="../../../../../images/favicon.ico">
     <title> Benford's Law | drewbo.com </title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans Pro:200italic,200,300italic,300,400italic,400,600italic,600,700italic,700,900italic,900" type="text/css">
     <link rel="stylesheet" href="../../../../../theme/css/style.css" type="text/css" />
     <link rel="stylesheet" href="../../../../../theme/css/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../../../theme/css/font-awesome.css" type="text/css"/>
 			<link rel="stylesheet" href="/css/./d3.parsets.css" type="text/css" />
+  
 
   </head>
   <body>
@@ -24,8 +25,7 @@
             <li><a href="../../../../../pages/projects.html">Projects</a> </li>
             <li><a href="../../../../../pages/about-me.html">About</a> </li>
     </ul>
-</div>
-<div class=separator></div>
+</div>        
         <div class=body>
     <h1 class="title"> Benford's Law</h1>
     <p class=date> 04 21 2014 </p>
@@ -104,10 +104,10 @@ and vice versa. So until I get subpoena power, this analysis will be a confirmat
 <p>The downloaded data has 41,279 transactions totalling $294.3MM as of April 21st, 2014 (Their fiscal year appears to begin in July).
 If you're interested in city expenditures, the data is pretty detailed but I was really only after the transactions amounts.
 After a little bit of data cleaning, I wrote a quick R script to pull out the first digit from all the transactions:</p>
-<div class="highlight"><pre>benford <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>transaction_vector<span class="p">){</span>
-    textv <span class="o">&lt;-</span> as.character<span class="p">(</span>transaction_vector<span class="o">*</span><span class="m">100</span><span class="p">)</span>
-    digit_vector <span class="o">&lt;-</span> sapply<span class="p">(</span>textv<span class="p">,</span> substr<span class="p">,</span> start <span class="o">=</span> <span class="m">1</span><span class="p">,</span> stop <span class="o">=</span> <span class="m">1</span><span class="p">,</span> USE.NAMES <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
-    as.numeric<span class="p">(</span>digit_vector<span class="p">)</span>
+<div class="highlight"><pre><span></span>benford <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>transaction_vector<span class="p">){</span>
+    textv <span class="o">&lt;-</span> <span class="kp">as.character</span><span class="p">(</span>transaction_vector<span class="o">*</span><span class="m">100</span><span class="p">)</span>
+    digit_vector <span class="o">&lt;-</span> <span class="kp">sapply</span><span class="p">(</span>textv<span class="p">,</span> <span class="kp">substr</span><span class="p">,</span> start <span class="o">=</span> <span class="m">1</span><span class="p">,</span> stop <span class="o">=</span> <span class="m">1</span><span class="p">,</span> USE.NAMES <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+    <span class="kp">as.numeric</span><span class="p">(</span>digit_vector<span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 <p>Comparing the frequency from our data to the expected distribution:</p>
@@ -260,7 +260,7 @@ all the numbers which when multiplied by 2, will now have a first digit of 1. Th
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
         </div>
-
+        
 <div class=footer>
   <p>&copy; Copyright <script language="JavaScript">var date = new Date(); document.write(date.getFullYear());</script> Drew Bollinger</p>
   <p> Powered by <a href="http://pypi.python.org/pypi/pelican/" target="_blank">Pelican</a>.  

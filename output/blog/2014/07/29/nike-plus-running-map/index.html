@@ -2,15 +2,16 @@
 <html lang="en">
   <head>
     <link href='http://fonts.googleapis.com/css?family=Noticia+Text:400,700' rel='stylesheet' type='text/css' />
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,300' rel='stylesheet' type='text/css'>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="shortcut icon" href="../../../../../images/favicon.ico">
     <title> NikePlus Running Map | drewbo.com </title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans Pro:200italic,200,300italic,300,400italic,400,600italic,600,700italic,700,900italic,900" type="text/css">
     <link rel="stylesheet" href="../../../../../theme/css/style.css" type="text/css" />
     <link rel="stylesheet" href="../../../../../theme/css/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../../../theme/css/font-awesome.css" type="text/css"/>
 			<link href="https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css" rel="stylesheet" />
 			<link rel="stylesheet" href="/css/nikerunningmap.css" type="text/css" />
+  
 
   </head>
   <body>
@@ -25,8 +26,7 @@
             <li><a href="../../../../../pages/projects.html">Projects</a> </li>
             <li><a href="../../../../../pages/about-me.html">About</a> </li>
     </ul>
-</div>
-<div class=separator></div>
+</div>        
         <div class=body>
     <h1 class="title"> NikePlus Running Map</h1>
     <p class=date> 07 29 2014 </p>
@@ -55,22 +55,22 @@ before converting. I had three years of data so I decided that I would eventuall
 <img alt="Folder Structure" class="align-center" src="/images/folder-structure.png" style="width: 600px; height: 430px;" />
 <p>The Python file in each folder is a slight modification of <a class="reference external" href="https://github.com/kengggg/osm-gpx-download">one used for OpenStreetMap exports</a>. I'm going to post it here because I don't like having to
 clone a GitHub repo just to grab one file.:</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
 <span class="kn">import</span> <span class="nn">glob</span>
 <span class="kn">import</span> <span class="nn">time</span>
 
-<span class="n">output_file_name</span> <span class="o">=</span> <span class="s">&quot;merged.gpx&quot;</span>
+<span class="n">output_file_name</span> <span class="o">=</span> <span class="s2">&quot;merged.gpx&quot;</span>
 
-<span class="n">fo</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file_name</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">)</span>
-<span class="n">fo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#39;</span><span class="p">)</span>
-<span class="n">fo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;&lt;gpx version=&quot;1.0&quot;&gt;&#39;</span><span class="p">)</span>
+<span class="n">fo</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file_name</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<span class="n">fo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#39;</span><span class="p">)</span>
+<span class="n">fo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;&lt;gpx version=&quot;1.0&quot;&gt;&#39;</span><span class="p">)</span>
 
-<span class="n">gpx_list</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s">&#39;*/*.gpx&#39;</span><span class="p">)</span>
+<span class="n">gpx_list</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*/*.gpx&#39;</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">gpx_file_name</span> <span class="ow">in</span> <span class="n">gpx_list</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s">&quot;Parsing &quot;</span><span class="o">+</span><span class="n">gpx_file_name</span><span class="o">+</span><span class="s">&quot; ...&quot;</span>
+    <span class="k">print</span> <span class="s2">&quot;Parsing &quot;</span><span class="o">+</span><span class="n">gpx_file_name</span><span class="o">+</span><span class="s2">&quot; ...&quot;</span>
 
-    <span class="n">fi</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">gpx_file_name</span><span class="p">,</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
+    <span class="n">fi</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">gpx_file_name</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
     <span class="n">gpx_trace</span> <span class="o">=</span> <span class="n">fi</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
     <span class="n">fi</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
@@ -79,7 +79,7 @@ clone a GitHub repo just to grab one file.:</p>
 
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="n">fo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;&lt;/gpx&gt;&#39;</span><span class="p">)</span>
+<span class="n">fo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;&lt;/gpx&gt;&#39;</span><span class="p">)</span>
 <span class="n">fo</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 <p>Copy this, save it as gpx-merger.py, and put one in each folder structure like I did above (it needs to be one folder &quot;below&quot; the data
@@ -126,7 +126,7 @@ Now you can pretty much follow the rest of <a class="reference external" href="h
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
         </div>
-
+        
 <div class=footer>
   <p>&copy; Copyright <script language="JavaScript">var date = new Date(); document.write(date.getFullYear());</script> Drew Bollinger</p>
   <p> Powered by <a href="http://pypi.python.org/pypi/pelican/" target="_blank">Pelican</a>.  

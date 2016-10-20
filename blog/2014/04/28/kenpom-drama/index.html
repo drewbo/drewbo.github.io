@@ -2,14 +2,15 @@
 <html lang="en">
   <head>
     <link href='http://fonts.googleapis.com/css?family=Noticia+Text:400,700' rel='stylesheet' type='text/css' />
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,300' rel='stylesheet' type='text/css'>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="shortcut icon" href="../../../../../images/favicon.ico">
     <title> New KenPom Metric | drewbo.com </title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans Pro:200italic,200,300italic,300,400italic,400,600italic,600,700italic,700,900italic,900" type="text/css">
     <link rel="stylesheet" href="../../../../../theme/css/style.css" type="text/css" />
     <link rel="stylesheet" href="../../../../../theme/css/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../../../theme/css/font-awesome.css" type="text/css"/>
 			<link rel="stylesheet" href="/css/" type="text/css" />
+  
 
   </head>
   <body>
@@ -24,8 +25,7 @@
             <li><a href="../../../../../pages/projects.html">Projects</a> </li>
             <li><a href="../../../../../pages/about-me.html">About</a> </li>
     </ul>
-</div>
-<div class=separator></div>
+</div>        
         <div class=body>
     <h1 class="title"> New KenPom Metric</h1>
     <p class=date> 04 28 2014 </p>
@@ -60,7 +60,7 @@ As such, I'd like to introduce the concept of &quot;game drama&quot;. The goal o
 I'm probably not the first to experiment with this idea but I'm going to try some new things to refine it a bit.</p>
 <p>The basic concept is to sum up the total vertical movement of the WP graph. As a fan, you experience each of these swings as stress or excitment in realizing your
 team is either further or closer to winning. In R, it looks like this:</p>
-<div class="highlight"><pre>sum<span class="p">(</span>abs<span class="p">(</span>diff<span class="p">(</span>yvalues<span class="p">)))</span>
+<div class="highlight"><pre><span></span><span class="kp">sum</span><span class="p">(</span><span class="kp">abs</span><span class="p">(</span><span class="kp">diff</span><span class="p">(</span>yvalues<span class="p">)))</span>
 </pre></div>
 <p>In my data, I refer to this as 'totalDrama'. I've also divided by possessions to control for longer or shorter games <a class="footnote-reference" href="#id3" id="id1">[1]</a>; this shows up as 'perDrama' in the data <a class="footnote-reference" href="#id4" id="id2">[2]</a>.
 The game shown above had a Drama score of 4.29 (meaning it's total movement was 4.29 times the height of the graph) and a 3.25% change in WP per possession. For the
@@ -244,7 +244,7 @@ did stay relatively close throughout and come down to the wire, in the process e
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
         </div>
-
+        
 <div class=footer>
   <p>&copy; Copyright <script language="JavaScript">var date = new Date(); document.write(date.getFullYear());</script> Drew Bollinger</p>
   <p> Powered by <a href="http://pypi.python.org/pypi/pelican/" target="_blank">Pelican</a>.  

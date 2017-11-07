@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>drewbo</title>
+  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+  <style media="screen">
+    body {
+      font-family: 'Nunito', sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Blog Posts</h1>
+
+  {{#if articles }}
+  {{#each articles }}
+    <h2><a href="{{ path }}/index.html">{{ title }}</a></h2>
+    <time>{{ date }}</time>
+  {{/each}}
+  {{/if}}
+
+</body>
+</html>

@@ -11,19 +11,19 @@ Metalsmith(__dirname)
   .source('./src')              // source directory
   .destination('./dist')        // destination directory
   .clean(true)                  // clean destination before
-  .use(collections({            // group all blog posts by internally
-    post: 'posts/*.md'          // adding key 'collections':'posts'
-  }))                           // use `collections.posts` in layouts
   .use(markdown({               // transpile all md into html
     gfm: true,
     tables: true
   }))
+  .use(collections({            // group all blog posts by internally
+    posts: 'posts/*'            // adding key 'collections':'posts'
+  }))                           // use `collections.posts` in layouts
   .use(permalinks({             // change URLs to permalink URLs
     relative: false             // put css only in /css
   }))
   .use(layouts({                // wrap layouts around html
-    engine: 'handlebars',       // use the layout engine you like
-    directory: './src/layouts'
+    engine: 'ejs',              // use the layout engine you like
+    directory: './_layouts'
   }))
   .build(function(err) {        // build process
     if (err) throw err;         // error handling is required

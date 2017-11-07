@@ -6,14 +6,16 @@
   <%- include('../includes/styles') %>
 </head>
 <body>
-  <h1>Blog Posts</h1>
-  <ul>
-    <% posts.forEach(function(post) { %>
-      <li>
-        <a href="<%= post.path %>/index.html"><%= post.title %></a>
-        <time><%= post.date %></time>
-      </li>
-    <% })%>
-  </ul>
+  <div class='main'>
+    <p>Posts</p>
+    <ul>
+      <% posts.forEach(function(post) { %>
+        <li>
+          <a href="<%= post.path %>/index.html"><%= post.title %></a>
+          <time><%= post.date.format('YYYY MMM DD') %></time>
+        </li>
+      <% })%>
+    </ul>
+  </div>
 </body>
 </html>

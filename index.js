@@ -6,6 +6,8 @@ const layouts = require('metalsmith-layouts')
 const dateInFilename = require('metalsmith-date-in-filename')
 const codeHighlight = require('metalsmith-code-highlight')
 const justAMoment = require('metalsmith-just-a-moment')
+const draft = require('metalsmith-drafts')
+const katex = require('metalsmith-katex');
 
 Metalsmith(__dirname)
   .metadata({
@@ -14,10 +16,12 @@ Metalsmith(__dirname)
   .source('./src')              // source directory
   .destination('./dist')        // destination directory
   .clean(true)                  // clean destination before
+  .use(draft())
   .use(dateInFilename(true))
   .use(justAMoment({
     scanFile: false
   }))
+  .use(katex())
   .use(markdown({               // transpile all md into html
     gfm: true,
     tables: true

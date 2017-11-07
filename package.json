@@ -1,0 +1,22 @@
+{
+  "name": "drewbo.github.io",
+  "version": "0.1.0",
+  "description": "blog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drewbo/drewbo.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/drewbo/drewbo.github.io/issues"
+  },
+  "homepage": "https://github.com/drewbo/drewbo.github.io#readme",
+  "dependencies": {
+    "metalsmith": "^2.3.0"
+  }
+}

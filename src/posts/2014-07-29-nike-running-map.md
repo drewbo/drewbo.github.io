@@ -85,7 +85,7 @@ Each time you run it in a new place, it will output a file called
 'merged.gpx'. Now you can pretty much follow the rest of [Garrett's blog
 post](https://www.mapbox.com/blog/mapping-moves/):
 
-  - Use `togeojson` to convert each merged file into a .geojson file
+  - Use togeojson to convert each merged file into a .geojson file
   - Start a new TileMill project and import each file as a separate
     layer
   - Style, then upload to MapBox

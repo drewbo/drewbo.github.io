@@ -65,19 +65,25 @@ distance traveled along 2nd plus a portion (x) of Pennsylvania needs to
 be equal to the distance traveled along C, then 3rd, then the
 complementary portion of Pennsylvania. Expressed as a formula:
 
-$$ [height](){1} + \\frac{x \* width}{sin( \\theta )} = width +
-[height](){2} + \\frac{(1-x) \* width}{sin( \\theta )} $$
+<tex>
+height_{1} + \frac{x * width}{sin( \theta )} = width +
+height_{2} + \frac{(1-x) * width}{sin( \theta )}
+</tex>
 
 And solving for x:
 
-$$ x = \\big( width + ([height](){2} - [height](){1}) +
-\\frac{width}{sin( \\theta )}\\big) \* \\big( \\frac{sin( \\theta)
-}{2\*width} \\big) $$
+<tex>
+x = \big( width + (height_{2} - height_{1}) +
+\frac{width}{sin( \theta )}\big) * \big( \frac{sin( \theta)
+}{2 * width} \big)
+</tex>
 
 Probably not something you can rattle off in your head although it does
 reduce very nicely if width = height:
 
-$$ x = block unit \* \\frac{ sin(\\theta) - cos(\\theta) + 1}{2} $$
+<tex>
+x = block unit * \frac{ sin(\theta) - cos(\theta) + 1}{2}
+</tex>
 
 ## The Final Solution
 

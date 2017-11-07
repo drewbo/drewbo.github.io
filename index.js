@@ -40,7 +40,9 @@ Metalsmith(__dirname)
     engine: 'ejs',              // use the layout engine you like
     directory: './_layouts'
   }))
-  .use(codeHighlight())
+  .use(codeHighlight({
+    languages: []
+  }))
   .build(function(err) {        // build process
     if (err) throw err;         // error handling is required
   });

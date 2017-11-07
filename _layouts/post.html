@@ -3,19 +3,14 @@
 <head>
   <meta charset="utf-8">
   <title>drewbo - <%= title %></title>
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-  <style media="screen">
-    body {
-      font-family: 'Nunito', sans-serif;
-    }
-  </style>
+  <%- include('../includes/styles') %>
 </head>
 <body>
-
-  <h1><%= title %></h1>
-
-
-  <%- contents %>
-
+  <div class='post'>
+    <h1 class='post-title'><%= title %></h1>
+    <section class='post-body'>
+      <%- contents %>
+    </section>
+  </div>
 </body>
 </html>

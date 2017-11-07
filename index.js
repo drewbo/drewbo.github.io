@@ -3,6 +3,8 @@ const markdown = require('metalsmith-markdown')
 const collections = require('metalsmith-collections')
 const permalinks = require('metalsmith-permalinks')
 const layouts = require('metalsmith-layouts')
+const dateInFilename = require('metalsmith-date-in-filename')
+const codeHighlight = require('metalsmith-code-highlight')
 
 Metalsmith(__dirname)
   .metadata({
@@ -11,6 +13,7 @@ Metalsmith(__dirname)
   .source('./src')              // source directory
   .destination('./dist')        // destination directory
   .clean(true)                  // clean destination before
+  .use(dateInFilename(true))
   .use(markdown({               // transpile all md into html
     gfm: true,
     tables: true
@@ -25,6 +28,7 @@ Metalsmith(__dirname)
     engine: 'ejs',              // use the layout engine you like
     directory: './_layouts'
   }))
+  .use(codeHighlight())
   .build(function(err) {        // build process
     if (err) throw err;         // error handling is required
   });

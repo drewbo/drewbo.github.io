@@ -3,20 +3,17 @@
 <head>
   <meta charset="utf-8">
   <title>drewbo</title>
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-  <style media="screen">
-    body {
-      font-family: 'Nunito', sans-serif;
-    }
-  </style>
+  <%- include('../includes/styles') %>
 </head>
 <body>
   <h1>Blog Posts</h1>
-  <%= siteurl %>
-  <% posts.forEach(function(post) { %>
-    <h2><a href="<%= post.path %>/index.html"><%= post.title %></a></h2>
-    <time><%= post.date %></time>
-  <% })%>
-
+  <ul>
+    <% posts.forEach(function(post) { %>
+      <li>
+        <a href="<%= post.path %>/index.html"><%= post.title %></a>
+        <time><%= post.date %></time>
+      </li>
+    <% })%>
+  </ul>
 </body>
 </html>

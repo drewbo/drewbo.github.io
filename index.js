@@ -8,6 +8,7 @@ const codeHighlight = require('metalsmith-code-highlight')
 const justAMoment = require('metalsmith-just-a-moment')
 const draft = require('metalsmith-drafts')
 const katex = require('metalsmith-katex');
+const metadata = require('metalsmith-writemetadata')
 
 Metalsmith(__dirname)
   .metadata({
@@ -42,6 +43,22 @@ Metalsmith(__dirname)
   }))
   .use(codeHighlight({
     languages: []
+  }))
+  .use(metadata({
+    pattern: ['posts/*.md'],
+    bufferencoding: 'utf8',
+    collections: {
+    posts: {
+      output: {
+        path: 'posts.json',
+        asObject: true,
+        metadata: {
+          "type": "list"
+        }
+      },
+      ignorekeys: ['contents']
+    }
+  }
   }))
   .build(function(err) {        // build process
     if (err) throw err;         // error handling is required

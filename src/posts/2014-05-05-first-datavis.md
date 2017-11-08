@@ -50,7 +50,9 @@ Missing features/bugs:
 Next week I'll share an updated version as well as some of the
 interesting basketball narratives that you can confirm/debunk using it.
 
+<div class="footnotes">
 1.  <a name="footnote-1"></a>I'll also give a lot of credit to my co-workers Ross and Ilan for
     talking the idea over with me, as well as Mike Bostock, Scott
     Murray, Steve Hall, and Justin Palmer for their libraries,
     tutorials, and code examples.
+</div>

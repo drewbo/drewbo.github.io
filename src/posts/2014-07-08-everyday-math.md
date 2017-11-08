@@ -117,6 +117,7 @@ The diagonal across the road saves enough distance that I feel
 comfortable saying it's a little faster given how close the break-even
 point was. So, there goes all that work above.
 
+<div class="footnotes">
 1.  <a name="footnote-1"></a>I finally decided to dissect this relatively trivial problem after
     reading the excellent posts [Kill
     Math](http://worrydream.com/KillMath/) and [Don't Kill
@@ -126,3 +127,4 @@ point was. So, there goes all that work above.
 2.  <a name="footnote-2"></a> Although if you get any joy in watching a math major screw up some
     simple trig identities, you would have enjoyed looking over my
     shoulder while writing this.
+</div>

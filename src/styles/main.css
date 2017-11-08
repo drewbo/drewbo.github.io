@@ -45,12 +45,6 @@ table {
   margin: 0 auto;
 }
 
-hr {
-  border: 1px solid #D43900;
-  width: 90%;
-  opacity: 0.5;
-}
-
 .hljs {
   display: inline;
   padding: 0;
@@ -63,4 +57,13 @@ pre .hljs {
 .me {
   padding-left: 9px;
   float: right;
+}
+
+.footnotes {
+  margin: 0 auto;
+  width: 90%;
+  font-size: 0.8em;
+  padding: 18px;
+  border-top: 1px solid rgba(212, 57, 0, 0.5);
+  margin-top: 28px;
 }

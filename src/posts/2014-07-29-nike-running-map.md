@@ -1,6 +1,10 @@
 ---
 title: NikePlus Running Map
 layout: post.html
+scripts:
+- nikerunningmap.js
+styles:
+- nikerunningmap.css
 ---
 
 Inspired by Garrett Miller's (relatively) recent blog post, [Mapping
@@ -29,11 +33,11 @@ Get these things:
 
 First, I used [Matt Stuehler's
 site](https://mattstuehler.com/lab/NikePlus/) (again) to export all of
-my runs as .gpx files. If you have trouble exporting them all at the
+my runs as `.gpx` files. If you have trouble exporting them all at the
 same time, it helps to break them up into 30-40 run groups.
 
 The easiest way to import this data into TileMill is going to be as a
-.geojson file but it will help if we have our data a little more
+`.geojson` file but it will help if we have our data a little more
 organized before converting. I had three years of data so I decided that
 I would eventually want to style it by year. Here's the folder structure
 I used:
@@ -74,18 +78,18 @@ fo.write('</gpx>')
 fo.close()
 ```
 
-Copy this, save it as gpx-merger.py, and put one in each folder
+Copy this, save it as `gpx-merger.py`, and put one in each folder
 structure like I did above (it needs to be one folder "below" the data
 it is aggregating). To run it, navigate to that folder in the command
-line/terminal and type "python gpx-merger.py". Sit back and wait.
+line/terminal and type `python gpx-merger.py`. Sit back and wait.
 
 ![Terminal gif](/images/terminal.gif)
 
 Each time you run it in a new place, it will output a file called
-'merged.gpx'. Now you can pretty much follow the rest of [Garrett's blog
+`merged.gpx`. Now you can pretty much follow the rest of [Garrett's blog
 post](https://www.mapbox.com/blog/mapping-moves/):
 
-  - Use togeojson to convert each merged file into a .geojson file
+  - Use `togeojson` to convert each merged file into a `.geojson` file
   - Start a new TileMill project and import each file as a separate
     layer
   - Style, then upload to MapBox
@@ -93,10 +97,10 @@ post](https://www.mapbox.com/blog/mapping-moves/):
 ## Styling tips
 
   - Bright colors look awesome.
-  - Set the 'line-opacity' attribute to ~0.25. This means that it will
+  - Set the `line-opacity` attribute to ~0.25. This means that it will
     take four times over the same path to make the line fully opaque and
     gives a better idea of how often you run in certain areas.
   - Use the satellite imagery (requires a basic MapBox account) with a
-    near-black color and saturated filter settings ( \>75%).
+    near-black color and saturated filter settings (>75%).
 
 ![filter settings](/images/filter-settings.png)

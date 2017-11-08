@@ -175,7 +175,7 @@ process experiencing a lot of swings in Win Probability.
 Let me know if you've noticed anything else yourself or have suggestions
 about the metric. Here's another data link to the [project page]().
 
----
-
+<div class="footnotes">
 1. <a name="footnote-1"></a> Controlling for number of possession is a hallmark of KenPom metrics.
 2. <a name="footnote-2"></a> This is technically the totalDrama divided by number of points in the Win Probability graph which is very close to, or in some cases exactly equal to, possessions * 2.
+</div>

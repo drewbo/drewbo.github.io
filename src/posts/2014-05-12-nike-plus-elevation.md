@@ -21,7 +21,7 @@ and 1,000 feet up then down over the course of a run.
 
 So, I decided to figure out how to calculate this on my own. I first
 used the [this site](https://mattstuehler.com/lab/NikePlus/) by Matt
-Stuehler to export my data from NikePlus as .gpx files. Then I wrote a
+Stuehler to export my data from NikePlus as `.gpx` files. Then I wrote a
 small function in R to sum all of the changes in elevation throughout
 the whole run[<sup>[1]</sup>](#footnote-1). I'd like to eventually
 convert this to a standalone Python executable but for now, here's the
@@ -84,8 +84,10 @@ variability of GPS data.
 
 If you're a runner who uses NikePlus and is proficient in R, let me know
 if this is helpful. Hopefully I can put out a more user-friendly version
-in the next few weeks. Happy Trails\!
+in the next few weeks. Happy Trails!
 
+<div class="footnotes">
 1.  <a name="footnote-1"></a>I'm just now realizing how incredibly similar this is to my KenPom
     drama metric. My roommate said that he realized this all along when
     I was talking about it and I'm an idiot.
+</div>

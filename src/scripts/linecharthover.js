@@ -1,8 +1,8 @@
 $(function () {
 
     // Get the CSV and create the chart
-    $.get('../../../../../data/kenpomwp1992t.csv', function (csv) {
-        
+    $.get('/data/kenpomwp1992t.csv', function (csv) {
+
         $('#container').highcharts({
 
             data: {
@@ -77,7 +77,7 @@ $(function () {
                     }
                 }
             },
-            
+
             series: [{
                 name: 'WP',
                 lineWidth: 4,

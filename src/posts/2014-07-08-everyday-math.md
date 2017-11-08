@@ -1,6 +1,11 @@
 ---
 title: Everyday Math
 layout: post.html
+scripts:
+- d3.min.js
+- wingnightvis.js
+styles:
+- wingnightvis.css
 ---
 
 Like many pedestrian city-goers, I think about route efficiency a lot:

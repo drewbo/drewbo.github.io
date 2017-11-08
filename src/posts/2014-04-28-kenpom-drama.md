@@ -1,7 +1,11 @@
 ---
 title: New KenPom Metric
 layout: post.html
-
+scripts:
+  - jquery.min.js
+  - highcharts.js
+  - highchartsdata.js
+  - linecharthover.js
 ---
 
 <style>
@@ -41,7 +45,7 @@ game](http://kenpom.com/blog/index.php/weblog/entry/win_probability_for_every_co
 I used [Highcharts.js](http://www.highcharts.com/) to reproduce one of
 these graphs below:
 
-Script failed to load
+<div id="container"><noscript>Visualization failed to load</noscript></div>
 
 The game was 30-27 at halftime and Michigan slowly pulled away before it
 got a bit close in the waning minutes. Given that Stanford had a shot to

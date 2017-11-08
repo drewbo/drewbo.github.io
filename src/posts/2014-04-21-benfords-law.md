@@ -5,6 +5,8 @@ scripts:
   - d3.min.js
   - d3.parsets.js
   - benford.js
+styles:
+  - d3.parsets.css
 ---
 
 The last thing the internet needs is one more demonstration of [Benford's Law](https://en.wikipedia.org/wiki/Benford's_law) but I'm going to do it anyway for three reasons:
@@ -108,9 +110,7 @@ all the numbers which when multiplied by 2, will now have a first digit of 1. Th
 I refit a very cool visualization technique called [Parallel Sets](http://www.jasondavies.com/parallel-sets/) from [Jason Davies](http://www.jasondavies.com/) using the [D3.js](http://d3js.org/) library. Let's take a look first then I'll explain below:
 
 
-.. raw:: html
-
-   <div id="vis"><noscript>Visualization failed to load</noscript></div>
+<div id="vis"><noscript>Visualization failed to load</noscript></div>
 
 Sorry if it's a lot to handle. Things to notice:
 

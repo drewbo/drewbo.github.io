@@ -22,7 +22,7 @@ function curves() {
   t.call(chart.tension(this.checked ? .5 : 1));
 }
 
-d3.csv("../../../../../data/scaleinvariance.csv", function(error, csv) {
+d3.csv("/data/scaleinvariance.csv", function(error, csv) {
   vis.datum(csv).call(chart);
 
   window.icicle = function() {
@@ -153,7 +153,7 @@ function truncateText(text, width) {
     var t = this.textContent = text(d, i),
         w = width(d, i);
     if (this.getComputedTextLength() < w) return t;
-    this.textContent = "…" + t;
+    this.textContent = "ï¿½" + t;
     var lo = 0,
         hi = t.length + 1,
         x;
@@ -162,7 +162,7 @@ function truncateText(text, width) {
       if ((x = this.getSubStringLength(0, mid)) < w) lo = mid + 1;
       else hi = mid;
     }
-    return lo > 1 ? t.substr(0, lo - 2) + "…" : "";
+    return lo > 1 ? t.substr(0, lo - 2) + "ï¿½" : "";
   };
 }
 

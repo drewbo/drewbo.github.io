@@ -4,6 +4,7 @@ layout: post.html
 scripts:
   - d3.min.js
   - d3.parsets.js
+  - benford.js
 ---
 
 The last thing the internet needs is one more demonstration of [Benford's Law](https://en.wikipedia.org/wiki/Benford's_law) but I'm going to do it anyway for three reasons:

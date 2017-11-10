@@ -27,9 +27,9 @@ light on info:
     kenpom ranking) looks like:
 
 <tex>
-max(\left (\frac{2 * rating_{1} * rating_{2}
-}{rating_{1} + rating_{2}} \right ) - (351 -
-min(rating_{1},rating_{2})) - 200, 1)
+max(\left (d\frac{2 * rating_1 * rating_2
+}{rating_1 + rating_2} \right ) - (351 -
+min(rating_1,rating_2)) - 200, 1)
 </tex>
 
 Missing features/bugs:

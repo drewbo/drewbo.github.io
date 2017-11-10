@@ -71,15 +71,15 @@ be equal to the distance traveled along C, then 3rd, then the
 complementary portion of Pennsylvania. Expressed as a formula:
 
 <tex>
-height_{1} + \frac{x * width}{sin( \theta )} = width +
-height_{2} + \frac{(1-x) * width}{sin( \theta )}
+height_1 + \dfrac{x * width}{sin( \theta )} = width +
+height_2 + \dfrac{(1-x) * width}{sin( \theta )}
 </tex>
 
 And solving for x:
 
 <tex>
-x = \big( width + (height_{2} - height_{1}) +
-\frac{width}{sin( \theta )}\big) * \big( \frac{sin( \theta)
+x = \big( width + (height_2 - height_1) +
+\dfrac{width}{sin( \theta )}\big) * \big( \dfrac{sin( \theta)
 }{2 * width} \big)
 </tex>
 
@@ -87,7 +87,7 @@ Probably not something you can rattle off in your head although it does
 reduce very nicely if width = height:
 
 <tex>
-x = block unit * \frac{ sin(\theta) - cos(\theta) + 1}{2}
+x = block unit * \dfrac{ sin(\theta) - cos(\theta) + 1}{2}
 </tex>
 
 ## The Final Solution

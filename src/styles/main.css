@@ -41,6 +41,10 @@ a:hover {
   opacity: 0.64;
 }
 
+a .hljs {
+  color: #D43900;
+}
+
 table {
   margin: 0 auto;
 }

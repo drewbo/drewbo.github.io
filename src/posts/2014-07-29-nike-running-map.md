@@ -2,9 +2,12 @@
 title: NikePlus Running Map
 layout: post.html
 scripts:
+- mapbox.js
 - nikerunningmap.js
+
 styles:
 - nikerunningmap.css
+- mapbox.css
 ---
 
 Inspired by Garrett Miller's (relatively) recent blog post, [Mapping

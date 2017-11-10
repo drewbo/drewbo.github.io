@@ -70,9 +70,10 @@ pre .hljs {
 
 figure {
   text-align: center;
+  margin: 36px;
 }
 
-figure image {
+figure img {
   margin: 0;
   display: inline-block;
 }

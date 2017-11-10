@@ -4,8 +4,7 @@ title: NikePlus Elevation Tracker
 ---
 
 I'm taking a quick break from my KenPom data visualization work this
-week (though I have made some updates; work in progress on the
-[projects](../../../../../pages/projects.html) page) to talk about
+week to talk about
 another project I've been working on. I'm an avid runner and have an
 upcoming race where I'm a little worried about the elevation changes so
 I thought bringing in some programming could help.

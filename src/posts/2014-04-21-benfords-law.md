@@ -89,7 +89,7 @@ a first digit in their transaction list. [<sup>[2]</sup>](#footnote-2)
 
 Next let's try out the excellent tool [Chartbuilder](https://github.com/Quartz/Chartbuilder/) to plot the frequency of first digits against expected distribution from above:
 
-![Benfords-Law-Example-1](../../images/benfords-law-example.png)
+![Benfords-Law-Example-1](/images/benfords-law-example.png)
 
 Cool. Chartbuilder isn't meant to be a super powerful plotting tool but it does make it easy to create great looking charts really quickly, hence its use
 in a lot of digital newsrooms (NPR, WSJ, 538, etc.).

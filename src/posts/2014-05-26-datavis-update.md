@@ -4,14 +4,14 @@ title: Data Visualization Update
 ---
 
 I've made some more updates to my [KenPom
-visualization](../../../../../pages/kpvis.html) and used it to capture a
+visualization](/kenpom-drama) and used it to capture a
 few observations (perhaps very obvious ones) from the last year in
 college basketball.
 
 The visualization still isn't a masterpiece of graphic design but it's
 at a point where it's largely functional and I'd like to move on to
 some other projects for the time being. There are more explanations on
-the page itself so [check it out](../../../../../pages/kpvis.html) and
+the page itself so [check it out](/kenpom-drama) and
 let me know what you think in the comments or via email/twitter. A
 reminder that the visualization is only exploratory and isn't an attempt
 to find correlations between the x and y axis (or the circle radius).
@@ -63,7 +63,7 @@ eventual champions Connecticut in the first round.
 ![Syracuse Duke Data Visualization](/images/Syracuse-Duke.png)
 
 The most "hyped" game of the year, according to [my somewhat flawed
-  metric](http://drewbo.com/blog/2014/05/05/first-data-vis/), was the
+  metric](../2014-05-05-first-datavis/), was the
   first Syracuse-Duke matchup as the teams entered as the number 2 and
   3 ranked KenPom squads respectively. The AP ratings were a bit more
   divergent (2 and 17) but I don't think anyone was exactly

@@ -6,20 +6,18 @@ layout: post.html
 Though I've put up a few smaller exercises before, I finally have a
 draft version of the first full data visualization that I've done the
 majority of the work on[<sup>[1]</sup>](#footnote-1). It's based on a metric I [created last
-week](http://drewbo.com/blog/2014/04/28/kenpom-drama/) using
+week](../2014-04-28-kenpom-drama) using
 [kenpom](http://kenpom.com/) data.
 
 It's not especially pretty or user friendly yet but, in the broadest
-sense of the word, it works. Check it out at the [direct
-link](../../../../../pages/kpvis.html) or on the [project
-page](../../../../../pages/projects.html) and let me know what you
+sense of the word, it works. [Check it out](/kenpom-drama) and let me know what you
 think.
 
 Here's an short explanation of the axes since the project page is still
 light on info:
 
   - x-axis: perDrama, a measure of game excitement described in [my
-    earlier post](http://drewbo.com/blog/2014/04/28/kenpom-drama/)
+    earlier post](../2014-04-28-kenpom-drama)
   - y-axis: combined eFG%, based on Dean Oliver’s four factors concept
     described
     [here](http://kenpom.com/blog/index.php/weblog/four_factors/).

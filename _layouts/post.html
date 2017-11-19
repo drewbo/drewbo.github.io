@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>drewbo - <%= title %></title>
+  <%- include('../includes/styles') %>
+  <% if (!(typeof katex == 'undefined')) { %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha1/katex.min.css" integrity="sha384-8QOKbPtTFvh/lMY0qPVbXj9hDh+v8US0pD//FcoYFst2lCIf0BmT58+Heqj0IGyx" crossorigin="anonymous">
+  <% } %>
+  <% if (!(typeof styles == 'undefined')) { %>
+    <% styles.forEach(function (style) { %>
+      <link rel="stylesheet" href="/styles/<%= style %>">
+    <% }) %>
+  <% } %>
+</head>
+<body>
+  <%- include('../includes/header') %>
+  <div class='post'>
+    <h1 class='post-title'><%= title %></h1>
+    <section class='post-body'>
+      <%- contents %>
+    </section>
+  </div>
+  <% if (!(typeof scripts == 'undefined')) { %>
+    <% scripts.forEach(function (script) { %>
+      <script src="/scripts/<%= script %>" charset="utf-8"></script>
+    <% }) %>
+  <% } %>
+</body>
+</html>

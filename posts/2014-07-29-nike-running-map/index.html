@@ -1,0 +1,125 @@
+<!DOCTYPE html><html><head>
+  <meta charset="utf-8">
+  <title>drewbo - NikePlus Running Map</title>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link rel="stylesheet" href="/styles/main.css">
+
+  
+  
+    
+      <link rel="stylesheet" href="/styles/nikerunningmap.css">
+    
+      <link rel="stylesheet" href="/styles/mapbox.css">
+    
+  
+</head>
+<body>
+  <nav class="header">
+  <a href="/">drewbo.com</a>
+  <a class="me" href="https://github.com/drewbo" target="_blank">github</a>
+  <a class="me" href="https://twitter.com/drewbo19" target="_blank">twitter</a>
+</nav>
+
+  <div class="post">
+    <h1 class="post-title">NikePlus Running Map</h1>
+    <h3 class="post-date">2014.07.29</h3>
+    <section class="post-body">
+      <p>Inspired by Garrett Miller's (relatively) recent blog post, <a href="https://www.mapbox.com/blog/mapping-moves/">Mapping
+Moves</a>, I decided to do
+<a href="http://drewbo.com/blog/2014/05/12/nike-plus-elevation/">something else</a>
+with all my NikePlus data and create a map of my runs. Unfortunately for
+me, the Nike data is more difficult to liberate than from other sources.
+Fortunately for me, and anyone else trying to do this, there are some
+pre-existing tools to solve this issue.</p>
+<div id="map" class="map"></div>
+
+<p>2012 in blue, 2013 in orange, 2014 in green. View
+<a href="https://a.tiles.mapbox.com/v4/drewbo19.immnjfdh/page.html?access_token=pk.eyJ1IjoiZHJld2JvMTkiLCJhIjoiWlpRb2lYUSJ9.aT3CQyI2_wYzqKPDqjgvyw#13/38.9105/-77.0424">fullscreen</a></p>
+<h2 id="before-starting">Before starting</h2>
+<p>Get these things:</p>
+<ul>
+<li><a href="https://www.python.org/">Python</a></li>
+<li><a href="https://www.mapbox.com/tilemill/">TileMill</a></li>
+<li>A <a href="https://www.mapbox.com/">MapBox</a> account</li>
+<li><a href="https://github.com/mapbox/togeojson">togeojson</a></li>
+</ul>
+<h2 id="the-data">The data</h2>
+<p class="lang-highlight">First, I used <a href="https://mattstuehler.com/lab/NikePlus/">Matt Stuehler's
+site</a> (again) to export all of
+my runs as <code class="hljs">.gpx</code> files. If you have trouble exporting them all at the
+same time, it helps to break them up into 30-40 run groups.</p>
+<p class="lang-highlight">The easiest way to import this data into TileMill is going to be as a
+<code class="hljs">.geojson</code> file but it will help if we have our data a little more
+organized before converting. I had three years of data so I decided that
+I would eventually want to style it by year. Here's the folder structure
+I used:</p>
+<p><img src="/images/folder-structure.png" alt="Folder Structure"></p>
+<p>The Python file in each folder is a slight modification of <a href="https://github.com/kengggg/osm-gpx-download">one used for
+OpenStreetMap exports</a>. I'm
+going to post it here because I don't like having to clone a GitHub repo
+just to grab one file.:</p>
+<pre class="lang-highlight"><code class="lang-python hljs"><span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup
+<span class="hljs-keyword">import</span> glob
+<span class="hljs-keyword">import</span> time
+
+output_file_name = <span class="hljs-string">"merged.gpx"</span>
+
+fo = open(output_file_name, <span class="hljs-string">"w"</span>)
+fo.write(<span class="hljs-string">'&lt;?xml version="1.0" encoding="UTF-8"?&gt;'</span>)
+fo.write(<span class="hljs-string">'&lt;gpx version="1.0"&gt;'</span>)
+
+gpx_list = glob.glob(<span class="hljs-string">'*/*.gpx'</span>)
+
+<span class="hljs-keyword">for</span> gpx_file_name <span class="hljs-keyword">in</span> gpx_list:
+    <span class="hljs-keyword">print</span> <span class="hljs-string">"Parsing "</span>+gpx_file_name+<span class="hljs-string">" ..."</span>
+
+    fi = open(gpx_file_name,<span class="hljs-string">"r"</span>)
+    gpx_trace = fi.read()
+    fi.close()
+
+    soup = BeautifulSoup(gpx_trace)
+    fo.write(soup.trk.prettify())
+
+    time.sleep(<span class="hljs-number">1</span>)
+
+fo.write(<span class="hljs-string">'&lt;/gpx&gt;'</span>)
+fo.close()
+</code></pre>
+<p class="lang-highlight">Copy this, save it as <code class="hljs">gpx-merger.py</code>, and put one in each folder
+structure like I did above (it needs to be one folder "below" the data
+it is aggregating). To run it, navigate to that folder in the command
+line/terminal and type <code>python gpx-merger.py</code>. Sit back and wait.</p>
+<p><img src="/images/terminal.gif" alt="Terminal gif"></p>
+<p class="lang-highlight">Each time you run it in a new place, it will output a file called
+<code class="hljs">merged.gpx</code>. Now you can pretty much follow the rest of <a href="https://www.mapbox.com/blog/mapping-moves/">Garrett's blog
+post</a>:</p>
+<ul>
+<li class="lang-highlight">Use <code class="hljs">togeojson</code> to convert each merged file into a <code>.geojson</code> file</li>
+<li>Start a new TileMill project and import each file as a separate
+layer</li>
+<li>Style, then upload to MapBox</li>
+</ul>
+<h2 id="styling-tips">Styling tips</h2>
+<ul>
+<li>Bright colors look awesome.</li>
+<li class="lang-highlight">Set the <code class="hljs">line-opacity</code> attribute to ~0.25. This means that it will
+take four times over the same path to make the line fully opaque and
+gives a better idea of how often you run in certain areas.</li>
+<li>Use the satellite imagery (requires a basic MapBox account) with a
+near-black color and saturated filter settings (&gt;75%).</li>
+</ul>
+<p><img src="/images/filter-settings.png" alt="filter settings"></p>
+
+    </section>
+  </div>
+  
+    
+      <script src="/scripts/mapbox.js" charset="utf-8"></script>
+    
+      <script src="/scripts/nikerunningmap.js" charset="utf-8"></script>
+    
+  
+
+
+</body></html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html><html><head>
+  <meta charset="utf-8">
+  <title>drewbo - Problems</title>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link rel="stylesheet" href="/styles/main.css">
+
+  
+  
+</head>
+<body>
+  <nav class="header">
+  <a href="/">drewbo.com</a>
+  <a class="me" href="https://github.com/drewbo" target="_blank">github</a>
+  <a class="me" href="https://twitter.com/drewbo19" target="_blank">twitter</a>
+</nav>
+
+  <div class="post">
+    <h1 class="post-title">Problems</h1>
+    <h3 class="post-date">2014.11.15</h3>
+    <section class="post-body">
+      <h3 id="the-set-up">The Set-Up</h3>
+<p>This past weekend, I updated the blog for the first time in a while. I do web development now at work, and while I'm still inexperienced, it was pretty jarring to return to my site and see how inefficiently I had set up the workflow for updating it.</p>
+<figure>
+<img style="height:400px; width:auto;" src="http://imgs.xkcd.com/comics/workflow.png" alt="There are probably children out there holding down spacebar to stay warm in the winter! YOUR UPDATE MURDERS CHILDREN.">
+  <figcaption><em>from <a href="http://xkcd.com/1172/">http://xkcd.com/1172/</a></em></figcaption>
+</figure>
+
+<p>My old workflow involved two separate repositories: one for the content, plug-ins, configuration files for building the site (I use <a href="http://docs.getpelican.com/en/3.5.0/">Pelican</a>), and a separate repository for the deployed site. This seemed suboptimal because it meant that I had to maintain two separate repositories and when I wanted to deploy, I had to copy the output folder from one to the other. I <em>really</em> wanted to use the <a href="http://git-scm.com/book/en/v1/Git-Tools-Subtree-Merging" class="lang-highlight"><code class="hljs">git subtree push</code></a> command like I do in the office<a href="#footnote-1"><sup>[1]</sup></a>.</p>
+<p class="lang-highlight">I thought that this was going to be a short, straight-forward operation: delete the old deployment repository, add a <code class="hljs">gh-pages</code> branch to my old content repo, then the magic command: <code>git subtree push --prefix output origin gh-pages</code>.</p>
+<p>I thought wrong.</p>
+<figure>
+<img src="/images/wrong-motion-poster2.gif" alt="movie poster: WRONG">
+<figcaption><em>on the left: my website</em></figcaption>
+</figure>
+
+<p>Anyway, I did end up getting this all to work but it took about three hours.</p>
+<h3 id="a-parallel">A Parallel</h3>
+<p>At the same time, I was watching the first half of the Michigan-Northwestern football game. Both teams were playing very poorly and because the scored stayed 0-0 for so long, it became known as the 'M00N' game on twitter:</p>
+<figure>
+<img src="https://pbs.twimg.com/media/B18tHJ2CIAENLTu.jpg" alt="M00N">
+<figcaption><em>via <a href="https://twitter.com/MGoShoe/status/531192890132013056/photo/1">@MGoShoe</a></em></figcaption>
+</figure>
+
+<p>When the game finally ended with Trevor Simian, Northwestern's quarterback, falling over on a 2-pt conversion to lose the game, I noticed some remarkable parallels with my current website task: everything was terrible the whole time but eventually the 'good guys' (Me, Michigan) won. I thought about extending this metaphor further but by the time I started this post, I really didn't want to relive any of the game again.</p>
+<p>The real reason I wanted to write after undergoing this 'ordeal' was so that I wouldn't forget how to do all these steps again and maybe help someone else out with similar issues.</p>
+<h3 id="5-things-i-learned-last-saturday">5 Things I Learned Last Saturday</h3>
+<h4 id="1-user-pages-serve-out-of-master-branch">1. User pages serve out of master branch</h4>
+<p class="lang-highlight">I thought all GitHub repositories served off of the <code class="hljs">gh-pages</code> branch. This is <a href="https://help.github.com/articles/user-organization-and-project-pages/#user--organization-pages">not true</a>.</p>
+<h4 id="2-there-are-multiple-ways-to-deal-with-unruly-subtree-pushes">2. There are multiple ways to deal with unruly subtree pushes</h4>
+<p class="lang-highlight">If everything is going well, the 'standard' <code class="hljs">git subtree push --prefix output origin master</code> command works fine. But sometimes you'll see this:</p>
+<pre class="lang-highlight"><code class="lang-bash hljs">error: failed to push some refs to <span class="hljs-string">'git@github.com:drewbo/drewbo.com.git'</span>
+hint: Updates were rejected because a pushed branch tip is behind its remote
+hint: counterpart. Check out this branch and integrate the remote changes
+hint: (e.g. <span class="hljs-string">'git pull ...'</span>) before pushing again.
+hint: See the <span class="hljs-string">'Note about fast-forwards'</span> <span class="hljs-keyword">in</span> <span class="hljs-string">'git push --help'</span> <span class="hljs-keyword">for</span> details
+</code></pre>
+<p class="lang-highlight">You might not have the "served" branch on your local machine so it's not as simple as just doing <code class="hljs">git pull</code>. My three solutions, in order of how I try them:</p>
+<ol>
+<li><p>Magic Command</p>
+<p class="lang-highlight"> <code class="hljs">git push origin `git subtree split --prefix build_folder master`:gh-pages --force</code></p>
+<p> I don't totally understand this but sometimes it works (h/t <a href="http://stevenclontz.com/blog/2014/05/08/git-subtree-push-for-deployment/">some blog</a>)</p>
+</li>
+<li><p>Pull Request</p>
+<p> Do the subtree push to a temporary branch and then merge that to master/gh-pages (whatever branch hosts your output files).</p>
+</li>
+<li><p>Delete gh-pages/master (remote and locally)</p>
+<p> Then rebuild and push.</p>
+</li>
+</ol>
+<h4 id="3-dns-changes-take-time-to-propagate-chill">3. DNS changes take time to propagate. Chill</h4>
+<ul>
+<li>Any time you make DNS changes with your domain name, just wait a bit.</li>
+<li>Maybe use the DNS Lookup Utility if you're <a href="http://linux.die.net/man/1/dig">impatient</a></li>
+<li><a href="http://imakewebthings.com/blog/github-pages-email/">Don't screw up your email</a></li>
+</ul>
+<h4 id="4-git-submodules-are-confusing-the-first-time-you-try-them">4. Git submodules are confusing the first time you try them</h4>
+<p>Especially when you put submodules in submodules. <a href="https://chrisjean.com/git-submodules-adding-using-removing-and-updating/">This article</a> was a big help.</p>
+<h4 id="5-always-check-gitignore-" class="lang-highlight">5. Always check <code class="hljs">.gitignore</code></h4>
+<p class="lang-highlight">I was ignoring the <code class="hljs">output</code> folder in <code>.gitignore</code> which I seem to do pretty often. This was a boilerplate <code>.gitignore</code> from another project and many times you don't want to commit the output but if you're going to do the subtree push, you need it.</p>
+<div class="footnotes">
+1. <a name="footnote-1"></a> my even older deployment workflow involved zipping the output folder so I could more easily upload it to the remote hosting server and then copying it over the prior files. It was a huge pain but I made the move to GitHub hosting back in July.
+</div>
+
+    </section>
+  </div>
+  
+
+
+</body></html>

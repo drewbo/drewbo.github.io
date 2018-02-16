@@ -1,0 +1,101 @@
+<!DOCTYPE html><html><head>
+  <meta charset="utf-8">
+  <title>drewbo - NikePlus Elevation Tracker</title>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link rel="stylesheet" href="/styles/main.css">
+
+  
+  
+</head>
+<body>
+  <nav class="header">
+  <a href="/">drewbo.com</a>
+  <a class="me" href="https://github.com/drewbo" target="_blank">github</a>
+  <a class="me" href="https://twitter.com/drewbo19" target="_blank">twitter</a>
+</nav>
+
+  <div class="post">
+    <h1 class="post-title">NikePlus Elevation Tracker</h1>
+    <h3 class="post-date">2014.05.12</h3>
+    <section class="post-body">
+      <p>I'm taking a quick break from my KenPom data visualization work this
+week to talk about
+another project I've been working on. I'm an avid runner and have an
+upcoming race where I'm a little worried about the elevation changes so
+I thought bringing in some programming could help.</p>
+<p>The <a href="https://secure-nikeplus.nike.com/plus/">NikePlus</a> app that I use to
+track my runs does show changes in pace and elevation (see chart below)
+but it doesn't give you any idea of the total change in elevation for
+the whole run. Most people do "point-to-point" runs so the net change is
+zero but there is still a big difference between 100 feet up then down
+and 1,000 feet up then down over the course of a run.</p>
+<p><img src="/images/NikePlus-1-20-2013.png" alt="NikePlus Pace and Elevation Chart"></p>
+<p class="lang-highlight">So, I decided to figure out how to calculate this on my own. I first
+used the <a href="https://mattstuehler.com/lab/NikePlus/">this site</a> by Matt
+Stuehler to export my data from NikePlus as <code class="hljs">.gpx</code> files. Then I wrote a
+small function in R to sum all of the changes in elevation throughout
+the whole run<a href="#footnote-1"><sup>[1]</sup></a>. I'd like to eventually
+convert this to a standalone Python executable but for now, here's the
+code.</p>
+<pre class="lang-highlight"><code class="lang-r hljs">elevationstats &lt;- <span class="hljs-keyword">function</span>(month,day,res=<span class="hljs-number">1</span>){
+
+<span class="hljs-comment">## get the file and turn it into a numeric vector</span>
+
+setwd(<span class="hljs-string">"[folder where the file is]"</span>)
+filename &lt;- paste(<span class="hljs-string">"[username]_[year]_"</span>,month,<span class="hljs-string">"_"</span>,day,<span class="hljs-string">".gpx"</span>,sep=<span class="hljs-string">""</span>)
+fullfile &lt;- read.csv(filename,header=<span class="hljs-literal">FALSE</span>)
+r &lt;- gregexpr(<span class="hljs-string">"&lt;ele&gt;.*?&lt;/ele&gt;"</span>,as.character(fullfile[[<span class="hljs-number">1</span>,<span class="hljs-number">1</span>]]))
+x &lt;- regmatches(as.character(fullfile[[<span class="hljs-number">1</span>,<span class="hljs-number">1</span>]]),r)
+elevation_list &lt;- as.numeric(gsub(<span class="hljs-string">"&lt;ele&gt;|&lt;/ele&gt;"</span>,<span class="hljs-string">""</span>,x[[<span class="hljs-number">1</span>]]))
+
+<span class="hljs-comment">## change resolution</span>
+new_ele &lt;- elevation_list[c(rep(<span class="hljs-literal">FALSE</span>,res-<span class="hljs-number">1</span>),<span class="hljs-literal">TRUE</span>)]
+
+<span class="hljs-comment">## calculate the total elevation gain and loss</span>
+
+total_gain &lt;- sum(diff(new_ele)[diff(new_ele)&gt;<span class="hljs-number">0</span>])
+total_loss &lt;- sum(diff(new_ele)[diff(new_ele)&lt;<span class="hljs-number">0</span>])
+
+c(total_gain,total_loss,length(new_ele))
+
+}
+</code></pre>
+<p>Here's what that code does:</p>
+<ul>
+<li>Opens the specified file and pulls out the relevant data using some
+regular expressions.</li>
+<li>Sets the "resolution" (you might not want to use every point if you
+think measuring elevation differences every ~10 feet is too much
+detail)</li>
+<li>Calculates the total elevation gain and loss by summing up the
+differences between each point. It uses two variables to keep track
+of positive and negative differences separately.</li>
+<li>Outputs the total elevation gain, total elevation loss, and number
+of GPS points used to the R console.</li>
+</ul>
+<p>I ran this code on the run pictured above with resolution = 1 (a GPS
+point every ~10.9 feet over 9 miles) and got the results:</p>
+<pre class="lang-highlight"><code class="lang-r hljs">[<span class="hljs-number">381</span> meters up, <span class="hljs-number">349</span> meters down, <span class="hljs-number">4377</span> points]
+</code></pre>
+<p>Running it again with resolution = 10 (a GPS points every ~109 feet)
+gave:</p>
+<pre class="lang-highlight"><code class="lang-r hljs">[<span class="hljs-number">295</span> meters up, <span class="hljs-number">262</span> meters down, <span class="hljs-number">437</span> points]
+</code></pre>
+<p>The truth is probably somewhere in between, especially given the
+variability of GPS data.</p>
+<p>If you're a runner who uses NikePlus and is proficient in R, let me know
+if this is helpful. Hopefully I can put out a more user-friendly version
+in the next few weeks. Happy Trails!</p>
+<div class="footnotes">
+1.  <a name="footnote-1"></a>I'm just now realizing how incredibly similar this is to my KenPom
+    drama metric. My roommate said that he realized this all along when
+    I was talking about it and I'm an idiot.
+</div>
+
+    </section>
+  </div>
+  
+
+
+</body></html>

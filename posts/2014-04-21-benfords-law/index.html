@@ -1,0 +1,211 @@
+<!DOCTYPE html><html><head>
+  <meta charset="utf-8">
+  <title>drewbo - Benford's Law</title>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link rel="stylesheet" href="/styles/main.css">
+
+  
+  
+    
+      <link rel="stylesheet" href="/styles/d3.parsets.css">
+    
+  
+</head>
+<body>
+  <nav class="header">
+  <a href="/">drewbo.com</a>
+  <a class="me" href="https://github.com/drewbo" target="_blank">github</a>
+  <a class="me" href="https://twitter.com/drewbo19" target="_blank">twitter</a>
+</nav>
+
+  <div class="post">
+    <h1 class="post-title">Benford's Law</h1>
+    <h3 class="post-date">2014.04.21</h3>
+    <section class="post-body">
+      <p>The last thing the internet needs is one more demonstration of <a href="https://en.wikipedia.org/wiki/Benford's_law">Benford's Law</a> but I'm going to do it anyway for three reasons:</p>
+<ul>
+<li>it's a good way to experiment with the formatting of the site <a href="#footnote-1"><sup>[1]</sup></a></li>
+<li>it's a fairly simple concept that is still a little non-intuitive</li>
+<li>it's a good demonstration of how more local governments are making their financial data publicly available</li>
+</ul>
+<p>Tons of credit for this idea goes to my old college friend, <a href="http://aaronoellis.com/articles/benfords-law-and-the-denver-city-checkbook">Aaron</a>, who did a very similar analysis over on his website.</p>
+<h2 id="a-short-explanation">A Short Explanation</h2>
+<p>From Wikipedia:</p>
+<blockquote>
+<p>   Benford's Law, also called the First-Digit Law, refers to the frequency distribution of digits in many (but not all) real-life sources of data.
+    In this distribution, the number 1 occurs as the leading digit about 30% of the time, while larger numbers occur in that position less frequently:
+    9 as the first digit less than 5% of the time.</p>
+<p>   This result has been found to apply to a wide variety of data sets, including electricity bills, street addresses, stock prices, population numbers,
+    death rates, lengths of rivers, physical and mathematical constants, and processes described by power laws (which are very common in nature).
+    It tends to be most accurate when values are distributed across multiple orders of magnitude.</p>
+</blockquote>
+<p>I'd recommend reading the whole article as it also does a good job of explaining a few different ways to understand how this distribution arises.
+Specifically, this is the expected distribution of first digits:</p>
+<table>
+<thead>
+<tr>
+<th>First Digit</th>
+<th>Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>30.1%</td>
+</tr>
+<tr>
+<td>2</td>
+<td>17.6%</td>
+</tr>
+<tr>
+<td>3</td>
+<td>12.5%</td>
+</tr>
+<tr>
+<td>4</td>
+<td>9.7%</td>
+</tr>
+<tr>
+<td>5</td>
+<td>7.9%</td>
+</tr>
+<tr>
+<td>6</td>
+<td>6.7%</td>
+</tr>
+<tr>
+<td>7</td>
+<td>5.8%</td>
+</tr>
+<tr>
+<td>8</td>
+<td>5.1%</td>
+</tr>
+<tr>
+<td>9</td>
+<td>4.6%</td>
+</tr>
+</tbody>
+</table>
+<p>Now let's look for some data to test this on.</p>
+<h2 id="the-springfield-massachusetts-open-checkbook">The Springfield Massachusetts Open Checkbook</h2>
+<p>For my "real-life source of data", I searched for open city checkbooks on Google because a large source of financial transaction data should
+demonstrate Benford's Law really well and I was secretly hoping to expose some fraud (more on this shortly). The easiest to download option on the front page was
+for <a href="http://www3.springfield-ma.gov/finance/opencheckbook.html">Springfield, Massachusetts</a>. I would have liked to use DC but I couldn't find their information publicly available.</p>
+<p>What's cool about Benford's Law is that it can be used to identify fraudulent activity given large volumes of transaction data.
+Humans tend to make up numbers that are distributed uniformly which would very obviously not match the distribution seen above.
+But the conundrum, at least for trying to uncover fraud via the internet, is this: any city treasurer committing fraud probably isn't making the records publicly available
+and vice versa. So until I get subpoena power, this analysis will be a confirmation of the statistics rather than uncovering any devious activities.</p>
+<p>The downloaded data has 41,279 transactions totaling $294.3MM as of April 21st, 2014 (Their fiscal year appears to begin in July).
+If you're interested in city expenditures, the data is pretty detailed but I was really only after the transactions amounts.
+After a little bit of data cleaning, I wrote a quick R script to pull out the first digit from all the transactions:</p>
+<pre class="lang-highlight"><code class="lang-R hljs"> benford &lt;- <span class="hljs-keyword">function</span>(transaction_vector){
+     textv &lt;- as.character(transaction_vector*<span class="hljs-number">100</span>)
+     digit_vector &lt;- sapply(textv, substr, start = <span class="hljs-number">1</span>, <span class="hljs-keyword">stop</span> = <span class="hljs-number">1</span>, USE.NAMES = <span class="hljs-literal">FALSE</span>)
+     as.numeric(digit_vector)
+ }
+</code></pre>
+<p>Comparing the frequency from our data to the expected distribution:</p>
+<table>
+<thead>
+<tr>
+<th>First Digit</th>
+<th>Expected</th>
+<th>Actual</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>30.1%</td>
+<td>29.8%</td>
+</tr>
+<tr>
+<td>2</td>
+<td>17.6%</td>
+<td>18.3%</td>
+</tr>
+<tr>
+<td>3</td>
+<td>12.5%</td>
+<td>10.8%</td>
+</tr>
+<tr>
+<td>4</td>
+<td>9.7%</td>
+<td>8.5%</td>
+</tr>
+<tr>
+<td>5</td>
+<td>7.9%</td>
+<td>7.9%</td>
+</tr>
+<tr>
+<td>6</td>
+<td>6.7%</td>
+<td>7.3%</td>
+</tr>
+<tr>
+<td>7</td>
+<td>5.8%</td>
+<td>6.3%</td>
+</tr>
+<tr>
+<td>8</td>
+<td>5.1%</td>
+<td>5.2%</td>
+</tr>
+<tr>
+<td>9</td>
+<td>4.6%</td>
+<td>5.9%</td>
+</tr>
+</tbody>
+</table>
+<p>Looks like a pretty close match, though if I we're actually auditing them, I'd want additional information to explain why 9 is so common  as
+a first digit in their transaction list. <a href="#footnote-2"><sup>[2]</sup></a></p>
+<p>Next let's try out the excellent tool <a href="https://github.com/Quartz/Chartbuilder/">Chartbuilder</a> to plot the frequency of first digits against expected distribution from above:</p>
+<p><img src="/images/benfords-law-example.png" alt="Benfords-Law-Example-1"></p>
+<p>Cool. Chartbuilder isn't meant to be a super powerful plotting tool but it does make it easy to create great looking charts really quickly, hence its use
+in a lot of digital newsrooms (NPR, WSJ, 538, etc.).</p>
+<h2 id="scale-invariance">Scale Invariance</h2>
+<p>I wanted to extend the demonstration just slightly to show an additional feature of the distribution:
+it should be <a href="http://en.wikipedia.org/wiki/Benford's_law#Scale_invariance">scale invariant</a> so we can multiply our whole transaction list by any number and the law should still hold (this also means that Benford's Law will
+hold even if you measure your target variable in another scale; think switching from dollars to euro or feet to meters).</p>
+<p>Let's run through an example first and then I'll reveal the visualization. Using the case where the constant is 2, think about what happens to all of our original
+numbers: things that start with 1 (30.1%) will now start with 2 or 3, things that start with 2 become 4 or 5, and so on. We look to the expected
+distributions above and see that numbers starting with 5 through 9 should make up (7.9% + 6.7% + 5.8% + 5.1% + 4.6%) = 30.1% of the first digits and these are
+all the numbers which when multiplied by 2, will now have a first digit of 1. The distribution, at least for ones, matches between the two groups!</p>
+<h2 id="visualization">Visualization</h2>
+<p>I refit a very cool visualization technique called <a href="http://www.jasondavies.com/parallel-sets/">Parallel Sets</a> from <a href="http://www.jasondavies.com/">Jason Davies</a> using the <a href="http://d3js.org/">D3.js</a> library. Let's take a look first then I'll explain below:</p>
+<div id="vis"><noscript>Visualization failed to load</noscript></div>
+
+<p>Sorry if it's a lot to handle. Things to notice:</p>
+<ul>
+<li>Each color/shade represents a different "first digit group" from our original transaction list. You can hover over to see the value if you get lost.</li>
+<li>Each black bar with a number above it represents the associated first digit frequency for that transformation -- from original at the top to "multiplied by nine" at the bottom. You can hover over the bar/digit to see what portion of the total it represents. Notice that the lengths of these bars are remarkably consistent across the transformations (which is the point of this exercise).</li>
+<li>Each colored path shows how transaction amounts from the original list move to different "first digit groups" when multiplied by the different constants: In the first row, the 1's go to 2's and 3's, the 2's go to 4's and 5's and so on (as mentioned in the example before).</li>
+<li>All of the rows can be sorted by "numeric" and "size": there is at least one use to this (let me know if you find more) but it is more a relic of the original visualization. The one thing I would recommend is sorting the first row by reverse numeric ("&lt;&lt; numeric") and you can really clearly see how the 5's-9's from the original group end up as 1's when multiplied by 2 (and in the same proportion).</li>
+<li>The data is a little jumbled towards the end, that's just an artifact of a bad sorting attempt by me. Sorry.</li>
+</ul>
+<p>So, that's Benford's Law and my first real post, hope you enjoyed it!</p>
+<div class="footnotes">
+1. <a name="footnote-1"></a> See if you can keep track of how many times I use not entirely necessary formatting during this post for testing reasons...this is one.
+2. <a name="footnote-2"></a> While previewing this document, the aforementioned Aaron brought up a good point: deviations from the expected distribution can happen if the data source is significantly influenced by human behaviors. In the instance of 9's, people may have a natural aversion to going to the next order of magnitude and set prices for things at $0.99 or $9.99, raising the observed distribution for that digit.
+</div>
+
+    </section>
+  </div>
+  
+    
+      <script src="/scripts/d3.min.js" charset="utf-8"></script>
+    
+      <script src="/scripts/d3.parsets.js" charset="utf-8"></script>
+    
+      <script src="/scripts/benford.js" charset="utf-8"></script>
+    
+  
+
+
+</body></html>

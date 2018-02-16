@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>drewbo - Baby&#39;s First Data Visualization</title>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link rel="stylesheet" href="/styles/main.css">
+
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha1/katex.min.css" integrity="sha384-8QOKbPtTFvh/lMY0qPVbXj9hDh+v8US0pD//FcoYFst2lCIf0BmT58+Heqj0IGyx" crossorigin="anonymous">
+  
+  
+</head>
+<body>
+  <nav class="header">
+  <a href="/">drewbo.com</a>
+  <a class="me" href="https://github.com/drewbo" target="_blank">github</a>
+  <a class="me" href="https://twitter.com/drewbo19" target="_blank">twitter</a>
+</nav>
+
+  <div class='post'>
+    <h1 class='post-title'>Baby&#39;s First Data Visualization</h1>
+    <h3 class='post-date'>2014.05.05</h3>
+    <section class='post-body'>
+      <p>Though I&#39;ve put up a few smaller exercises before, I finally have a
+draft version of the first full data visualization that I&#39;ve done the
+majority of the work on<a href="#footnote-1"><sup>[1]</sup></a>. It&#39;s based on a metric I <a href="../2014-04-28-kenpom-drama">created last
+week</a> using
+<a href="http://kenpom.com/">kenpom</a> data.</p>
+<p>It&#39;s not especially pretty or user friendly yet but, in the broadest
+sense of the word, it works. <a href="/kenpom-drama">Check it out</a> and let me know what you
+think.</p>
+<p>Here&#39;s an short explanation of the axes since the project page is still
+light on info:</p>
+<ul>
+<li>x-axis: perDrama, a measure of game excitement described in <a href="../2014-04-28-kenpom-drama">my
+earlier post</a></li>
+<li>y-axis: combined eFG%, based on Dean Oliver’s four factors concept
+described
+<a href="http://kenpom.com/blog/index.php/weblog/four_factors/">here</a>.</li>
+<li>Circle radius is based on &quot;Hype&quot;, the scaled harmonic mean of kenpom
+ratings entering the game with an added &quot;penalty&quot; for the lower
+ranked team. The exact formula (where ranking equals the 351 - the
+kenpom ranking) looks like:</li>
+</ul>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mi>a</mi><mi>x</mi><mo>(</mo><mrow><mo fence="true">(</mo><mi>d</mi><mfrac><mrow><mn>2</mn><mo>∗</mo><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>n</mi><msub><mi>g</mi><mn>1</mn></msub><mo>∗</mo><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>n</mi><msub><mi>g</mi><mn>2</mn></msub></mrow><mrow><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>n</mi><msub><mi>g</mi><mn>1</mn></msub><mo>+</mo><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>n</mi><msub><mi>g</mi><mn>2</mn></msub></mrow></mfrac><mo fence="true">)</mo></mrow><mo>−</mo><mo>(</mo><mn>3</mn><mn>5</mn><mn>1</mn><mo>−</mo><mi>m</mi><mi>i</mi><mi>n</mi><mo>(</mo><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>n</mi><msub><mi>g</mi><mn>1</mn></msub><mo separator="true">,</mo><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>n</mi><msub><mi>g</mi><mn>2</mn></msub><mo>)</mo><mo>)</mo><mo>−</mo><mn>2</mn><mn>0</mn><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">max(\left (d\frac{2 <em> rating_1 </em> rating_2
+}{rating_1 + rating_2} \right ) - (351 -
+min(rating_1,rating_2)) - 200, 1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.15em;"></span><span class="strut bottom" style="height:1.80002em;vertical-align:-0.65002em;"></span><span class="base textstyle uncramped"><span class="mord mathit">m</span><span class="mord mathit">a</span><span class="mord mathit">x</span><span class="mopen">(</span><span class="minner textstyle uncramped"><span class="style-wrap reset-textstyle textstyle uncramped" style="top:0em;"><span class="delimsizing size2">(</span></span><span class="mord mathit">d</span><span class="minner reset-textstyle textstyle uncramped"><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">a</span><span class="mord mathit">t</span><span class="mord mathit">i</span><span class="mord mathit">n</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="vlist"><span style="top:0.15em;margin-right:0.07142857142857144em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">a</span><span class="mord mathit">t</span><span class="mord mathit">i</span><span class="mord mathit">n</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="vlist"><span style="top:0.15em;margin-right:0.07142857142857144em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.44610799999999995em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord">2</span><span class="mbin">∗</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">a</span><span class="mord mathit">t</span><span class="mord mathit">i</span><span class="mord mathit">n</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="vlist"><span style="top:0.15em;margin-right:0.07142857142857144em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">∗</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">a</span><span class="mord mathit">t</span><span class="mord mathit">i</span><span class="mord mathit">n</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="vlist"><span style="top:0.15em;margin-right:0.07142857142857144em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span><span class="style-wrap reset-textstyle textstyle uncramped" style="top:0em;"><span class="delimsizing size2">)</span></span></span><span class="mbin">−</span><span class="mopen">(</span><span class="mord">3</span><span class="mord">5</span><span class="mord">1</span><span class="mbin">−</span><span class="mord mathit">m</span><span class="mord mathit">i</span><span class="mord mathit">n</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">a</span><span class="mord mathit">t</span><span class="mord mathit">i</span><span class="mord mathit">n</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">a</span><span class="mord mathit">t</span><span class="mord mathit">i</span><span class="mord mathit">n</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span><span class="mclose">)</span><span class="mbin">−</span><span class="mord">2</span><span class="mord">0</span><span class="mord">0</span><span class="mpunct">,</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></p>
+<p>Missing features/bugs:</p>
+<ul>
+<li>Can&#39;t select multiple teams/conferences</li>
+<li>Selections options don&#39;t update dynamically (which allows for lots
+of null selections if you aren&#39;t as familiar with college
+basketball) and teams are poorly organized</li>
+<li>No colors to distinguish conferences or teams</li>
+<li>No legend, title, or sufficient explanations</li>
+<li>A little slow (we&#39;ll find out soon if it&#39;s the ~5500 data points or
+my non-elegant code)</li>
+<li>Needs additional formatting</li>
+<li>...?</li>
+</ul>
+<p>Next week I&#39;ll share an updated version as well as some of the
+interesting basketball narratives that you can confirm/debunk using it.</p>
+<div class="footnotes">
+1.  <a name="footnote-1"></a>I&#39;ll also give a lot of credit to my co-workers Ross and Ilan for
+    talking the idea over with me, as well as Mike Bostock, Scott
+    Murray, Steve Hall, and Justin Palmer for their libraries,
+    tutorials, and code examples.
+</div>
+
+    </section>
+  </div>
+  
+</body>
+</html>

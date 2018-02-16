@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>drewbo - Everyday Math</title>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link rel="stylesheet" href="/styles/main.css">
+
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha1/katex.min.css" integrity="sha384-8QOKbPtTFvh/lMY0qPVbXj9hDh+v8US0pD//FcoYFst2lCIf0BmT58+Heqj0IGyx" crossorigin="anonymous">
+  
+  
+    
+      <link rel="stylesheet" href="/styles/wingnightvis.css">
+    
+  
+</head>
+<body>
+  <nav class="header">
+  <a href="/">drewbo.com</a>
+  <a class="me" href="https://github.com/drewbo" target="_blank">github</a>
+  <a class="me" href="https://twitter.com/drewbo19" target="_blank">twitter</a>
+</nav>
+
+  <div class='post'>
+    <h1 class='post-title'>Everyday Math</h1>
+    <h3 class='post-date'>2014.07.08</h3>
+    <section class='post-body'>
+      <p>Like many pedestrian city-goers, I think about route efficiency a lot:
+when to cross, which streets are the least crowded, when to take
+diagonals, etc. I also happen to frequent a bar that is somewhat of an
+edge case when I try to decide on which route to take. For the first
+time, I&#39;m going to apply a little rigor to this problem<a href="#footnote-1"><sup>[1]</sup></a>.</p>
+<h2 id="the-setup">The Setup</h2>
+<p>On many Tuesdays, I exit the Metro at the Capitol South station (bottom
+left) and begin heading over to <a href="http://capitolloungedc.com/">Capitol
+Lounge</a> (top right).</p>
+<p><img src="/images/wing-night-map-labeled.png" alt="wing-night-map-labeled"></p>
+<p>The first steps of the route should seem obvious: North on 1st, East on
+C (shown in blue). Until sometime last year, I would mindlessly take 2nd
+north to Pennsylvania, then walk southeast until I arrived (dotted red
+line). Then one day, while walking the route with my friend Alex, he
+proposed something radical and claimed that it was faster to stay on C
+and take 3rd north and backtrack along Pennsylvania (dotted green line).</p>
+<p><img src="/images/wing-night-choices.png" alt="wing-night-choices"></p>
+<p>At that point, I wasn&#39;t convinced but I decided to give it a go.
+Normally, it&#39;s fairly easy to intuit which path is faster but in this
+case, it didn&#39;t seem so obvious. Every week, I would start the consider
+the geometry of the situation as...</p>
+<h2 id="an-abstraction">An Abstraction</h2>
+<p>Forget about the above map for a moment.</p>
+<p>When walking from the bottom-left corner of a rectangle to the opposite
+corner on the top-right, there are two time-equivalent paths we could
+take (&quot;up then over&quot; and &quot;over then up&quot;). When we are dealing with a
+&quot;dented rectangle&quot;, this changes our math a bit. I&#39;ve constructed a
+simple diagram below with a blue dot at our starting point and an orange
+one at the break-even point (where either path is time-equivalent):</p>
+<div id="vis"></div>
+
+<p>You can move the slider around to change the angle in the upper left
+corner. When the angle decreases from 90, our break-even point starts to
+move along the top diagonal to the left. If our destination is on:</p>
+<ul>
+<li>the right of the break-even point, we should take the bottom and
+right path, then backtrack along the diagonal.</li>
+<li>the left of the break-even point, we should take the left path then
+go southeast along the diagonal.</li>
+</ul>
+<p>After playing with this abstraction for a bit (first mentally and later
+while writing this post) and looking back at the map above, it&#39;s
+apparent that the destination is really close to what we would naively
+guess the break-even point to be. So, I had to break down and do...</p>
+<h2 id="the-math">The Math</h2>
+<p>Solving for the break-even point isn&#39;t actually too difficult<a href="#footnote-2"><sup>[2]</sup></a> : The
+distance traveled along 2nd plus a portion (x) of Pennsylvania needs to
+be equal to the distance traveled along C, then 3rd, then the
+complementary portion of Pennsylvania. Expressed as a formula:</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>h</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><msub><mi>t</mi><mn>1</mn></msub><mo>+</mo><mfrac><mrow><mi>x</mi><mo>∗</mo><mi>w</mi><mi>i</mi><mi>d</mi><mi>t</mi><mi>h</mi></mrow><mrow><mi>s</mi><mi>i</mi><mi>n</mi><mo>(</mo><mi>θ</mi><mo>)</mo></mrow></mfrac><mo>=</mo><mi>w</mi><mi>i</mi><mi>d</mi><mi>t</mi><mi>h</mi><mo>+</mo><mi>h</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><msub><mi>t</mi><mn>2</mn></msub><mo>+</mo><mfrac><mrow><mo>(</mo><mn>1</mn><mo>−</mo><mi>x</mi><mo>)</mo><mo>∗</mo><mi>w</mi><mi>i</mi><mi>d</mi><mi>t</mi><mi>h</mi></mrow><mrow><mi>s</mi><mi>i</mi><mi>n</mi><mo>(</mo><mi>θ</mi><mo>)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">height_1 + \dfrac{x <em> width}{sin( \theta )} = width +
+height_2 + \dfrac{(1-x) </em> width}{sin( \theta )}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.427em;"></span><span class="strut bottom" style="height:2.363em;vertical-align:-0.936em;"></span><span class="base textstyle uncramped"><span class="mord mathit">h</span><span class="mord mathit">e</span><span class="mord mathit">i</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit">h</span><span class="mord"><span class="mord mathit">t</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="minner reset-textstyle displaystyle textstyle uncramped"><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathit">s</span><span class="mord mathit">i</span><span class="mord mathit">n</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="mclose">)</span></span></span></span><span style="top:-0.2300000000000001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathit">x</span><span class="mbin">∗</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mord mathit">i</span><span class="mord mathit">d</span><span class="mord mathit">t</span><span class="mord mathit">h</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mord mathit">i</span><span class="mord mathit">d</span><span class="mord mathit">t</span><span class="mord mathit">h</span><span class="mbin">+</span><span class="mord mathit">h</span><span class="mord mathit">e</span><span class="mord mathit">i</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit">h</span><span class="mord"><span class="mord mathit">t</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="minner reset-textstyle displaystyle textstyle uncramped"><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathit">s</span><span class="mord mathit">i</span><span class="mord mathit">n</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="mclose">)</span></span></span></span><span style="top:-0.2300000000000001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mopen">(</span><span class="mord">1</span><span class="mbin">−</span><span class="mord mathit">x</span><span class="mclose">)</span><span class="mbin">∗</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mord mathit">i</span><span class="mord mathit">d</span><span class="mord mathit">t</span><span class="mord mathit">h</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span></span></p>
+<p>And solving for x:</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi><mo>=</mo><mo fence="false">(</mo><mi>w</mi><mi>i</mi><mi>d</mi><mi>t</mi><mi>h</mi><mo>+</mo><mo>(</mo><mi>h</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><msub><mi>t</mi><mn>2</mn></msub><mo>−</mo><mi>h</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><msub><mi>t</mi><mn>1</mn></msub><mo>)</mo><mo>+</mo><mfrac><mrow><mi>w</mi><mi>i</mi><mi>d</mi><mi>t</mi><mi>h</mi></mrow><mrow><mi>s</mi><mi>i</mi><mi>n</mi><mo>(</mo><mi>θ</mi><mo>)</mo></mrow></mfrac><mo fence="false">)</mo><mo>∗</mo><mo fence="false">(</mo><mfrac><mrow><mi>s</mi><mi>i</mi><mi>n</mi><mo>(</mo><mi>θ</mi><mo>)</mo></mrow><mrow><mn>2</mn><mo>∗</mo><mi>w</mi><mi>i</mi><mi>d</mi><mi>t</mi><mi>h</mi></mrow></mfrac><mo fence="false">)</mo></mrow><annotation encoding="application/x-tex">x = \big( width + (height_2 - height_1) +
+\dfrac{width}{sin( \theta )}\big) <em> \big( \dfrac{sin( \theta)
+}{2 </em> width} \big)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.427em;"></span><span class="strut bottom" style="height:2.363em;vertical-align:-0.936em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span><span class="mrel">=</span><span class="mord"><span class="style-wrap reset-textstyle textstyle uncramped"><span class="delimsizing size1">(</span></span></span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mord mathit">i</span><span class="mord mathit">d</span><span class="mord mathit">t</span><span class="mord mathit">h</span><span class="mbin">+</span><span class="mopen">(</span><span class="mord mathit">h</span><span class="mord mathit">e</span><span class="mord mathit">i</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit">h</span><span class="mord"><span class="mord mathit">t</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">−</span><span class="mord mathit">h</span><span class="mord mathit">e</span><span class="mord mathit">i</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit">h</span><span class="mord"><span class="mord mathit">t</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span><span class="mbin">+</span><span class="minner reset-textstyle displaystyle textstyle uncramped"><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathit">s</span><span class="mord mathit">i</span><span class="mord mathit">n</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="mclose">)</span></span></span></span><span style="top:-0.2300000000000001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mord mathit">i</span><span class="mord mathit">d</span><span class="mord mathit">t</span><span class="mord mathit">h</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span><span class="mord"><span class="style-wrap reset-textstyle textstyle uncramped"><span class="delimsizing size1">)</span></span></span><span class="mbin">∗</span><span class="mord"><span class="style-wrap reset-textstyle textstyle uncramped"><span class="delimsizing size1">(</span></span></span><span class="minner reset-textstyle displaystyle textstyle uncramped"><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord">2</span><span class="mbin">∗</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mord mathit">i</span><span class="mord mathit">d</span><span class="mord mathit">t</span><span class="mord mathit">h</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathit">s</span><span class="mord mathit">i</span><span class="mord mathit">n</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="mclose">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span><span class="mord"><span class="style-wrap reset-textstyle textstyle uncramped"><span class="delimsizing size1">)</span></span></span></span></span></span></p>
+<p>Probably not something you can rattle off in your head although it does
+reduce very nicely if width = height:</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi><mo>=</mo><mi>b</mi><mi>l</mi><mi>o</mi><mi>c</mi><mi>k</mi><mi>u</mi><mi>n</mi><mi>i</mi><mi>t</mi><mo>∗</mo><mfrac><mrow><mi>s</mi><mi>i</mi><mi>n</mi><mo>(</mo><mi>θ</mi><mo>)</mo><mo>−</mo><mi>c</mi><mi>o</mi><mi>s</mi><mo>(</mo><mi>θ</mi><mo>)</mo><mo>+</mo><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></mrow><annotation encoding="application/x-tex">x = block unit * \dfrac{ sin(\theta) - cos(\theta) + 1}{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.427em;"></span><span class="strut bottom" style="height:2.113em;vertical-align:-0.686em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span><span class="mrel">=</span><span class="mord mathit">b</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">o</span><span class="mord mathit">c</span><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mord mathit">u</span><span class="mord mathit">n</span><span class="mord mathit">i</span><span class="mord mathit">t</span><span class="mbin">∗</span><span class="minner reset-textstyle displaystyle textstyle uncramped"><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord">2</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathit">s</span><span class="mord mathit">i</span><span class="mord mathit">n</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="mclose">)</span><span class="mbin">−</span><span class="mord mathit">c</span><span class="mord mathit">o</span><span class="mord mathit">s</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="mclose">)</span><span class="mbin">+</span><span class="mord">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span></span></p>
+<h2 id="the-final-solution">The Final Solution</h2>
+<p>My very low tech solution for solving this was to look at the pixel
+values in the map and plug the corresponding lengths in the formulae
+above. We end up with x ≈ .7136 which shows up on the map like this:</p>
+<p><img src="/images/wing-night-solution.png" alt="wing-night-solution"></p>
+<p>As suspected, the break-even point is <strong>super</strong> close to Capitol Lounge
+which is why this case was so hard to intuit without resorting to math.
+However, it is slightly faster (depending upon the accuracy of my
+measurements) to take the &quot;southern&quot; route as proposed by my friend
+Alex. And if you&#39;re rushing to get there before Happy Hour ends at 7,
+every little bit counts.</p>
+<h2 id="update">Update</h2>
+<p>After writing this post, I realized that, should one be willing to bend
+the rules of the road a bit, the northern route is actually faster.
+Proposed route:</p>
+<p><img src="/images/wing-night-update.png" alt="wing-night-update"></p>
+<p>The diagonal across the road saves enough distance that I feel
+comfortable saying it&#39;s a little faster given how close the break-even
+point was. So, there goes all that work above.</p>
+<div class="footnotes">
+1.  <a name="footnote-1"></a>I finally decided to dissect this relatively trivial problem after
+    reading the excellent posts <a href="http://worrydream.com/KillMath/">Kill
+    Math</a> and <a href="http://www.evanmiller.org/dont-kill-math.html">Don&#39;t Kill
+    Math</a> regarding
+    visualization and mathematics education.
+
+2.  <a name="footnote-2"></a> Although if you get any joy in watching a math major screw up some
+    simple trig identities, you would have enjoyed looking over my
+    shoulder while writing this.
+</div>
+
+    </section>
+  </div>
+  
+    
+      <script src="/scripts/d3.min.js" charset="utf-8"></script>
+    
+      <script src="/scripts/wingnightvis.js" charset="utf-8"></script>
+    
+  
+</body>
+</html>

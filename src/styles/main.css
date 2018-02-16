@@ -32,6 +32,11 @@ pre {
   overflow: scroll;
 }
 
+time {
+  font-size: 0.9em;
+  margin-right: 0.4em;
+}
+
 a, a:visited {
   color: #D43900;
   text-decoration: none;
@@ -85,3 +90,6 @@ figure img {
 .katex .vlist {
   vertical-align: inherit !important;
 }
+
+.post-title { margin-bottom: 0; }
+.post-date { margin-top: 0; }

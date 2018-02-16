@@ -11,8 +11,8 @@
     <ul>
       <% posts.forEach(function(post) { %>
         <li>
+          <time><%= post.date.format('YYYY.MM.DD') %></time>
           <a href="<%= post.path %>/index.html"><%= post.title %></a>
-          <time><%= post.date.format('YYYY MMM DD') %></time>
         </li>
       <% })%>
     </ul>

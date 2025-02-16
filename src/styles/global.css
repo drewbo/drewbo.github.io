@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@tailwind base;
+
+@layer base {
+  a {
+    @apply text-zinc-100 underline;
+  }
+  a:hover {
+    @apply opacity-70;
+  }
+
+  .prose {
+    font-weight: 300;
+  }
+}

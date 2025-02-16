@@ -1,0 +1,21 @@
+---
+import Github from "@assets/icons/github.astro"
+import Email from "@assets/icons/email.astro"
+import ContainerHover from "@components/ContainerHover.astro"
+import Linkedin from "@assets/icons/linkedin.astro";
+---
+
+<nav class="w-full flex justify-between items-center">
+  <span class="text-xl">@drewbo</span>
+  <div class="flex gap-3 items-center">
+    <ContainerHover link="mailto:andrew.david.bollinger@gmail.com">
+      <Email />
+    </ContainerHover>
+    <ContainerHover link="https://github.com/drewbo">
+      <Github />
+    </ContainerHover>
+    <ContainerHover link="https://www.linkedin.com/in/drew-bollinger-392b3326/">
+      <Linkedin />
+    </ContainerHover>
+  </div>
+</nav>

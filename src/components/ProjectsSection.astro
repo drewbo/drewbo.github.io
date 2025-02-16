@@ -1,4 +1,11 @@
 ---
+import cloudGovPagesImage from '@assets/images/cloud-gov-pages.png';
+import satGridImage from '@assets/images/sat-grid.jpg';
+import labelMakerImage from '@assets/images/label-maker.png';
+import similaritySearchImage from '@assets/images/similarity-search.png';
+import mapboxDirectorImage from '@assets/images/mapbox-director.png';
+import rmiOciImage from '@assets/images/rmi-oci.png';
+
 import ProjectCard from '@components/ProjectCard.astro'
 import React from '@assets/icons/react.astro';
 import PostgreSQL from '@assets/icons/postgresql.astro';
@@ -17,7 +24,7 @@ import Aws from '@assets/icons/aws.astro';
   <h2 class="text-2xl font-semibold mb-2">Projects</h2>
   <hr class="mb-6 border-zinc-600">
 
-  <ProjectCard projectTitle="Cloud.gov Pages" image="/images/cloud-gov-pages.png" projectLink="https://github.com/cloud-gov/pages-core">
+  <ProjectCard projectTitle="Cloud.gov Pages" image={cloudGovPagesImage} projectLink="https://github.com/cloud-gov/pages-core">
     <span slot="description">Cloud.gov Pages helps federal government entities publish compliant static websites quickly and seamlessly. Cloud.gov Pages integrates with GitHub and is built on top of cloud.gov, which uses Amazon Web Services.</span>
     <React />
     <Node />
@@ -27,21 +34,21 @@ import Aws from '@assets/icons/aws.astro';
     <Aws />
   </ProjectCard>
 
-  <ProjectCard projectTitle="Scalable Inference" projectLink="https://github.com/developmentseed/chip-n-scale-queue-arranger" image="/images/sat-grid.png">
+  <ProjectCard projectTitle="Scalable Inference" projectLink="https://github.com/developmentseed/chip-n-scale-queue-arranger" image={satGridImage}>
     <span slot="description">I've created a number of AWS architecture patterns for running machine learning models over satellite imagery at scale. The linked repository demonstrates using AWS Lambda to parallize imagery downloads and run inference via <a target="_blank" href="https://www.tensorflow.org/tfx/serving/architecture">TensorFlow Serving</a> running on an ECS-managed GPU cluster.</span>
     <Aws />
     <Tensorflow />
     <PostgreSQL />
   </ProjectCard>
 
-  <ProjectCard projectTitle="Label Maker" projectLink="https://github.com/developmentseed/label-maker/" image="/images/label-maker.png">
+  <ProjectCard projectTitle="Label Maker" projectLink="https://github.com/developmentseed/label-maker/" image={labelMakerImage}>
     <span slot="description">Label Maker is a Python library which helps prepare machine learning training data from satellite imagery sources and <a target="_blank" href="https://www.openstreetmap.org/">OpenStreetMap</a> data.</span>
     <Python />
     <Numpy />
     <Tensorflow />
   </ProjectCard>
 
-  <ProjectCard projectTitle="NASA Similarity Search" projectLink="https://www.earthdata.nasa.gov/dashboard/labs/similarity-search/" projectDescription="" image="/images/similarity-search.png">
+  <ProjectCard projectTitle="NASA Similarity Search" projectLink="https://www.earthdata.nasa.gov/dashboard/labs/similarity-search/" image={similaritySearchImage}>
     <span slot="description">This tool's backend uses <a target="_blank" href="https://faiss.ai/">Faiss</a> in conjunction with PostgreSQL for efficient similarity search over vectors derived from <a target="_blank" href="https://modis.gsfc.nasa.gov/">NASA MODIS</a> imagery.</span>
     <Python />
     <Aws />
@@ -49,12 +56,12 @@ import Aws from '@assets/icons/aws.astro';
     <Pytorch />
   </ProjectCard>
 
-  <ProjectCard projectTitle="Mapbox Director" projectLink="https://github.com/developmentseed/gl-director/" image="/images/mapbox-director.png">
+  <ProjectCard projectTitle="Mapbox Director" projectLink="https://github.com/developmentseed/gl-director/" image={mapboxDirectorImage}>
     <span slot="description">This was an experimental interface to generate terrain flyovers for embedding in apps and websites. It was built using the new <a target="_blank" href="https://docs.mapbox.com/mapbox-gl-js/api/">Mapbox GL JS SDK + Camera API</a>.</span>
     <React />
   </ProjectCard>
 
-  <ProjectCard projectTitle="Oil Climate Index" image="/images/rmi-oci.png">
+  <ProjectCard projectTitle="Oil Climate Index" image={rmiOciImage}>
     <React />
     <D3 />
   </ProjectCard>

@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 const projectTitle = Astro.props.projectTitle;
 const projectLink = Astro.props.projectLink;
 const image = Astro.props.image;
@@ -23,5 +25,5 @@ class="border border-zinc-700 bg-zinc-900 bg-opacity-40 p-8 rounded-lg flex flex
       <slot />
     </div>
   </div>
-  <img class="max-w-full mb-5 shadow-xl rounded-lg md:max-w-52 md:mb-0 h-fit" src={image} alt={`${projectTitle} image`} />
+  <Image class="max-w-full mb-5 shadow-xl rounded-lg md:max-w-52 md:mb-0 h-fit" src={image} alt={`${projectTitle} image`} />
 </article>

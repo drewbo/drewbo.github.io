@@ -18,6 +18,7 @@ import Numpy from '@assets/icons/numpy.astro';
 import Pytorch from '@assets/icons/pytorch.astro';
 import Tensorflow from '@assets/icons/tensorflow.astro';
 import Aws from '@assets/icons/aws.astro';
+import Azure from '@assets/icons/azure.astro';
 ---
 
 <section class="my-20">
@@ -25,7 +26,7 @@ import Aws from '@assets/icons/aws.astro';
   <hr class="mb-6 border-zinc-600">
 
   <ProjectCard projectTitle="Cloud.gov Pages" image={cloudGovPagesImage} projectLink="https://github.com/cloud-gov/pages-core">
-    <span slot="description">Cloud.gov Pages helps federal government entities publish compliant static websites quickly and seamlessly. Cloud.gov Pages integrates with GitHub and is built on top of cloud.gov, which uses Amazon Web Services.</span>
+    <span slot="description">Cloud.gov Pages helps federal government entities publish compliant static websites quickly and seamlessly. Cloud.gov Pages integrates with GitHub and is built on top of Cloud.gov, which uses Amazon Web Services.</span>
     <React />
     <Node />
     <PostgreSQL />
@@ -39,6 +40,7 @@ import Aws from '@assets/icons/aws.astro';
     <Aws />
     <Tensorflow />
     <PostgreSQL />
+    <Python />
   </ProjectCard>
 
   <ProjectCard projectTitle="Label Maker" projectLink="https://github.com/developmentseed/label-maker/" image={labelMakerImage}>
@@ -61,9 +63,11 @@ import Aws from '@assets/icons/aws.astro';
     <React />
   </ProjectCard>
 
-  <ProjectCard projectTitle="Oil Climate Index" image={rmiOciImage}>
+  <ProjectCard projectTitle="Oil Climate Index⁺" image={rmiOciImage} projectLink="https://ociplus.rmi.org/">
+    <span slot="description">The OCI⁺ quantifies and compares greenhouse gas emissions intensities from global oil and gas assets. It uses a variety of data visualization techniques to illustrate how certain variables can have a variable impact on emissions.</span>
     <React />
     <D3 />
+    <Azure />
   </ProjectCard>
 
 

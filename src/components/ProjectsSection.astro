@@ -25,16 +25,6 @@ import Azure from '@assets/icons/azure.astro';
   <h2 class="text-2xl font-semibold mb-2">Projects</h2>
   <hr class="mb-6 border-zinc-600">
 
-  <ProjectCard projectTitle="Cloud.gov Pages" image={cloudGovPagesImage} projectLink="https://github.com/cloud-gov/pages-core">
-    <span slot="description">Cloud.gov Pages helps federal government entities publish compliant static websites quickly and seamlessly. Cloud.gov Pages integrates with GitHub and is built on top of Cloud.gov, which uses Amazon Web Services.</span>
-    <React />
-    <Node />
-    <PostgreSQL />
-    <Express />
-    <Python />
-    <Aws />
-  </ProjectCard>
-
   <ProjectCard projectTitle="Scalable Inference" projectLink="https://github.com/developmentseed/chip-n-scale-queue-arranger" image={satGridImage}>
     <span slot="description">I've created a number of AWS architecture patterns for running machine learning models over satellite imagery at scale. The linked repository demonstrates using AWS Lambda to parallize imagery downloads and run inference via <a target="_blank" href="https://www.tensorflow.org/tfx/serving/architecture">TensorFlow Serving</a> running on an ECS-managed GPU cluster.</span>
     <Aws />
@@ -70,5 +60,13 @@ import Azure from '@assets/icons/azure.astro';
     <Azure />
   </ProjectCard>
 
-
+  <ProjectCard projectTitle="Cloud.gov Pages" image={cloudGovPagesImage} projectLink="https://github.com/cloud-gov/pages-core">
+    <span slot="description">Cloud.gov Pages helps federal government entities publish compliant static websites quickly and seamlessly. Cloud.gov Pages integrates with GitHub and is built on top of Cloud.gov, which uses Amazon Web Services.</span>
+    <React />
+    <Node />
+    <PostgreSQL />
+    <Express />
+    <Python />
+    <Aws />
+  </ProjectCard>
 </section>
